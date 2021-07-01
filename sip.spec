@@ -4,7 +4,7 @@
 #
 Name     : sip
 Version  : 4.19.20
-Release  : 25
+Release  : 26
 URL      : https://www.riverbankcomputing.com/static/Downloads/sip/4.19.20/sip-4.19.20.tar.gz
 Source0  : https://www.riverbankcomputing.com/static/Downloads/sip/4.19.20/sip-4.19.20.tar.gz
 Summary  : No detailed summary available
