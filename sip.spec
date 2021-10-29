@@ -4,7 +4,7 @@
 #
 Name     : sip
 Version  : 4.19.20
-Release  : 30
+Release  : 31
 URL      : https://www.riverbankcomputing.com/static/Downloads/sip/4.19.20/sip-4.19.20.tar.gz
 Source0  : https://www.riverbankcomputing.com/static/Downloads/sip/4.19.20/sip-4.19.20.tar.gz
 Summary  : No detailed summary available
@@ -81,7 +81,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1608007982
+export SOURCE_DATE_EPOCH=1635527658
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -91,7 +91,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1608007982
+export SOURCE_DATE_EPOCH=1635527658
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sip
 cp %{_builddir}/sip-4.19.20/LICENSE-GPL2 %{buildroot}/usr/share/package-licenses/sip/2136dbc93e95a70deae070e44ff6b2702ec1599c
@@ -107,7 +107,7 @@ cp %{_builddir}/sip-4.19.20/LICENSE-GPL3 %{buildroot}/usr/share/package-licenses
 
 %files dev
 %defattr(-,root,root,-)
-/usr/include/python3.9/sip.h
+/usr/include/python3.10/sip.h
 
 %files license
 %defattr(0644,root,root,0755)
