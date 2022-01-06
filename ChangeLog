@@ -1,4 +1,186 @@
+2021-02-26  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 4.19.25 for changeset 0d31b6c67012
+	[c0426a6b39a0] [tip] <4.19-maint>
+
+	* NEWS:
+	Released as v4.19.25.
+	[0d31b6c67012] [4.19.25] <4.19-maint>
+
+	* NEWS, sipgen/metasrc/lexer.l:
+	Added support for Py_ssize_t (required by PyQt v5.15.3).
+	[6b216e1ce173] <4.19-maint>
+
+2020-08-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 4.19.24 for changeset 58ae1285600a
+	[c7643763a774] <4.19-maint>
+
+	* NEWS:
+	Released as v4.19.24.
+	[58ae1285600a] [4.19.24] <4.19-maint>
+
+	* NEWS:
+	Updated the NEWS file.
+	[bd6439b5b0f4] <4.19-maint>
+
+	* siplib/qtlib.c, siplib/siplib.c:
+	Removed the use of calls deprecated in Python v3.9.
+	[88c711a50c84] <4.19-maint>
+
+2020-08-07  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c:
+	Fixed a regression in the virtual handler code.
+	[75cefc83ee99] <4.19-maint>
+
+	* NEWS:
+	Updated the NEWS file.
+	[a7fd24da4f99] <4.19-maint>
+
+	* configure.py.in:
+	'android_abi' can now be specified in the configuration file used to
+	build the sip module.
+	[c2cb1ee42ee6] <4.19-maint>
+
+	* sipgen/gencode.c:
+	Any %InstanceCode is now used to create the default result of a
+	virtual handler returning a class or mapped type by value.
+	[e8734cf0ff7e] <4.19-maint>
+
+2020-06-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 4.19.23 for changeset 853c4a8b4592
+	[bc406c09424f] <4.19-maint>
+
+	* NEWS:
+	Released as v4.19.23.
+	[853c4a8b4592] [4.19.23] <4.19-maint>
+
+2020-06-05  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* siplib/siplib.c:
+	Preserve any current exception in the implementation of the wrapper
+	dealloc functions.
+	[a5b6af9fab5a] <4.19-maint>
+
+2020-06-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c:
+	Check there is a public copy ctor when we can't using an assigment
+	operator as a workaround.
+	[19026da2a827] <4.19-maint>
+
+2020-06-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c:
+	Fixed the code generation when making a copy of C++ object on the
+	stack to the heap when the class has no suitable ctor.
+	[42c99f4c1784] <4.19-maint>
+
+2020-05-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c, sipgen/sip.h.in, sipgen/transform.c:
+	The code generator now distinguishes between the copy/assignment
+	helper and the array helper when determining which helpers can be
+	generated.
+	[22ababb6d14a] <4.19-maint>
+
+2020-05-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS:
+	Updated the NEWS file.
+	[c7dc4668d384] <4.19-maint>
+
+2020-05-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c:
+	Fixed the wrapping of methods that return a Py_Ssize_t.
+	[d85e9957e726] <4.19-maint>
+
+2020-04-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c:
+	Fixed a race condition when calling the PyQt5-specific meta-call
+	helper.
+	[812b5e26df96] <4.19-maint>
+
+2020-04-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* configure.py.in:
+	Added some missing quotes to configure.py.
+	[b5f2f60e72e5] <4.19-maint>
+
+2020-04-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 4.19.22 for changeset 4ca6f06991d5
+	[e06a23d69f9d] <4.19-maint>
+
+	* NEWS:
+	Released as v4.19.22.
+	[4ca6f06991d5] [4.19.22] <4.19-maint>
+
+	* NEWS:
+	Updated the NEWS file.
+	[35cfe4fb8b1e] <4.19-maint>
+
+2020-03-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/metasrc/parser.y:
+	Fixed the handling of keyword argument names in imported class
+	templates.
+	[1510ce7f5463] <4.19-maint>
+
+2020-01-31  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 4.19.21 for changeset a2a4d8ba9178
+	[dd9bc7744ed8] <4.19-maint>
+
+	* NEWS:
+	Released as v4.19.21.
+	[a2a4d8ba9178] [4.19.21] <4.19-maint>
+
+2020-01-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS:
+	Updated the NEWS file.
+	[179bc6c66773] <4.19-maint>
+
+2020-01-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* siplib/siplib.c:
+	Fix a memory leak in sipGetReference().
+	[82ec38dc0e63] <4.19-maint>
+
+2020-01-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c:
+	Make sure the keys for a class and a variable member are allocated
+	from the correct pools.
+	[699facc95914] <4.19-maint>
+
+	* sipgen/gencode.c, siplib/sip.h.in, siplib/siplib.c:
+	Further fixes to variable getters handling of wrapped classes.
+	[6a057b2d8537] <4.19-maint>
+
+2020-01-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipgen/gencode.c, siplib/sip.h.in, siplib/siplib.c:
+	Fixed issues with C/C++ member variable getters and setters. This
+	restores the keeping of a reference to the containing object in the
+	instance of a contained class.
+	[137b9be794a1] <4.19-maint>
+
 2019-12-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 4.19.20 for changeset 7c54145e55b6
+	[901741c80127] <4.19-maint>
 
 	* NEWS:
 	Released as v4.19.20.
