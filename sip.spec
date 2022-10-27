@@ -4,7 +4,7 @@
 #
 Name     : sip
 Version  : 4.19.25
-Release  : 38
+Release  : 39
 URL      : https://www.riverbankcomputing.com/static/Downloads/sip/4.19.25/sip-4.19.25.tar.gz
 Source0  : https://www.riverbankcomputing.com/static/Downloads/sip/4.19.25/sip-4.19.25.tar.gz
 Summary  : No detailed summary available
@@ -67,6 +67,7 @@ python components for the sip package.
 Summary: python3 components for the sip package.
 Group: Default
 Requires: python3-core
+Provides: pypi(sip)
 
 %description python3
 python3 components for the sip package.
@@ -83,7 +84,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1666881369
+export SOURCE_DATE_EPOCH=1666882219
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
 export FCFLAGS="$FFLAGS -fno-lto "
@@ -93,7 +94,7 @@ export CXXFLAGS="$CXXFLAGS -fno-lto "
 make  %{?_smp_mflags}
 
 %install
-export SOURCE_DATE_EPOCH=1666881369
+export SOURCE_DATE_EPOCH=1666882219
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/sip
 cp %{_builddir}/sip-%{version}/LICENSE-GPL2 %{buildroot}/usr/share/package-licenses/sip/2136dbc93e95a70deae070e44ff6b2702ec1599c || :
