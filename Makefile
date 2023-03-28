@@ -1,5 +1,5 @@
 PKG_NAME := sip
-URL = https://www.riverbankcomputing.com/static/Downloads/sip/4.19.25/sip-4.19.25.tar.gz
+URL = https://files.pythonhosted.org/packages/f1/ba/19f9cb16416a3c98bd5969b1bd9bf3c92dd278788d8d949ed66b8e0edf0d/sip-6.7.7.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

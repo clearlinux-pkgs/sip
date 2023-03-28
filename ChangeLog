@@ -1,209 +1,3858 @@
-2021-02-26  Phil Thompson  <phil@riverbankcomputing.com>
+2023-02-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/outputs/pyi.py:
+	In .pyi files generate implict imports as well as explicit imports.
+	[2d5cad50e879] [6.7.7] <6.7-maint>
+
+	* NEWS, sipbuild/generator/outputs/pyi.py:
+	Fixed the 'pyqtsignal' typo in generated .pyi files.
+	[48117db2851d] <6.7-maint>
+
+2023-02-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/outputs/type_hints.py:
+	Use the standard Sphinx directive to reference voidptr.
+	[2c334836f75f] <6.7-maint>
+
+2023-02-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/outputs/formatters/argument.py,
+	sipbuild/generator/outputs/type_hints.py,
+	sipbuild/generator/outputs/xml.py:
+	Ensure voidptr is rendered consistently and as a reST reference
+	where appropriate.
+	[3b892deb8c1b] <6.7-maint>
+
+	* sipbuild/generator/outputs/formatters/argument.py,
+	sipbuild/generator/outputs/formatters/value_list.py,
+	sipbuild/generator/outputs/xml.py:
+	Changes to the XML generation to reduce differences to earlier
+	versions.
+	[41dc32eadb62] <6.7-maint>
+
+2023-01-31  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c, code_generator/py2c.c,
+	code_generator/sip.h, sipbuild/bindings.py,
+	sipbuild/generator/outputs/pyi.py,
+	sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/rules.py,
+	sipbuild/generator/specification.py:
+	Refactored the handling of composite classes so that they are
+	populated properly.
+	[0afab92347b6] <6.7-maint>
+
+2023-01-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/outputs/xml.py:
+	Fixes for regressions in the XML generation.
+	[77ebbacae72e] <6.7-maint>
+
+	* NEWS, sipbuild/generator/parser/parser.py:
+	Fixed an incorrect API comment.
+	[febcfb71804d] <6.7-maint>
+
+2023-01-25  Phil Thompson  <phil@riverbankcomputing.com>
 
 	* .hgtags:
-	Added tag 4.19.25 for changeset 0d31b6c67012
-	[c0426a6b39a0] [tip] <4.19-maint>
+	Added tag 6.7.6 for changeset 67273f43bdbf
+	[fe69fc6295b7] <6.7-maint>
+
+	* NEWS, code_generator/py2c.c:
+	Reduce the use of the heap when converting from Python to C data
+	structures.
+	[67273f43bdbf] [6.7.6] <6.7-maint>
+
+2023-01-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Fixed a regression so that enums are not registered if there is no
+	meta-object.
+	[f4ccf3303e59] <6.7-maint>
+
+	* NEWS, code_generator/gencode.c:
+	Ensure that all enums (including global enums) are registered with
+	Qt so that they can be used in queued connections.
+	[259096e57fd7] <6.7-maint>
+
+2022-12-16  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/sip_core.c:
+	Fixed the implementation of /Transfer/ for global functions in ABI
+	v13.
+	[bc56c45dd235] <6.7-maint>
+
+2022-12-14  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/12/siplib.c:
+	In API v12 prevent an attempt to sub-class from an enum. The API
+	version number is now v12.11.1.
+	[91cda197b6ca] <6.7-maint>
+
+	* NEWS, sipbuild/generator/outputs/pyi.py:
+	Fixed type hints when a signal is overloaded with a method.
+	[6343b9aeceb9] <6.7-maint>
+
+2022-12-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/outputs/pyi.py:
+	Fixed the .pyi file for enums with no members.
+	[b828fb046720] <6.7-maint>
+
+2022-12-05  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/outputs/pyi.py:
+	Fixed the representation of Qt signals in the .pyi files.
+	[ba2933733f6c] <6.7-maint>
+
+2022-11-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, code_generator/py2c.c,
+	code_generator/sip.h, sipbuild/bindings.py,
+	sipbuild/generator/outputs/api.py,
+	sipbuild/generator/outputs/pyi.py,
+	sipbuild/generator/outputs/xml.py,
+	sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/rules.py,
+	sipbuild/generator/resolver/resolver.py,
+	sipbuild/generator/specification.py:
+	Re-factored Specification so that it just has the module that code
+	will be generated for rather than a list of all modules.
+	[be55cf9e3e79] <6.7-maint>
+
+2022-11-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.7.5 for changeset 43c1391748cf
+	[bc0278714cdd] <6.7-maint>
+
+2022-11-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/outputs/extracts.py:
+	Fixed extracts when the extract file name contains a Windows disk
+	specifier.
+	[43c1391748cf] [6.7.5] <6.7-maint>
+
+2022-11-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.7.4 for changeset 2157850bf018
+	[7b7a870a7d35] <6.7-maint>
+
+2022-10-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/outputs/pyi.py:
+	Fixed a regression in the handling of type hints for properties.
+	[2157850bf018] [6.7.4] <6.7-maint>
+
+2022-10-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.7.3 for changeset ea12891e29e2
+	[912db062d8c7] <6.7-maint>
+
+2022-10-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/outputs/pyi.py:
+	Fixed the .pyi file __eq__ and __ne__ entries.
+	[ea12891e29e2] [6.7.3] <6.7-maint>
+
+	* NEWS, sipbuild/generator/outputs/pyi.py:
+	Added the Python .pyi code to the repo.
+	[1246f197548e] <6.7-maint>
+
+	* sipbuild/generator/outputs/type_hints.py:
+	Brackets are allowed in non-typing module type hints.
+	[b0f99d3165dc] <6.7-maint>
+
+	* code_generator/gencode.c, code_generator/sip.h,
+	code_generator/type_hints.c:
+	Stripped out redundant C code.
+	[4dedf2303b4a] <6.7-maint>
+
+	* sipbuild/generator/outputs/type_hints.py:
+	Completed the Python implementation of type hints.
+	[ce9d2cb4dc51] <6.7-maint>
+
+	* sipbuild/generator/outputs/formatters/argument.py,
+	sipbuild/generator/outputs/formatters/enum.py,
+	sipbuild/generator/outputs/formatters/klass.py,
+	sipbuild/generator/outputs/formatters/utils.py,
+	sipbuild/generator/outputs/type_hints.py:
+	Debugging of new type hint code.
+	[1756cefda6bb] <6.7-maint>
+
+2022-10-25  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/pybinding.c, sipbuild/bindings.py,
+	sipbuild/generator/outputs/__init__.py,
+	sipbuild/generator/outputs/api.py,
+	sipbuild/generator/outputs/formatters/__init__.py,
+	sipbuild/generator/outputs/formatters/argument.py,
+	sipbuild/generator/outputs/formatters/enum.py,
+	sipbuild/generator/outputs/formatters/klass.py,
+	sipbuild/generator/outputs/formatters/signature.py,
+	sipbuild/generator/outputs/formatters/utils.py,
+	sipbuild/generator/outputs/formatters/value_list.py,
+	sipbuild/generator/outputs/formatters/variable.py,
+	sipbuild/generator/outputs/type_hints.py,
+	sipbuild/generator/outputs/xml.py,
+	sipbuild/generator/parser/parser.py,
+	sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/specification.py:
+	Initial re-implementation of the .pyi file generation in Python.
+	[f81ba5225472] <6.7-maint>
+
+2022-10-23  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/py2c.c:
+	Removed a couple of unused conversion functions.
+	[62dfbdfe52f8] <6.7-maint>
+
+	* code_generator/py2c.c:
+	Fixed a regression in the convertion of type hints to C.
+	[d5c985671fc1] <6.7-maint>
+
+	* sipbuild/generator/outputs/formatters/argument.py,
+	sipbuild/generator/outputs/formatters/signature.py,
+	sipbuild/generator/outputs/formatters/template.py,
+	sipbuild/generator/outputs/xml.py:
+	Fixes to the XML output.
+	[11942a8be37d] <6.7-maint>
+
+	* code_generator/py2c.c:
+	Fixed a regression in the converting of type hints to C.
+	[464398062a62] <6.7-maint>
+
+	* code_generator/py2c.c, sipbuild/generator/formatters/__init__.py,
+	sipbuild/generator/formatters/argument.py,
+	sipbuild/generator/formatters/base_formatter.py,
+	sipbuild/generator/formatters/enum.py,
+	sipbuild/generator/formatters/klass.py,
+	sipbuild/generator/formatters/overload.py,
+	sipbuild/generator/formatters/scoped.py,
+	sipbuild/generator/formatters/signature.py,
+	sipbuild/generator/formatters/template.py,
+	sipbuild/generator/formatters/utils.py,
+	sipbuild/generator/formatters/value_list.py,
+	sipbuild/generator/formatters/variable.py,
+	sipbuild/generator/instantiations.py,
+	sipbuild/generator/outputs/api.py,
+	sipbuild/generator/outputs/formatters/__init__.py,
+	sipbuild/generator/outputs/formatters/argument.py,
+	sipbuild/generator/outputs/formatters/base_formatter.py,
+	sipbuild/generator/outputs/formatters/enum.py,
+	sipbuild/generator/outputs/formatters/klass.py,
+	sipbuild/generator/outputs/formatters/overload.py,
+	sipbuild/generator/outputs/formatters/scoped.py,
+	sipbuild/generator/outputs/formatters/signature.py,
+	sipbuild/generator/outputs/formatters/template.py,
+	sipbuild/generator/outputs/formatters/utils.py,
+	sipbuild/generator/outputs/formatters/value_list.py,
+	sipbuild/generator/outputs/formatters/variable.py,
+	sipbuild/generator/outputs/type_hints.py,
+	sipbuild/generator/outputs/xml.py,
+	sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/specification.py,
+	sipbuild/generator/type_hints.py:
+	Refactoring based on a type hint just being an optional string.
+	[fb794ebfa872] <6.7-maint>
+
+	* NEWS, sipbuild/generator/outputs/xml.py:
+	The XML is now generated as an etree root node rather than an XML
+	file.
+	[9b31d8115ad0] <6.7-maint>
+
+2022-10-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/type_hints.py:
+	Completed the Python implementation of the XML generation.
+	[59c9a1dcd3dc] <6.7-maint>
+
+	* sipbuild/generator/type_hints.py:
+	Fixed the parsing of type hints for class enums defined with Python
+	scopes.
+	[46dfc03ef680] <6.7-maint>
+
+	* sipbuild/generator/type_hints.py:
+	Fixed the parsing of mapped type type hints.
+	[990804c44eec] <6.7-maint>
+
+	* sipbuild/generator/formatters/value_list.py,
+	sipbuild/generator/type_hints.py:
+	Debugging of XML generation.
+	[888053404043] <6.7-maint>
+
+	* code_generator/export.c, code_generator/pybinding.c,
+	code_generator/sip.h, sipbuild/generator/formatters/__init__.py,
+	sipbuild/generator/formatters/argument.py,
+	sipbuild/generator/formatters/enum.py,
+	sipbuild/generator/formatters/klass.py,
+	sipbuild/generator/formatters/signature.py,
+	sipbuild/generator/formatters/template.py,
+	sipbuild/generator/formatters/utils.py,
+	sipbuild/generator/formatters/value_list.py,
+	sipbuild/generator/outputs/xml.py,
+	sipbuild/generator/resolver/resolver.py,
+	sipbuild/generator/type_hints.py:
+	Completed the Python implementation of the XML generation.
+	[492f413d83bf] <6.7-maint>
+
+2022-10-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* Merged the latest maint branch changes.
+	[c014ebe8e7f2] <6.7-maint>
+
+2022-10-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/formatters/argument.py,
+	sipbuild/generator/formatters/enum.py,
+	sipbuild/generator/formatters/klass.py,
+	sipbuild/generator/formatters/utils.py,
+	sipbuild/generator/formatters/value_list.py,
+	sipbuild/generator/formatters/variable.py,
+	sipbuild/generator/instantiations.py,
+	sipbuild/generator/outputs/xml.py,
+	sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/type_hints.py:
+	Reimplemented enough of the XML output to represent a type.
+	[c9313bf161cb] <6.7-maint>
+
+2022-10-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/resolver/resolver.py:
+	Fixed a bug when logging resolver errors in overloads.
+	[3b317b873f00] <6.7-maint>
+
+2022-10-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.7.2 for changeset 02e1e42540d2
+	[b359afe150b3] <6.7-maint>
+
+	* NEWS, sipbuild/bindings.py, sipbuild/generator/__init__.py,
+	sipbuild/generator/api.py, sipbuild/generator/extracts.py,
+	sipbuild/generator/outputs/__init__.py,
+	sipbuild/generator/outputs/api.py,
+	sipbuild/generator/outputs/extracts.py:
+	Refactored the structure to create the outputs module.
+	[02e1e42540d2] [6.7.2] <6.7-maint>
+
+2022-10-11  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/formatters/argument.py,
+	sipbuild/generator/formatters/value_list.py:
+	The Python .api generation now produces the same results as the old
+	C++ code.
+	[ad82b2aa8dc6] <6.7-maint>
+
+	* code_generator/py2c.c, sipbuild/generator/api.py,
+	sipbuild/generator/formatters/enum.py,
+	sipbuild/generator/formatters/signature.py,
+	sipbuild/generator/resolver/resolver.py,
+	sipbuild/generator/specification.py:
+	.api file generation debugging.
+	[b0ea0a9e1778] <6.7-maint>
+
+2022-10-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/export.c, code_generator/pybinding.c,
+	code_generator/sip.h, sipbuild/bindings.py,
+	sipbuild/generator/__init__.py, sipbuild/generator/api.py,
+	sipbuild/generator/formatters/__init__.py,
+	sipbuild/generator/formatters/argument.py,
+	sipbuild/generator/formatters/base_formatter.py,
+	sipbuild/generator/formatters/enum.py,
+	sipbuild/generator/formatters/klass.py,
+	sipbuild/generator/formatters/overload.py,
+	sipbuild/generator/formatters/scoped.py,
+	sipbuild/generator/formatters/signature.py,
+	sipbuild/generator/formatters/template.py,
+	sipbuild/generator/formatters/utils.py,
+	sipbuild/generator/formatters/value_list.py,
+	sipbuild/generator/formatters/variable.py,
+	sipbuild/generator/instantiations.py,
+	sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/rules.py,
+	sipbuild/generator/resolver/resolver.py,
+	sipbuild/generator/scoped_name.py,
+	sipbuild/generator/specification.py,
+	sipbuild/generator/templates.py, sipbuild/generator/utils.py:
+	Initial commit of the Python implementation of generaing .api files.
+	[96337dcf3e8b] <6.7-maint>
+
+2022-10-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/formatters.py,
+	sipbuild/generator/formatters/__init__.py,
+	sipbuild/generator/formatters/overload.py,
+	sipbuild/generator/resolver/resolver.py:
+	Established a pattern for class-based object formatters.
+	[9a39cf1e6db3] <6.7-maint>
+
+	* NEWS, sipbuild/generator/instantiations.py:
+	Fixed a regression in instantiating class templates.
+	[b0e2b0ed6c9b] <6.7-maint>
+
+2022-10-05  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/extracts.c, code_generator/py2c.c,
+	code_generator/pybinding.c, code_generator/sip.h,
+	sipbuild/bindings.py, sipbuild/generator/__init__.py,
+	sipbuild/generator/extracts.py, sipbuild/generator/parser/rules.py,
+	sipbuild/generator/specification.py:
+	Reimplemented the extract generation in Python.
+	[de0b9e98e873] <6.7-maint>
+
+	* NEWS, code_generator/py2c.c, sipbuild/generator/parser/rules.py,
+	sipbuild/generator/resolver/resolver.py:
+	Fixed regressions in the handling of exceptions.
+	[d4dd66fa41dc] <6.7-maint>
+
+	* .hgtags:
+	Added tag 6.7.1 for changeset 2501905ff633
+	[9ad397433a04] <6.7-maint>
+
+	* NEWS, sipbuild/generator/utils.py:
+	Fixed the use of zip() for versions of Python earlier than v3.10.
+	[2501905ff633] [6.7.1] <6.7-maint>
+
+2022-09-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.7.0 for changeset 912dd627e03a
+	[1a0a5004f7c8]
+
+2022-09-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/command_line_tools.rst:
+	Documented the need of using auditwheel.
+	[912dd627e03a] [6.7.0]
+
+	* code_generator/pybinding.c, code_generator/sip.h:
+	Completed the refactoring of the error handling to remove the use of
+	setjmp and longjmp and remove the dependency on GLIBC v2.11.
+	[8f791a75e396]
+
+	* code_generator/gencode.c:
+	Completed the refactoring of the code generator error handling.
+	[11a5c2d4cc4b]
+
+	* code_generator/gencode.c:
+	Refactoring of the code generator error handling.
+	[e39fcbb30a02]
+
+	* code_generator/gencode.c:
+	Refactoring of the code generator error handling.
+	[d60a924520d2]
+
+	* code_generator/gencode.c, code_generator/pybinding.c:
+	Refactoring of the code generator error handling.
+	[3bd1793da8ef]
+
+	* code_generator/extracts.c, code_generator/pybinding.c,
+	code_generator/sip.h:
+	Refactored the error handling of the generation of extracts.
+	[82b7cc969fe5]
+
+	* code_generator/export.c, code_generator/pybinding.c,
+	code_generator/sip.h, code_generator/type_hints.c:
+	Refactored the error handling of the API and XML exports.
+	[9aaed4513d1c]
+
+	* code_generator/heap.c, code_generator/py2c.c:
+	Permanenly enable assertions as we are using them for error
+	checking.
+	[9c97f1dddaef]
+
+	* code_generator/heap.c:
+	Use assertions when checking heap allocations rather than an error
+	message.
+	[3d82c0c55516]
+
+	* code_generator/gencode.c, code_generator/pybinding.c,
+	code_generator/sip.h:
+	Begin refactoring of the error handling in the remaining C code.
+	[23c334470ade]
+
+	* NEWS, sipbuild/module/source/13/setup.cfg.in:
+	Removed some unused lines from setup.cfg for ABI v13.
+	[b061c6084413]
+
+2022-09-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/project.py:
+	Ensure the minimum macOS version fro arm64-only wheels is 11.0.
+	[3808f68364b2]
+
+2022-09-07  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, sipbuild/module/source/13/sip_core.c:
+	Minor fixes to avoid (benign) warning messages in generated code.
+	[8783ab8cbe77]
+
+	* sipbuild/generator/resolver/resolver.py:
+	Fixed the handling of PyQtFlags by mapped type templates.
+	[25b3255a616a]
+
+	* code_generator/gencode.c, code_generator/py2c.c,
+	code_generator/pybinding.c, code_generator/sip.h:
+	Removed various unused code and declarations.
+	[a9467f2f1141]
+
+	* code_generator/export.c, code_generator/gencode.c,
+	code_generator/py2c.c, code_generator/sip.h,
+	code_generator/type_hints.c:
+	Some refactoring to reduce the interdependencies between the
+	remaining C code.
+	[3063bd07ef60]
+
+	* NEWS, code_generator/gencode.c, code_generator/py2c.c,
+	code_generator/pybinding.c, code_generator/sip.h,
+	code_generator/transform.c, sipbuild/bindings.py,
+	sipbuild/generator/__init__.py, sipbuild/generator/error_log.py,
+	sipbuild/generator/formatters.py,
+	sipbuild/generator/instantiations.py,
+	sipbuild/generator/parser/instantiations.py,
+	sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/rules.py,
+	sipbuild/generator/python_slots.py,
+	sipbuild/generator/resolver/__init__.py,
+	sipbuild/generator/resolver/resolver.py,
+	sipbuild/generator/specification.py,
+	sipbuild/generator/templates.py, sipbuild/generator/type_hints.py,
+	sipbuild/generator/utils.py:
+	The resolver/transform stage has been replaced by a pure Python
+	implementation.
+	[5c719e369a1f]
+
+2022-08-26  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/parser_manager.py:
+	Fixed the parsing of type hints.
+	[3ec2ad2e0271]
+
+2022-08-07  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/project.py:
+	More manylinux fixes.
+	[baee960066f8]
+
+	* sipbuild/project.py:
+	Use PEP 600 naming for all GLIBC versions.
+	[c642dc1d9604]
+
+	* sipbuild/project.py:
+	Fixed a silly typo.
+	[4870dcdf8693]
+
+	* NEWS, sipbuild/project.py:
+	Fixed the manylinux wheel tags.
+	[94c7e1b37622]
+
+2022-08-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c, code_generator/py2c.c,
+	code_generator/sip.h, doc/annotations.rst,
+	sipbuild/generator/parser/annotations.py,
+	sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/rules.py,
+	sipbuild/generator/specification.py:
+	Implemented the /NoAssignmentOperator/, /NoCopyCtor/ and
+	/NoDefaultCtor/ mapped type annotations.
+	[3b461c650c5d]
+
+2022-07-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/export.c, code_generator/gencode.c,
+	code_generator/py2c.c, code_generator/sip.h,
+	code_generator/transform.c, code_generator/type_hints.c:
+	Refactoring of the C code in preparation for porting transform.c to
+	Python.
+	[8cbf7e165abf]
+
+2022-07-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c:
+	Clarified why PyQt6 registers the meta-types of C++ enums.
+	[f968c5305258]
+
+2022-07-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/command_line_tools.rst, doc/sipbuild_api.rst,
+	sipbuild/distinfo/distinfo.py, sipbuild/distinfo/main.py,
+	sipbuild/project.py:
+	Added the --generator-version command line option to sip-distinfo.
+	Added the 'generator_version' argument to
+	Project.get_sip_distinfo_command_line(). Generator names now
+	correspond to the backend rather than the frontend.
+	[5eabdad318b3]
+
+	* Merged the 6.6-maint branch.
+	[7bf316872fc4]
+
+2022-07-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/instantiations.py:
+	Fixed the instantiation of template values.
+	[323d39a2d602] <6.6-maint>
+
+2022-06-26  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/rules.py:
+	Fixed the handling of exceptions that sub-class C++ exceptions.
+	[1430b279a3c9] <6.6-maint>
+
+2022-06-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.6.2 for changeset a3c9672f761a
+	[6eff81a15822] <6.6-maint>
+
+2022-06-06  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/parser/tokens.py:
+	Allow a single underscore to be used as a name.
+	[a3c9672f761a] [6.6.2] <6.6-maint>
+
+	* sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/rules.py:
+	Fixed a regresssion introduced when fixing class template super-
+	classes.
+	[73d165da863c] <6.6-maint>
+
+	* NEWS, sipbuild/generator/parser/parsetab.py,
+	sipbuild/generator/parser/rules.py:
+	Allow empty class definitions.
+	[c5c9c0d486e8] <6.6-maint>
+
+2022-06-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/rules.py:
+	Fixed the handling of parameterised super-classes in class
+	templates.
+	[2e27e3f6de19] <6.6-maint>
+
+2022-06-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/module/source/12/sip_array.c,
+	sipbuild/module/source/13/sip_array.c:
+	Fixed the testing for a sip.array.
+	[996537068490] <6.6-maint>
+
+2022-05-26  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/12/sip_array.c,
+	sipbuild/module/source/13/sip_array.c:
+	Fixed the regression introduced in the previous fix for non-MSVC
+	compilers.
+	[cc71b80f6f9d] <6.6-maint>
+
+	* sipbuild/module/source/12/sip_array.c,
+	sipbuild/module/source/13/sip_array.c:
+	Fixed building the array support with MSVC.
+	[e9a6b015c006] <6.6-maint>
+
+	* NEWS, sipbuild/generator/parser/parser_manager.py:
+	Fixed the check for duplicate attributes when adding a new class.
+	[ca2ae8f4a270] <6.6-maint>
+
+2022-05-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/rules.py:
+	Fixed the parsing of %Extract.
+	[3ed64d65df0a] <6.6-maint>
+
+2022-05-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c, code_generator/sip.h,
+	code_generator/type_hints.c, doc/abi_12.rst, doc/abi_13.rst,
+	sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/12/sip.rst.in,
+	sipbuild/module/source/12/sip_array.c,
+	sipbuild/module/source/12/sip_array.h,
+	sipbuild/module/source/12/siplib.c,
+	sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/sip.rst.in,
+	sipbuild/module/source/13/sip_array.c,
+	sipbuild/module/source/13/sip_array.h,
+	sipbuild/module/source/13/sip_core.c:
+	Arguments using the /Array/ (and /ArraySize/) annotations will now
+	accept 'array' objects of the corresponding type.
+	[bc3852498daf] <6.6-maint>
+
+2022-05-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/type_hints.c:
+	Fix the type hints when /Array/ is used.
+	[3f1499be3dab] <6.6-maint>
+
+2022-05-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/parser/parser_manager.py:
+	Ensure '__delattr__' is included in generated code if it is needed.
+	[a5601579b8ad] <6.6-maint>
+
+	* sipbuild/module/source/13/sip_enum.c:
+	Fixed missing IntEnum members so that they behave like ints.
+	[42307cec38ed] <6.6-maint>
+
+	* code_generator/gencode.c:
+	Added a missing SIP_NULLPTR.
+	[80adeaa4086a] <6.6-maint>
+
+	* NEWS, code_generator/gencode.c, code_generator/sip.h,
+	sipbuild/module/source/12/array.c,
+	sipbuild/module/source/12/array.h,
+	sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/12/sip_array.c,
+	sipbuild/module/source/12/sip_array.h,
+	sipbuild/module/source/12/sipint.h,
+	sipbuild/module/source/12/siplib.c,
+	sipbuild/module/source/12/voidptr.c:
+	Added to sip.array functionality to the v12 ABI.
+	[5ad8a12445a8] <6.6-maint>
+
+2022-05-16  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c, code_generator/sip.h,
+	sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/sip_array.c,
+	sipbuild/module/source/13/sip_core.c,
+	sipbuild/module/source/13/sip_core.h,
+	sipbuild/module/source/13/sip_voidptr.c:
+	The ABI v13 'array' can now create one dimensional arrays of wrapped
+	types that can be modified in situ.
+	[8e01bcf5791c] <6.6-maint>
+
+	* code_generator/gencode.c:
+	Fix the target minor ABI version in the exported module definition.
+	[5ae6a70f1793] <6.6-maint>
+
+	* NEWS, sipbuild/module/source/13/MANIFEST.in,
+	sipbuild/module/source/13/array.c,
+	sipbuild/module/source/13/array.h,
+	sipbuild/module/source/13/bool.cpp,
+	sipbuild/module/source/13/descriptors.c,
+	sipbuild/module/source/13/int_convertors.c,
+	sipbuild/module/source/13/objmap.c,
+	sipbuild/module/source/13/setup.py.in,
+	sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/sip_array.c,
+	sipbuild/module/source/13/sip_array.h,
+	sipbuild/module/source/13/sip_bool.cpp,
+	sipbuild/module/source/13/sip_core.c,
+	sipbuild/module/source/13/sip_core.h,
+	sipbuild/module/source/13/sip_descriptors.c,
+	sipbuild/module/source/13/sip_enum.c,
+	sipbuild/module/source/13/sip_enum.h,
+	sipbuild/module/source/13/sip_int_convertors.c,
+	sipbuild/module/source/13/sip_object_map.c,
+	sipbuild/module/source/13/sip_threads.c,
+	sipbuild/module/source/13/sip_voidptr.c,
+	sipbuild/module/source/13/sipint.h,
+	sipbuild/module/source/13/siplib.c,
+	sipbuild/module/source/13/threads.c,
+	sipbuild/module/source/13/voidptr.c:
+	More cosmetic refactoring of the v13 sip module.
+	[1a574bc518b7] <6.6-maint>
+
+2022-05-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/module/source/13/sip_enum.c:
+	Completed the initial implementation (using monkey patching) of
+	creating pseudo-members of an enum when converting an unexpected
+	value.
+	[89a096622e10] <6.6-maint>
+
+	* sipbuild/module/source/12/apiversions.c,
+	sipbuild/module/source/12/array.c,
+	sipbuild/module/source/12/array.h,
+	sipbuild/module/source/12/descriptors.c,
+	sipbuild/module/source/12/int_convertors.c,
+	sipbuild/module/source/12/qtlib.c,
+	sipbuild/module/source/12/sipint.h,
+	sipbuild/module/source/12/siplib.c,
+	sipbuild/module/source/12/voidptr.c,
+	sipbuild/module/source/13/array.c,
+	sipbuild/module/source/13/array.h,
+	sipbuild/module/source/13/descriptors.c,
+	sipbuild/module/source/13/int_convertors.c,
+	sipbuild/module/source/13/sip_enum.c,
+	sipbuild/module/source/13/sip_enum.h,
+	sipbuild/module/source/13/sipint.h,
+	sipbuild/module/source/13/siplib.c,
+	sipbuild/module/source/13/voidptr.c:
+	Added '#define PY_SSIZE_T_CLEAN' to the sip module implementation.
+	[f6ba13f072ad] <6.6-maint>
+
+	* sipbuild/module/source/13/sip_enum.c,
+	sipbuild/module/source/13/sip_enum.h,
+	sipbuild/module/source/13/sipint.h,
+	sipbuild/module/source/13/siplib.c:
+	Refactored the enum support.
+	[b7acdfcf60b2] <6.6-maint>
+
+2022-05-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c:
+	Fixed a bug in the handling of protected enums when protected is not
+	public.
+	[a59cb21d25c6] <6.6-maint>
+
+2022-05-11  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/rules.py:
+	Fixed the handling of the body of a %Module directive.
+	[26df26ef49ed] <6.6-maint>
+
+2022-05-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/api.py:
+	Fixed the PEP571 backend to handle multiple instances of the same
+	config setting.
+	[8543f04b374f] <6.6-maint>
+
+2022-05-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/parsetab.py,
+	sipbuild/generator/parser/rules.py:
+	Fixed the parser so that the module state isn't restored too soon.
+	[b8ef6009a33f] <6.6-maint>
+
+2022-05-07  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/abstract_project.py, sipbuild/project.py:
+	Fix an API backward incompatibility.
+	[c02af095a016] <6.6-maint>
+
+	* NEWS, doc/sipbuild_api.rst, sipbuild/abstract_project.py,
+	sipbuild/api.py, sipbuild/configurable.py, sipbuild/project.py:
+	Any config settings passed by a PEP 571 frontend are now used.
+	[98dbce3e62f1] <6.6-maint>
+
+2022-05-05  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Tweak the code generated for catching exceptions so that is matches
+	older SIP versions.
+	[9aab6c0a90e8] <6.6-maint>
+
+	* NEWS, code_generator/py2c.c,
+	sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/tokens.py,
+	sipbuild/generator/templates.py:
+	Fixes to ensure that generated #line directives match older versions
+	of SIP.
+	[f786066435f6] <6.6-maint>
+
+2022-05-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/type_hints.c:
+	Fix type hints fro __eq__ and __ne__.
+	[12c0dbdc168f] <6.6-maint>
+
+2022-05-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/type_hints.c:
+	Some type hint fixes.
+	[7c2c5b1a6ef7] <6.6-maint>
+
+	* NEWS, sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/12/siplib.c,
+	sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/siplib.c:
+	The sip modules now publish the 'array' type object.
+	[5c841d9cc66d] <6.6-maint>
+
+	* sipbuild/module/source/12/sip.pyi,
+	sipbuild/module/source/13/sip.pyi:
+	Fixes for the sip.pyi stub files.
+	[1e11216c352f] <6.6-maint>
+
+2022-05-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/parser/tokens.py:
+	Fixed indented directives.
+	[3d656f0765f5] <6.6-maint>
+
+	* sipbuild/generator/parser/annotations.py:
+	More DottedName changes.
+	[c179f418c5be] <6.6-maint>
+
+	* sipbuild/generator/parser/tokens.py:
+	Fix DRY in the lexer.
+	[f97139203fac] <6.6-maint>
+
+	* sipbuild/generator/parser/annotations.py,
+	sipbuild/generator/parser/rules.py:
+	Simplify DottedName.
+	[1fb3e76bc14e] <6.6-maint>
+
+	* sipbuild/generator/parser/rules.py:
+	Added support for PyObject* as a synonym for SIP_PYOBJECT.
+	[943031bdd427] <6.6-maint>
+
+	* sipbuild/generator/parser/instantiations.py:
+	Fixes for class template instantiation.
+	[6a535de19197] <6.6-maint>
+
+	* NEWS, sipbuild/generator/parser/parser_manager.py:
+	Fixed the handling of %Exception.
+	[5199c7d0fc7c] <6.6-maint>
+
+2022-04-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/parsetab.py,
+	sipbuild/generator/parser/rules.py,
+	sipbuild/generator/parser/tokens.py:
+	More parser fixes to properly handle file paths.
+	[8886d0bfb4ec] <6.6-maint>
+
+2022-04-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/parsetab.py,
+	sipbuild/generator/parser/rules.py,
+	sipbuild/generator/parser/tokens.py:
+	Fixed the parsing of file paths to match the old C implementation.
+	[5a0c61e32427] <6.6-maint>
+
+2022-04-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/parser/parsetab.py,
+	sipbuild/generator/parser/rules.py,
+	sipbuild/generator/parser/tokens.py:
+	More fixes for parsing '..'.
+	[8610dc6cc7d4] <6.6-maint>
+
+	* sipbuild/generator/parser/rules.py:
+	Fixed the parsing of '.' and '..' in path names.
+	[8fd196a3525e] <6.6-maint>
+
+	* NEWS, sipbuild/generator/parser/parsetab.py,
+	sipbuild/generator/parser/rules.py:
+	Fixed the parsing of class templates within a class. Fixed the
+	parsing of class docstrings.
+	[0a61ae7058e8] <6.6-maint>
+
+2022-04-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/parsetab.py,
+	sipbuild/generator/parser/rules.py:
+	Fixed the parsing of %Property.
+	[6e9505ded378] <6.6-maint>
+
+2022-04-26  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/instantiations.py,
+	sipbuild/generator/specification.py:
+	More minor bug fixes.
+	[a069205270ea] <6.6-maint>
+
+2022-04-25  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/bindings.py, sipbuild/buildable.py, sipbuild/builder.py,
+	sipbuild/distutils_builder.py,
+	sipbuild/generator/parser/instantiations.py,
+	sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/rules.py,
+	sipbuild/generator/specification.py,
+	sipbuild/generator/templates.py, sipbuild/project.py,
+	sipbuild/pyproject.py, sipbuild/setuptools_builder.py:
+	Various fixes identified by pyflakes.
+	[0da96769835f] <6.6-maint>
+
+	* NEWS, sipbuild/generator/parser/rules.py:
+	Fixed an attribute mis-naming in the parsing of exceptions.
+	[d43fc89f7ef2] <6.6-maint>
+
+2022-04-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.6.1 for changeset c5a7b5a9c931
+	[a6d2d9673442] <6.6-maint>
+
+	* setup.cfg:
+	Fixed the limited API version specified in the metadata of SIP
+	itself.
+	[c5a7b5a9c931] [6.6.1] <6.6-maint>
+
+	* NEWS, sipbuild/module/source/12/setup.py.in,
+	sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/13/setup.py.in,
+	sipbuild/module/source/13/sip.h.in:
+	Fixed the required Python version in the metadata of the sip module.
+	[968567d2e6ae] <6.6-maint>
+
+2022-04-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.6.0 for changeset a6cf18767583
+	[2744713df639]
+
+2022-04-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/pyproject_toml.rst:
+	Improved the documentation for the project-factory entry in
+	pyproject.toml.
+	[a6cf18767583] [6.6.0]
+
+2022-03-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/parser_manager.py:
+	Allow a qualifier to be defined in multiple %Timelines.
+	[13d317321f1d]
+
+2022-03-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/12/siplib.c:
+	Fixed the use of PyFrameObject in Python v3.8 and earlier.
+	[5565e9919898]
+
+	* sipbuild/buildable.py:
+	Use the oldest support version when specifiying Py_LIMITED_API.
+	[0c933ec3203d]
+
+	* NEWS, code_generator/py2c.c, code_generator/pybinding.c, setup.py:
+	Remove remaining references to Python v3.6 and before.
+	[3c95a48a330b]
+
+2022-03-09  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/abi_12.rst, doc/abi_13.rst, doc/introduction.rst,
+	sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/12/siplib.c,
+	sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/siplib.c, sipbuild/py_versions.py:
+	Removed support for Python v3.6.
+	[c0c3f9a7fd4e]
+
+2022-03-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/generator/parser/rules.py:
+	Fixed the requirement for a shadow class from a virtual method.
+	[ff6e067d2ad6]
+
+2022-03-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/type_hints.c:
+	Don't ignore any standard dunder methods in type hints.
+	[5c78c5331397]
+
+2022-02-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/12/siplib.c,
+	sipbuild/module/source/13/sip.h.in:
+	Removed some legacy comments.
+	[788d855c8e26]
+
+	* code_generator/gencode.c, sipbuild/project.py:
+	Fix the sip module ABI that is requested by the generated code.
+	[f371ee533c22]
+
+	* code_generator/py2c.c:
+	Fixed the conversion from interface files from Python to C.
+	[70f6457989b1]
+
+	* NEWS, sipbuild/generator/utils.py:
+	Fixed the normalisation of scoped names when looking up within a
+	scope.
+	[e219fa4ccf5f]
+
+2022-02-26  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/transform.c:
+	Fixed the comparision of enum members when using ABI v12 and there
+	is an explicit equality operator defined.
+	[678bf18547b7]
+
+2022-02-22  Phil Thompson  <phil@riverbankcomputing.com>
 
 	* NEWS:
-	Released as v4.19.25.
-	[0d31b6c67012] [4.19.25] <4.19-maint>
+	Updated the NEWS file.
+	[e697a0f87540]
 
-	* NEWS, sipgen/metasrc/lexer.l:
-	Added support for Py_ssize_t (required by PyQt v5.15.3).
-	[6b216e1ce173] <4.19-maint>
+	* sipbuild/generator/parser/parser_manager.py:
+	Fixed the handling of user state for mapped types.
+	[ce6d11a6d298]
+
+	* sipbuild/generator/parser/parsetab.py:
+	Added the PLY generated parser table to the repository.
+	[dee77c9cf98f]
+
+	* sipbuild/generator/parser/parser_manager.py:
+	Fixed the automatic renaming for Python keywords.
+	[0faf5baa8d6f]
+
+2022-02-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/parser/tokens.py:
+	Fixed the lexing of single-quoted hex characters.
+	[db6460ae77a3]
+
+	* sipbuild/generator/parser/parser_manager.py:
+	Removed some annotations checks to maintain compatibility with the
+	old parser.
+	[eb92cc4567f7]
+
+	* sipbuild/generator/specification.py:
+	Fixed the definition of a mapped type's %ReleaseCode.
+	[fc8b8d87ff30]
+
+	* sipbuild/generator/parser/rules.py,
+	sipbuild/generator/parser/tokens.py:
+	Prevent the lexer from looking too far ahead when switching between
+	files.
+	[b43c227aa0a5]
+
+	* sipbuild/generator/parser/parser_manager.py:
+	Fixed the the list of modules that a module imports.
+	[6f5d1b658c67]
+
+	* sipbuild/generator/parser/parser_manager.py:
+	Fixed the handling of operators defined in namespaces.
+	[53364527a08e]
+
+2022-02-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/parser/parser_manager.py:
+	Fixed the handling of protected enums.
+	[bab3f946f8f7]
+
+	* sipbuild/generator/parser/parser_manager.py:
+	Fixed the handling of the bindings configuration file.
+	[496afee92670]
+
+	* code_generator/py2c.c:
+	Tweaked the conversion of the flags of composite modules.
+	[02b5cb29c41f]
+
+	* sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/rules.py:
+	Fixed the parsing of composite modules.
+	[dc15c71b4201]
+
+	* sipbuild/generator/parser/rules.py:
+	Fixed the name of a composite module.
+	[541e38c4c8d9]
+
+2022-02-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/templates.py:
+	Fixed the selection of the interface file corresponding to generated
+	types in handwritten code.
+	[a48dd2e2f4bb]
+
+	* sipbuild/generator/parser/parser_manager.py:
+	Fixed the detection of numeric and sequence objects.
+	[08f3fa5b42d4]
+
+2022-02-16  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/rules.py:
+	Fixed the handling of variables defined in a namespace.
+	[946a96fb9f39]
+
+	* code_generator/py2c.c:
+	Fixed the conversion of namespaces from Python to C.
+	[0928ee010976]
+
+	* sipbuild/generator/parser/parser_manager.py:
+	Remove duplicate tags and features from bindings .toml files.
+	[4ffb2616f84e]
+
+	* sipbuild/bindings_configuration.py:
+	Fixed the searching for the .toml file for a set of bindings.
+	[71073ff37014]
+
+2022-02-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/py2c.c:
+	Clear the object caches before convert the Python data structures to
+	C.
+	[f7a87f2b0265]
+
+2022-02-14  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/rules.py:
+	Fix the reading of a .sip file multiple times.
+	[fd5f21f3b468]
+
+	* sipbuild/generator/parser/parser_manager.py:
+	Fixed the handling of automatic slots for global operators.
+	[44cb3a730518]
+
+	* sipbuild/generator/parser/tokens.py:
+	Fixed the lexing of numbers.
+	[a3fd1c6e4ad1]
+
+	* sipbuild/generator/parser/rules.py,
+	sipbuild/generator/parser/tokens.py:
+	Refactored the parser to make it easier to read and to give access
+	to token values to the error handler.
+	[0ec22c357901]
+
+2022-02-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/parser/rules.py:
+	Improve the protection against unbalanced %If/%End as they can
+	become unbalanced as a result of the parser's attempts to recover
+	from errors.
+	[5d54d836eef4]
+
+2022-02-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/generator/utils.py:
+	Fixed the comparision of templates.
+	[72b18be14897]
+
+	* code_generator/py2c.c:
+	Fixed the handling of opaque classes.
+	[1297dfb558f7]
+
+	* sipbuild/generator/parser/rules.py:
+	Fixed the parsing of dereferences from typedefs.
+	[13ada6dc0228]
+
+	* code_generator/py2c.c, sipbuild/generator/parser/rules.py,
+	sipbuild/generator/specification.py:
+	Fixed issues with the parsing and conversion of literal expressions.
+	[cdf1c60c625f]
+
+	* sipbuild/generator/parser/parser_manager.py:
+	Fixed the method code of auto-added slots.
+	[bf2163b67d24]
+
+	* code_generator/py2c.c:
+	Fixed the handling of /KeepReference/.
+	[19bdfcd90623]
+
+	* sipbuild/generator/templates.py:
+	Fixed the expansions in hand-written code.
+	[84a65d0e434e]
+
+	* sipbuild/generator/specification.py:
+	Fixed the value of IOR.
+	[a3b8ee6d7051]
+
+	* sipbuild/generator/templates.py:
+	Fixed the interface files used by instantiated class templates.
+	[60179be042fd]
+
+	* sipbuild/generator/parser/rules.py:
+	Fixed the handling of /Array/ and /ArraySize/.
+	[c3a88e463fc2]
+
+	* code_generator/sip.h:
+	Removed some legacy data structures.
+	[dd8941e219ef]
+
+	* code_generator/lexer.c, code_generator/parser.c,
+	code_generator/parser.h, code_generator/sip.h:
+	Removed vestiges of the old parser.
+	[26aa4d15a874]
+
+2022-02-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* MANIFEST.in, NEWS, code_generator/metasrc/README,
+	code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	code_generator/py2c.c, code_generator/pybinding.c, setup.py,
+	sipbuild/bindings.py, sipbuild/bindings_configuration.py,
+	sipbuild/builder.py, sipbuild/generator/__init__.py,
+	sipbuild/generator/parser/__init__.py,
+	sipbuild/generator/parser/annotations.py,
+	sipbuild/generator/parser/instantiations.py,
+	sipbuild/generator/parser/parser.py,
+	sipbuild/generator/parser/parser_manager.py,
+	sipbuild/generator/parser/python_exceptions.py,
+	sipbuild/generator/parser/rules.py,
+	sipbuild/generator/parser/tokens.py,
+	sipbuild/generator/python_slots.py,
+	sipbuild/generator/specification.py,
+	sipbuild/generator/templates.py, sipbuild/generator/utils.py,
+	sipbuild/helpers.py:
+	The flex/yacc .sip file parser has been replaced with a pure Python
+	implementation using ply.
+	[f5ce72f74d3e]
+
+	* Merged the 6.5-maint branch.
+	[f4eed68c09a2]
+
+	* .hgtags:
+	Added tag 6.5.1 for changeset 96a0deaabfa4
+	[789ef0b93296] <6.5-maint>
+
+2022-01-25  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/sip.h, code_generator/transform.c:
+	Don't cache the name of mapped type templates.
+	[96a0deaabfa4] [6.5.1] <6.5-maint>
+
+	* NEWS, code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/sip.h,
+	code_generator/transform.c, sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/12/siplib.c,
+	sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/siplib.c:
+	Backed out the change that removed support for slots in enums as
+	they are used to implement operators between enums.
+	[221bd63f1663] <6.5-maint>
+
+2022-01-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/sip.h:
+	Removed a redundant data structure type.
+	[1c255c20d5c4] <6.5-maint>
+
+	* code_generator/transform.c:
+	Make the sub-order of the name cache alphabetical so that it is
+	repeatable.
+	[2ca2af967ee7] <6.5-maint>
+
+2022-01-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/buildable.py:
+	Suppress version information in the bindings .toml file.
+	[9c0cf07fb8e3] <6.5-maint>
+
+	* NEWS, sipbuild/builder.py, sipbuild/module/module.py:
+	Suppress version information in the sip module.
+	[5f3db5dccecd] <6.5-maint>
+
+2022-01-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/command_line_tools.rst, doc/pyproject_toml.rst,
+	sipbuild/builder.py, sipbuild/project.py:
+	Added the --no-compile option to sip-build.
+	[44091be44d5d] <6.5-maint>
+
+	* NEWS, code_generator/gencode.c, code_generator/pybinding.c,
+	code_generator/type_hints.c, doc/command_line_tools.rst,
+	doc/pyproject_toml.rst, sipbuild/builder.py, sipbuild/project.py:
+	Added the --no-version-info command line option to sip-build.
+	[3907854527a4] <6.5-maint>
+
+2022-01-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/sip.h,
+	code_generator/transform.c, sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/12/siplib.c,
+	sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/siplib.c:
+	Removed ancient unused support for slots in enums.
+	[33fb1b443d21] <6.5-maint>
+
+2022-01-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/module/source/12/objmap.c,
+	sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/13/objmap.c,
+	sipbuild/module/source/13/sip.h.in:
+	Fix a use-after-free bug in all versions of the sip module.
+	[072b8949de41] <6.5-maint>
+
+2022-01-07  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c:
+	Fixed the generated code for API 13 that determines whether the self
+	argument of a method is 'self' or 'cls'.
+	[3f632f439886] <6.5-maint>
+
+2021-12-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, code_generator/transform.c,
+	code_generator/type_hints.c:
+	Refactoring in anticipation of removing the existing parser.
+	[5428e8cdbe12] <6.5-maint>
+
+	* NEWS, code_generator/gencode.c, code_generator/sip.h,
+	code_generator/transform.c:
+	Re-implemented the cast function so that the generated code works
+	with both virtual and non-virtual diamond hierarchies.
+	[a511a01e4555] <6.5-maint>
+
+2021-12-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/parser.c, doc/pyproject_toml.rst,
+	doc/sipbuild_api.rst:
+	Documentation fixes.
+	[741f094fd708] <6.5-maint>
+
+	* NEWS, code_generator/metasrc/parser.y:
+	Clarified a comment.
+	[f7bb7e784874] <6.5-maint>
+
+2021-12-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c, code_generator/parser.c,
+	code_generator/type_hints.c:
+	Do not generate a 'self' argument in docstrings or .pyi files for
+	methods that are in a hidden namespace.
+	[628174d9f0b9] <6.5-maint>
+
+	* NEWS, code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/sip.h, code_generator/transform.c:
+	More minor refactoring and comments.
+	[c0429779bf87] <6.5-maint>
+
+2021-12-16  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/sip.h, code_generator/transform.c:
+	Minor refactoring of template instantiation.
+	[74ae1a8f2afe] <6.5-maint>
+
+	* doc/specification_files.rst:
+	Removed references to old unsupported annotations in the docs.
+	[5414497f2296] <6.5-maint>
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/sip.h, code_generator/transform.c:
+	Removed a redundant argument.
+	[69d307570a75] <6.5-maint>
+
+2021-12-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.5.0 for changeset 8583e2bb1b32
+	[ebaf1f8926f8]
+
+2021-11-25  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/sip.h,
+	code_generator/transform.c:
+	Removed some redundant legacy code.
+	[8583e2bb1b32] [6.5.0]
+
+2021-11-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/type_hints.c:
+	Don't generate type hints for namespace extenders.
+	[e3cf19c9e65e]
+
+2021-11-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/sip.h,
+	code_generator/type_hints.c, doc/annotations.rst,
+	sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/siplib.c:
+	Added 'UIntEnum' as a value of the /BaseType/ enum annotation to
+	support enum.IntEnum types with unsigned values. The latest version
+	of ABI v13 is v13.2.0.
+	[1321d3ad2747]
+
+2021-10-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.4.0 for changeset 5d67349bb5a9
+	[05e6ab7c140e]
+
+2021-10-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c, code_generator/lexer.c,
+	code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, doc/directives.rst:
+	Added the 'py_ssize_t_clean' argument to the '%Module' directive.
+	[5d67349bb5a9] [6.4.0]
+
+	* Merged the 6.3-maint branch.
+	[d837f2a3147f]
+
+2021-10-16  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c:
+	/KeepReference/ in ctor arguments is handled even if there is
+	%MethodCode.
+	[563952767743] <6.3-maint>
+
+2021-10-14  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, test/utils/sip_test_case.py:
+	Fixed the tests for the setuptools builder.
+	[e83240f16d3c] <6.3-maint>
+
+2021-10-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.3.1 for changeset 75658f9a58cb
+	[a6535ed5c00d] <6.3-maint>
+
+	* NEWS, sipbuild/project.py:
+	Validate and convert the minimum GLIBC and macOS versions in a
+	property setter rather than when the configuration is validated so
+	that the converted values are always available.
+	[75658f9a58cb] [6.3.1] <6.3-maint>
+
+2021-10-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.3.0 for changeset e16c8d1338ca
+	[8987efbbc00c]
+
+2021-10-05  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/sipbuild_api.rst, sipbuild/builder.py,
+	sipbuild/project.py:
+	Added Project.get_platform_tag() to allow sub-classes to change the
+	platform tag used in wheel names.
+	[e16c8d1338ca] [6.3.0]
+
+	* Merged the 6.2-maint branch.
+	[8d936434fbb1]
+
+2021-10-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/pybinding.c, setup.cfg, setup.py:
+	SIP now uses the limited API itself.
+	[1c6d1d99e390] <6.2-maint>
+
+2021-09-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.2.0 for changeset 6ef973f68bd2
+	[3a4d09a31aad]
+
+2021-09-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/builder.py, sipbuild/project.py,
+	sipbuild/py_versions.py, sipbuild/pyproject.py:
+	Specify a minimum Python version in the name of a wheel.
+	[6ef973f68bd2] [6.2.0]
+
+2021-09-23  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* rb-product, rb-product.toml:
+	Updated the product file to current standards.
+	[3fdb9b301316]
+
+	* NEWS, code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c:
+	The /PyQtNoQMetaObject/ annotation can now be applied to namespaces.
+	[ba06d3ca42df]
+
+2021-09-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c:
+	Fixed a code generator bug when defining an incomplete mapped type.
+	[11921850bed7]
+
+2021-09-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/buildable.py, sipbuild/builder.py,
+	sipbuild/distutils_builder.py, sipbuild/setuptools_builder.py:
+	Use Project.py_platform instead os sys.platform where appropriate to
+	support cross-compilation.
+	[56a1c645a1cf]
+
+2021-08-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/command_line_tools.rst, doc/pyproject_toml.rst,
+	sipbuild/bindings.py:
+	Added the --disabled-feature command line option to sip-build, sip-
+	install and sip-wheel.
+	[b8748ab052cc]
+
+2021-08-06  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Fixes for virtuals that return protected enums.
+	[861f5e3a33dd]
+
+2021-08-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Fixed a regression in the handling of Unicode docstrings.
+	[64d8a5d785e1]
+
+2021-07-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/pybinding.c:
+	Eliminate duplicate tags and features in the bindings .toml file.
+	[b9f1ac6505a2]
+
+2021-06-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, setup.py:
+	Added setuptools as an install requirement (as well as a build
+	system requirement).
+	[930e76f1cc47]
+
+2021-06-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/12/LICENSE, sipbuild/module/source/12
+	/LICENSE-GPL2, sipbuild/module/source/12/LICENSE-GPL3,
+	sipbuild/module/source/13/LICENSE, sipbuild/module/source/13
+	/LICENSE-GPL2, sipbuild/module/source/13/LICENSE-GPL3:
+	Added the license files to the sip modules.
+	[bcd0f5a3e339]
+
+	* NEWS, doc/command_line_tools.rst, doc/pyproject_toml.rst,
+	sipbuild/bindings.py, sipbuild/builder.py,
+	sipbuild/module/abi_version.py, sipbuild/module/module.py,
+	sipbuild/module/source/12.7/MANIFEST.in,
+	sipbuild/module/source/12.7/README.in,
+	sipbuild/module/source/12.7/apiversions.c,
+	sipbuild/module/source/12.7/array.c,
+	sipbuild/module/source/12.7/array.h,
+	sipbuild/module/source/12.7/bool.cpp,
+	sipbuild/module/source/12.7/descriptors.c,
+	sipbuild/module/source/12.7/int_convertors.c,
+	sipbuild/module/source/12.7/objmap.c,
+	sipbuild/module/source/12.7/pyproject.toml,
+	sipbuild/module/source/12.7/qtlib.c,
+	sipbuild/module/source/12.7/setup.cfg.in,
+	sipbuild/module/source/12.7/setup.py.in,
+	sipbuild/module/source/12.7/sip.h.in,
+	sipbuild/module/source/12.7/sip.pyi,
+	sipbuild/module/source/12.7/sip.rst.in,
+	sipbuild/module/source/12.7/sipint.h,
+	sipbuild/module/source/12.7/siplib.c,
+	sipbuild/module/source/12.7/threads.c,
+	sipbuild/module/source/12.7/voidptr.c,
+	sipbuild/module/source/12.8/MANIFEST.in,
+	sipbuild/module/source/12.8/README.in,
+	sipbuild/module/source/12.8/apiversions.c,
+	sipbuild/module/source/12.8/array.c,
+	sipbuild/module/source/12.8/array.h,
+	sipbuild/module/source/12.8/bool.cpp,
+	sipbuild/module/source/12.8/descriptors.c,
+	sipbuild/module/source/12.8/int_convertors.c,
+	sipbuild/module/source/12.8/objmap.c,
+	sipbuild/module/source/12.8/pyproject.toml,
+	sipbuild/module/source/12.8/qtlib.c,
+	sipbuild/module/source/12.8/setup.cfg.in,
+	sipbuild/module/source/12.8/setup.py.in,
+	sipbuild/module/source/12.8/sip.h.in,
+	sipbuild/module/source/12.8/sip.pyi,
+	sipbuild/module/source/12.8/sip.rst.in,
+	sipbuild/module/source/12.8/sipint.h,
+	sipbuild/module/source/12.8/siplib.c,
+	sipbuild/module/source/12.8/threads.c,
+	sipbuild/module/source/12.8/voidptr.c,
+	sipbuild/module/source/12.9/MANIFEST.in,
+	sipbuild/module/source/12.9/README.in,
+	sipbuild/module/source/12.9/apiversions.c,
+	sipbuild/module/source/12.9/array.c,
+	sipbuild/module/source/12.9/array.h,
+	sipbuild/module/source/12.9/bool.cpp,
+	sipbuild/module/source/12.9/descriptors.c,
+	sipbuild/module/source/12.9/int_convertors.c,
+	sipbuild/module/source/12.9/objmap.c,
+	sipbuild/module/source/12.9/pyproject.toml,
+	sipbuild/module/source/12.9/qtlib.c,
+	sipbuild/module/source/12.9/setup.cfg.in,
+	sipbuild/module/source/12.9/setup.py.in,
+	sipbuild/module/source/12.9/sip.h.in,
+	sipbuild/module/source/12.9/sip.pyi,
+	sipbuild/module/source/12.9/sip.rst.in,
+	sipbuild/module/source/12.9/sipint.h,
+	sipbuild/module/source/12.9/siplib.c,
+	sipbuild/module/source/12.9/threads.c,
+	sipbuild/module/source/12.9/voidptr.c,
+	sipbuild/module/source/12/MANIFEST.in,
+	sipbuild/module/source/12/README.in,
+	sipbuild/module/source/12/apiversions.c,
+	sipbuild/module/source/12/array.c,
+	sipbuild/module/source/12/array.h,
+	sipbuild/module/source/12/bool.cpp,
+	sipbuild/module/source/12/descriptors.c,
+	sipbuild/module/source/12/int_convertors.c,
+	sipbuild/module/source/12/objmap.c,
+	sipbuild/module/source/12/pyproject.toml,
+	sipbuild/module/source/12/qtlib.c,
+	sipbuild/module/source/12/setup.cfg.in,
+	sipbuild/module/source/12/setup.py.in,
+	sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/12/sip.pyi,
+	sipbuild/module/source/12/sip.rst.in,
+	sipbuild/module/source/12/sipint.h,
+	sipbuild/module/source/12/siplib.c,
+	sipbuild/module/source/12/threads.c,
+	sipbuild/module/source/12/voidptr.c,
+	sipbuild/module/source/13.0/MANIFEST.in,
+	sipbuild/module/source/13.0/README.in,
+	sipbuild/module/source/13.0/array.c,
+	sipbuild/module/source/13.0/array.h,
+	sipbuild/module/source/13.0/bool.cpp,
+	sipbuild/module/source/13.0/descriptors.c,
+	sipbuild/module/source/13.0/int_convertors.c,
+	sipbuild/module/source/13.0/objmap.c,
+	sipbuild/module/source/13.0/pyproject.toml,
+	sipbuild/module/source/13.0/setup.cfg.in,
+	sipbuild/module/source/13.0/setup.py.in,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/sip.pyi,
+	sipbuild/module/source/13.0/sip.rst.in,
+	sipbuild/module/source/13.0/sipint.h,
+	sipbuild/module/source/13.0/siplib.c,
+	sipbuild/module/source/13.0/threads.c,
+	sipbuild/module/source/13.0/voidptr.c,
+	sipbuild/module/source/13.1/MANIFEST.in,
+	sipbuild/module/source/13.1/README.in,
+	sipbuild/module/source/13.1/array.c,
+	sipbuild/module/source/13.1/array.h,
+	sipbuild/module/source/13.1/bool.cpp,
+	sipbuild/module/source/13.1/descriptors.c,
+	sipbuild/module/source/13.1/int_convertors.c,
+	sipbuild/module/source/13.1/objmap.c,
+	sipbuild/module/source/13.1/pyproject.toml,
+	sipbuild/module/source/13.1/setup.cfg.in,
+	sipbuild/module/source/13.1/setup.py.in,
+	sipbuild/module/source/13.1/sip.h.in,
+	sipbuild/module/source/13.1/sip.pyi,
+	sipbuild/module/source/13.1/sip.rst.in,
+	sipbuild/module/source/13.1/sipint.h,
+	sipbuild/module/source/13.1/siplib.c,
+	sipbuild/module/source/13.1/threads.c,
+	sipbuild/module/source/13.1/voidptr.c,
+	sipbuild/module/source/13/MANIFEST.in,
+	sipbuild/module/source/13/README.in,
+	sipbuild/module/source/13/array.c,
+	sipbuild/module/source/13/array.h,
+	sipbuild/module/source/13/bool.cpp,
+	sipbuild/module/source/13/descriptors.c,
+	sipbuild/module/source/13/int_convertors.c,
+	sipbuild/module/source/13/objmap.c,
+	sipbuild/module/source/13/pyproject.toml,
+	sipbuild/module/source/13/setup.cfg.in,
+	sipbuild/module/source/13/setup.py.in,
+	sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/sip.pyi,
+	sipbuild/module/source/13/sip.rst.in,
+	sipbuild/module/source/13/sipint.h,
+	sipbuild/module/source/13/siplib.c,
+	sipbuild/module/source/13/threads.c,
+	sipbuild/module/source/13/voidptr.c, sipbuild/project.py:
+	Removed all but the latest minor versions of the sip module. ABI
+	versions, wherever specified, and now minimal versions with a
+	default minor version of 0.
+	[78e51dd152e0]
+
+2021-06-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/conf.py, doc/index.rst, doc/sipbuild_api.rst:
+	Added SetuptoolsBuilder to the documentation.
+	[15946098a760]
+
+	* sipbuild/setuptools_builder.py:
+	Completed the implementation of the setuptools builder.
+	[4da043f9c2a2]
+
+2021-06-16  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/__init__.py, sipbuild/builder.py, sipbuild/project.py,
+	sipbuild/py_versions.py, sipbuild/setuptools_builder.py:
+	Initial commit of the setuptools builder as the default for Python
+	v3.10.
+	[444a9a79ab75]
+
+	* Merged the 6.1-maint branch.
+	[f498dad306fc]
+
+2021-06-09  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.1.1 for changeset 68e408dc64b2
+	[0f156a2f669d] <6.1-maint>
+
+	* NEWS, code_generator/parser.c, code_generator/type_hints.c:
+	Remove a compiler warning message.
+	[68e408dc64b2] [6.1.1] <6.1-maint>
+
+2021-05-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/parser.c, doc/directives.rst:
+	Documented %TypeCode as a sub-directive of %MappedType.
+	[2d80ffb29025] <6.1-maint>
+
+2021-05-14  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/type_hints.c:
+	Fixed the handling of hidden namespaces in .pyi files.
+	[ae26a3124039] <6.1-maint>
+
+	* sipbuild/module/abi_version.py:
+	Fixed silly regressions.
+	[78f5acf82aab] <6.1-maint>
+
+	* sipbuild/module/abi_version.py:
+	Fixes for the minimum ABI version handling.
+	[d6d4322a6bfb] <6.1-maint>
+
+2021-05-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/pyproject_toml.rst, sipbuild/module/abi_version.py,
+	sipbuild/project.py:
+	The abi-version project option is interpreted as a minimum version
+	rather than an exact version.
+	[b633fe823865] <6.1-maint>
+
+2021-05-07  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.1.0 for changeset 1eb31e4c5375
+	[0ace21a13bf8]
+
+2021-05-05  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/directives.rst:
+	Corrected the %ConvertFromTypeCode documentation.
+	[1eb31e4c5375] [6.1.0]
+
+2021-05-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/module/source/12.7/sip.h.in,
+	sipbuild/module/source/12.7/siplib.c,
+	sipbuild/module/source/12.8/sip.h.in,
+	sipbuild/module/source/12.8/siplib.c,
+	sipbuild/module/source/12.9/sip.h.in,
+	sipbuild/module/source/12.9/siplib.c,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c,
+	sipbuild/module/source/13.1/sip.h.in,
+	sipbuild/module/source/13.1/siplib.c:
+	Backed out changeset e0f4c19915e4 The deprecation policy will be
+	implemented by the code generator.
+	[df00e8f06b98]
+
+2021-05-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/command_line_tools.rst, sipbuild/tools/build.py,
+	sipbuild/tools/install.py, sipbuild/tools/sdist.py,
+	sipbuild/tools/wheel.py:
+	The build tools may now be invoked using the '-m' command line
+	option of the Python interpreter.
+	[bb9fcbfbe7af]
+
+	* NEWS, sipbuild/module/source/12.7/sip.h.in,
+	sipbuild/module/source/12.7/siplib.c,
+	sipbuild/module/source/12.8/sip.h.in,
+	sipbuild/module/source/12.8/siplib.c,
+	sipbuild/module/source/12.9/sip.h.in,
+	sipbuild/module/source/12.9/siplib.c,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c,
+	sipbuild/module/source/13.1/sip.h.in,
+	sipbuild/module/source/13.1/siplib.c:
+	Implemented the sip module version deprecation policy. Bumped the
+	patch version of all deprecated sip module versions.
+	[e0f4c19915e4]
+
+2021-04-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/directives.rst:
+	Added an example to %Exception showing the conversion to a standard
+	Python exception.
+	[7e155daf8e08]
+
+	* NEWS, code_generator/gencode.c, code_generator/transform.c:
+	Fixed the inclusion of the %TypeHeaderCode for the new exception
+	handling.
+	[57e0bda6b2d8]
+
+2021-04-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/annotations.rst, doc/directives.rst:
+	Updated the docs regarding the exception handling changes.
+	[e8c9676d7db9]
+
+	* sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Reverted the v13.0 ABI to v13.0.1 as the .2 changes have been moved
+	to v13.1.0.
+	[a41fed2229c4]
+
+	* NEWS, code_generator/gencode.c, code_generator/parser.c,
+	code_generator/sip.h, sipbuild/module/source/12.9/MANIFEST.in,
+	sipbuild/module/source/12.9/README.in,
+	sipbuild/module/source/12.9/apiversions.c,
+	sipbuild/module/source/12.9/array.c,
+	sipbuild/module/source/12.9/array.h,
+	sipbuild/module/source/12.9/bool.cpp,
+	sipbuild/module/source/12.9/descriptors.c,
+	sipbuild/module/source/12.9/int_convertors.c,
+	sipbuild/module/source/12.9/objmap.c,
+	sipbuild/module/source/12.9/pyproject.toml,
+	sipbuild/module/source/12.9/qtlib.c,
+	sipbuild/module/source/12.9/setup.cfg.in,
+	sipbuild/module/source/12.9/setup.py.in,
+	sipbuild/module/source/12.9/sip.h.in,
+	sipbuild/module/source/12.9/sip.pyi,
+	sipbuild/module/source/12.9/sip.rst.in,
+	sipbuild/module/source/12.9/sipint.h,
+	sipbuild/module/source/12.9/siplib.c,
+	sipbuild/module/source/12.9/threads.c,
+	sipbuild/module/source/12.9/voidptr.c,
+	sipbuild/module/source/13.1/MANIFEST.in,
+	sipbuild/module/source/13.1/README.in,
+	sipbuild/module/source/13.1/array.c,
+	sipbuild/module/source/13.1/array.h,
+	sipbuild/module/source/13.1/bool.cpp,
+	sipbuild/module/source/13.1/descriptors.c,
+	sipbuild/module/source/13.1/int_convertors.c,
+	sipbuild/module/source/13.1/objmap.c,
+	sipbuild/module/source/13.1/pyproject.toml,
+	sipbuild/module/source/13.1/setup.cfg.in,
+	sipbuild/module/source/13.1/setup.py.in,
+	sipbuild/module/source/13.1/sip.h.in,
+	sipbuild/module/source/13.1/sip.pyi,
+	sipbuild/module/source/13.1/sip.rst.in,
+	sipbuild/module/source/13.1/sipint.h,
+	sipbuild/module/source/13.1/siplib.c,
+	sipbuild/module/source/13.1/threads.c,
+	sipbuild/module/source/13.1/voidptr.c:
+	The mapping of C++ exceptions to Python exceptions is now handled by
+	a module-specific handler rather than individual catch () clauses on
+	each try (). The handler deals with all exceptions defined in the
+	module. Throw specifiers in .sip files are no longer necessary, are
+	deprecated and will be removed in SIP v7.
+	[52a552c495c8]
+
+	* doc/c_api.rst:
+	Fixed a documentation typo.
+	[defc872d978b]
+
+2021-04-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/module/source/13.0/siplib.c:
+	Fixed the conversion to a Python EnumFlag when the high bit is set.
+	[6fe16ed8cfef]
+
+2021-04-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/metasrc/parser.y, code_generator/sip.h:
+	Removed an unused structure element in the code generator.
+	[6bcb3ee3dfbe]
+
+2021-04-11  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/module/source/13.0/siplib.c:
+	Clear a benign exception in v13 of the sip module.
+	[58fbd92097ea]
+
+2021-04-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/parser.h, code_generator/sip.h:
+	Removed some unused platform support code form the parser.
+	[7e4c7edc8e00]
+
+2021-04-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/lexer.c, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/parser.h:
+	Removed an unused lexer token.
+	[d44471a6ae5a]
+
+2021-03-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/lexer.c, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/parser.h, code_generator/sip.h,
+	code_generator/transform.c, doc/directives.rst,
+	doc/introduction.rst, doc/specification_files.rst:
+	Added noexcept as a synonym for a throw with an empty argument list.
+	[e0b203094913]
+
+	* code_generator/gencode.c:
+	Fixed the code generator for C++17 and later compilers.
+	[0238474cdfc5]
+
+	* NEWS, doc/command_line_tools.rst, doc/pyproject_toml.rst,
+	sipbuild/builder.py, sipbuild/project.py:
+	Added the scripts-dir project option.
+	[ffd0551c32cc]
+
+	* NEWS:
+	Updatd the NEWS file.
+	[f21ef29f2184]
+
+	* Merged the 6.0-maint branch.
+	[9ba9ad179d97]
+
+2021-03-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Fixed ABI v13 of the sip module where /Transfer/ of an argument to a
+	static class method was broken.
+	[49d0d1a42315] <6.0-maint>
+
+2021-03-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* Merged the 6.0-maint branch.
+	[92ab8a6b1ffe]
+
+2021-03-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.0.3 for changeset 5b9087955c2f
+	[462da812c5bc] <6.0-maint>
+
+	* NEWS:
+	Released as v6.0.3.
+	[5b9087955c2f] [6.0.3] <6.0-maint>
+
+	* NEWS:
+	Updated the NEWS file.
+	[e66c02a74819] <6.0-maint>
+
+2021-02-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* test/utils/sip_test_case.py:
+	Fixed the unit tests for Python v3.6 on macOS with a modern Xcode.
+	[6fb53fe6c8cd] <6.0-maint>
+
+	* NEWS, sipbuild/distutils_builder.py:
+	The distutils builder now respects the minimum-macos-version option.
+	[f8ed9858e120] <6.0-maint>
+
+2021-02-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/13.0/sip.h.in:
+	Removed some warning messages from the ABI v13.0 module.
+	[e6130b47f8d5] <6.0-maint>
+
+	* test/utils/sip_test_case.py:
+	Fixed the product tests for Windows.
+	[ad129f2dcf6b] <6.0-maint>
+
+	* sipbuild/distinfo/distinfo.py:
+	Fixed Root-Is-Purelib in wheel metadata.
+	[be16b36a02b8] <6.0-maint>
+
+2021-02-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.0.2 for changeset 5ac13045d9fc
+	[87e862dfa8a8] <6.0-maint>
+
+	* NEWS:
+	Released as v6.0.2.
+	[5ac13045d9fc] [6.0.2] <6.0-maint>
+
+	* NEWS:
+	Updated the NEWS file.
+	[264d1fe607df] <6.0-maint>
+
+2021-02-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/project.py:
+	A project with no buildable bindings is an error.
+	[f3211be5d53f] <6.0-maint>
+
+	* sipbuild/abstract_builder.py, sipbuild/bindings.py,
+	sipbuild/configurable.py, sipbuild/project.py:
+	Make sure a Configurable object is fully initialised before
+	get_options() is called.
+	[1c06dd81ae51] <6.0-maint>
+
+2021-02-09  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Fixed the handling of methods that wrap C++ virtuals that are called
+	with self as the first argument. (ABI v13)
+	[dbb5686e7a29] <6.0-maint>
+
+2021-02-05  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.0.1 for changeset 55609d9eca39
+	[272d3b59f505] <6.0-maint>
+
+	* NEWS:
+	Released as v6.0.1.
+	[55609d9eca39] [6.0.1] <6.0-maint>
+
+2021-02-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS:
+	Updated the NEWS file.
+	[11237db348cc] <6.0-maint>
+
+2021-01-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/13.0/siplib.c:
+	Fixed an ABI v13 bug in the error handling of enums.
+	[7a4baa5b68ea] <6.0-maint>
+
+2021-01-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/13.0/sip.rst.in:
+	Fixes to the sip module documentation for ABI v13.
+	[1c24c7a5a26d] <6.0-maint>
+
+2021-01-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/examples.rst, examples/package/core/pyproject.toml,
+	examples/package/extras/pyproject.toml,
+	examples/standalone/pyproject.toml:
+	Updated the examples for SIP v6.
+	[fcc07a8873f7] <6.0-maint>
+
+2021-01-26  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Fixed the conversion from C++ enums to Python enums in ABI v13.
+	Bumped the patch number of ABI v13.
+	[43a2e00b3bfe] <6.0-maint>
+
+2021-01-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/bindings.py:
+	Remove an unused import.
+	[83ac198abe93] <6.0-maint>
+
+2021-01-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/abi_13.rst:
+	Fixed the docs for sipConvertToEnum() in ABI v13.
+	[941ced8fc34a] <6.0-maint>
+
+2021-01-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/type_hints.c, sipbuild/module/source/12.8/sip.pyi,
+	sipbuild/module/source/13.0/sip.pyi:
+	Improve docstrings with SIP_PYBUFFER in their signature.
+	[96d36bf1cbf6] <6.0-maint>
+
+	* code_generator/type_hints.c:
+	Fixed the type used for unencoded char arrays in signatures and type
+	hints.
+	[8dfb37409551] <6.0-maint>
+
+2021-01-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.0.0 for changeset 02dc4506071b
+	[b31b6e104f3a]
+
+	* NEWS:
+	Released as v6.0.0.
+	[02dc4506071b] [6.0.0]
+
+	* NEWS:
+	Updated the NEWS file.
+	[09bf908e62a3]
+
+2021-01-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/type_hints.c:
+	Fixes for parsing a Callable with no arguments.
+	[079bfb5a21f9]
+
+	* sipbuild/module/source/12.8/sip.pyi,
+	sipbuild/module/source/13.0/sip.pyi:
+	sip.array is now defined as a Generic.
+	[ab85330e99a9]
+
+	* sipbuild/module/source/12.8/sip.pyi,
+	sipbuild/module/source/13.0/array.c,
+	sipbuild/module/source/13.0/sip.pyi,
+	sipbuild/module/source/13.0/siplib.c,
+	sipbuild/module/source/13.0/voidptr.c:
+	Updated sip.py for the latest v12 and v13 ABIs. Fixed the fully
+	qualified names of sip.arry and sip.voidptr for ABI v13.
+	[41f0d76c1d2c]
+
+2021-01-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/type_hints.c:
+	Fixed anonymous enums within a class scope.
+	[be2022d8897e]
+
+	* code_generator/type_hints.c:
+	Fixed references to sip.Buffer.
+	[28f5338407d2]
+
+	* code_generator/type_hints.c, sipbuild/module/source/13.0/sip.pyi:
+	str does not implement the buffer protocol.
+	[4ce3048ef4f5]
+
+	* code_generator/type_hints.c:
+	Explicit type hints must be written using C/C++ (rather than Python)
+	names.
+	[83ed4a713221]
+
+	* code_generator/type_hints.c:
+	Fixed the annotated type of an enum member.
+	[ac74e9b3b819]
+
+	* doc/pyproject_toml.rst, sipbuild/builder.py,
+	sipbuild/module/__init__.py, sipbuild/module/module.py:
+	sip.pyi and py.typed are installed if dunder-init is specified and
+	at least one set of bindings has pep484-pyi specified.
+	[f4975184730a]
+
+2021-01-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/command_line_tools.rst,
+	sipbuild/module/source/13.0/setup.cfg.in:
+	sip-module documentation tweaks.
+	[02aedf4371b3]
+
+2020-12-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/module.py:
+	Fixed the handling of sip.pyi with a bespoke setup.py.
+	[647860b45944]
+
+2020-12-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Don't call qMetaTypeId() for protected enums.
+	[f979e6d2ac19]
+
+	* NEWS, code_generator/export.c, code_generator/gencode.c,
+	code_generator/lexer.c, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/parser.h, code_generator/sip.h,
+	code_generator/transform.c, code_generator/type_hints.c,
+	doc/specification_files.rst:
+	Added support for Py_hash_t and require that __hash__() returns it
+	(ABI v13).
+	[3a90049a9739]
+
+2020-12-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS:
+	Updated the NEWS file.
+	[bbbb73d52897]
+
+	* doc/specification_files.rst:
+	Updated the documentation.
+	[ba19420435bb]
+
+	* code_generator/export.c, code_generator/gencode.c,
+	code_generator/lexer.c, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/parser.h, code_generator/sip.h,
+	code_generator/transform.c, doc/specification_files.rst:
+	Added support for unions.
+	[4f46ffe3cae2]
+
+	* sipbuild/module/source/13.0/siplib.c:
+	Fixed some const warnings.
+	[94e42a8b7348]
+
+	* code_generator/gencode.c, code_generator/transform.c:
+	For PyQt6 generate calls to qMetaTypeId() for all enums.
+	[e78a7db5c7f4]
+
+2020-12-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/13.0/siplib.c:
+	In ABI v13, flag-based enums are implicitly unsigned.
+	[321395c9f284]
+
+2020-12-09  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/13.0/siplib.c:
+	Make sure lazy enum objects have been created before they are
+	needed.
+	[cf513b28ab5a]
+
+	* code_generator/transform.c:
+	Fix type comparisons for ABI 13 enums.
+	[d0ddc56a213b]
+
+2020-12-05  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/type_hints.c:
+	Fix the handling of the sip module in a .pyi file.
+	[908ce64273e0]
+
+	* code_generator/type_hints.c:
+	Improvements to the enum type hints.
+	[b01329a761d8]
+
+2020-12-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/export.c, code_generator/gencode.c,
+	code_generator/pybinding.c, code_generator/sip.h,
+	code_generator/type_hints.c, sipbuild/bindings.py,
+	sipbuild/builder.py:
+	Fixed the .pyi and .api files generation for ABI 13 enums.
+	[a16b972e11a1]
+
+2020-12-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	/ExportDerived/ classes are no wexported to all modules.
+	[879385124242]
+
+2020-12-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/transform.c, sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Fixed the fully qualified names of the sip builtin types.
+	[dd8890f9c5d4]
+
+	* sipbuild/module/source/13.0/siplib.c:
+	Fixed an ABI v13 bug when calling the methods of a simple wrapped
+	type.
+	[d293f405ff6b]
+
+2020-11-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Fixed the code generator when wrapping C structs.
+	[0be39a49c1be]
+
+2020-11-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* LICENSE:
+	Minor updates to the license as it can alos be applied to other
+	products.
+	[e0a63c5e1c95]
+
+2020-11-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Fixed a regression in the formatting of copyright text.
+	[3455f242ae88]
+
+2020-11-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Enums can now have dunder methods in ABI v13.
+	[e20eb1bd6911]
+
+2020-11-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Bug fix.
+	[efaf6b130dfe]
+
+2020-11-11  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Fixed mapped type converters that need user state.
+	[f8644759234c]
+
+	* doc/abi_13.rst, sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Added the 'bi_readonly' to the buffer definition for ABI v13.
+	[271e8f372358]
+
+	* code_generator/gencode.c:
+	Properly handle non-printable character values.
+	[a96d24fe28bb]
+
+	* code_generator/gencode.c:
+	Bug fixes.
+	[9fb08a289ef4]
+
+	* code_generator/gencode.c:
+	Fixed extraneous comma.
+	[ea88983d4626]
+
+2020-11-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/lexer.c, code_generator/metasrc/lexer.l:
+	The lexer can now handle '\xNN' characters.
+	[da24f14374a2]
+
+2020-11-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/abi_12.rst, doc/abi_13.rst, doc/index.rst:
+	Added the ABI v12 docs.
+	[e9967c92b59c]
+
+	* doc/abi_13.rst, doc/c_api.rst, doc/index.rst:
+	Separated out the version-specific ABI docs to its old section.
+	[692b4b967230]
+
+	* doc/c_api.rst, doc/directives.rst:
+	Documented %ReleaseCode and SIP_USER.
+	[59ca850376ff]
+
+	* sipbuild/module/source/13.0/sip.h.in:
+	Added SIP_USER to be used by mapped type convertors.
+	[bee43981cfef]
+
+	* sipbuild/module/source/13.0/sip.h.in:
+	Add reserved fields to the type and wrapper structure to allow for
+	some future expansion without needing to define a new major ABI
+	version.
+	[9d561c266054]
+
+	* code_generator/gencode.c, code_generator/lexer.c,
+	code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, code_generator/transform.c,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Removed the support for user state in class convertors. Added the
+	%ReleaseCode mapped type directive.
+	[d662f0a68da2]
+
+2020-10-31  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/c_api.rst, doc/directives.rst:
+	Documented the ABI changes to support user states in type
+	convertors.
+	[6c4c211ce6a9]
+
+	* code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/sip.h,
+	sipbuild/module/source/13.0/array.c,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/sipint.h,
+	sipbuild/module/source/13.0/siplib.c:
+	Added support for a user state to be used by class and mapped type
+	convertors for conversions that have to maintain complex state
+	information in order not to leak memory. Added sipConvertToTypeUS(),
+	sipForceConvertToTypeUS() and sipReleaseTypeUS() to the v13 ABI.
+	[a238d4801c11]
+
+2020-10-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/directives.rst, sipbuild/module/source/13.0/siplib.c:
+	Some clarifications to the %ConvertToTypeCode documentation.
+	[43c1a55a7078]
+
+	* sipbuild/module/source/13.0/siplib.c:
+	Raise an exception if a mapped type seems to need
+	%ConvertToTypeCode.
+	[5041fb0eec73]
+
+	* code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/transform.c,
+	sipbuild/module/source/13.0/siplib.c:
+	%ConvertFromTypeCode and %ConvertToTypeCode are now optional for
+	mapped types. An exception will be raised at runtime if they are
+	required.
+	[0a61fc6eb36a]
+
+2020-10-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/pyproject_toml.rst, sipbuild/bindings.py,
+	sipbuild/buildable.py, sipbuild/distutils_builder.py:
+	Added the 'extra-compile-args', 'extra-link-args' and 'extra-
+	objects' bindings options.
+	[4b10f553a9b5]
+
+2020-10-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/pyproject_toml.rst:
+	Improved the description of user options.
+	[67db9d334dfd]
+
+2020-10-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, doc/directives.rst,
+	sipbuild/module/source/13.0/descriptors.c,
+	sipbuild/module/source/13.0/siplib.c:
+	For ABI v13, any %MethodCode of a static class method will be passed
+	the corresponding Python class object in sipSelf.
+	[835825ce853d]
+
+2020-10-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/pybinding.c, code_generator/sip.h,
+	sipbuild/bindings.py:
+	Fixed a bug where details from an imported .toml file weren't being
+	passed to the code generator.
+	[cfbc93cb5b41]
+
+2020-10-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/export.c, code_generator/gencode.c,
+	code_generator/lexer.c, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/parser.h, code_generator/sip.h,
+	code_generator/transform.c, code_generator/type_hints.c,
+	doc/c_api.rst, sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Implemented SIP_PYENUM and sipIsEnumFlag().
+	[db87f3d9d4cc]
+
+	* code_generator/gencode.c, doc/c_api.rst,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Removed the sipSetNewUserTypeHandler() hook for ABI v13.
+	[8878279d4163]
+
+	* sipbuild/module/source/13.0/sip.pyi:
+	Updated sip.pyi for ABI v13.
+	[a7cd289aa324]
+
+	* code_generator/gencode.c, doc/c_api.rst,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Removed sipGetFrame() from ABI v13.
+	[119a6ee2e85b]
+
+2020-10-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Fixes for the new enum data structures.
+	[f3fb956779ab]
+
+2020-09-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/13.0/siplib.c:
+	Fixed the handling of enums in nested imports.
+	[4843fc4cca0b]
+
+	* sipbuild/module/source/13.0/siplib.c:
+	All static attributes are now lazy.
+	[a37a7b4a1fc1]
+
+	* sipbuild/module/source/13.0/siplib.c:
+	Tidied up the import of types from the enum module.
+	[1d4d54f11b0f]
+
+	* code_generator/gencode.c, sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Refactored the data structures defining enums.
+	[5ae26eaadcf3]
+
+2020-09-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/pyproject.py:
+	Fixed the handling of lists of strings in tool.sip.metadata section.
+	[ddc4e65acd29]
+
+2020-09-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* test/enums/enums.sip, test/enums/test_enums.py:
+	Updated the enum unit tests.
+	[a153a59b0b1a]
+
+2020-09-25  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* test/utils/sip_test_case.py:
+	The ABI version can now be specified for unit tests.
+	[c135cfb50514]
+
+2020-09-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c,
+	doc/annotations.rst:
+	Python names automatically have a '_' appended if they are Python
+	keywords.
+	[893f482b37c7]
+
+	* code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Added the /BaseType/ enum annotation.
+	[67153019c542]
+
+2020-09-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/sip.h, doc/annotations.rst,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Implemented the /BaseType/ enum annotation.
+	[3f4089bf53a8]
+
+	* sipbuild/module/source/13.0/siplib.c:
+	Fixes for enums.
+	[20782a384af7]
+
+2020-09-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/project.py:
+	Only verify the name of the sip module if it is going to be needed.
+	[b8f357f9309e]
+
+2020-09-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/abi_version.py:
+	Merged the current default-5 branch.
+	[141d1f830574]
+
+	* NEWS, doc/command_line_tools.rst, doc/pyproject_toml.rst,
+	sipbuild/module/abi_version.py, sipbuild/module/main.py:
+	When the ABI version is specified the minor version is now optional.
+	[94a7bcc9d5ad] <default-5>
+
+	* sipbuild/abstract_project.py:
+	Import importlib.util explicitly.
+	[d84c448a9a60] <default-5>
+
+	* NEWS, doc/sipbuild_api.rst, sipbuild/bindings.py,
+	sipbuild/buildable.py:
+	Added the Buildable.exceptions attribute.
+	[2db4f291a75a] <default-5>
+
+2020-09-14  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/13.0/siplib.c:
+	Fixed the pickle support in ABI v13.0.
+	[e083f78fc3ac]
+
+2020-09-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/sip.h,
+	sipbuild/module/source/13.0/sip.h.in:
+	Implemented the PyQt6 %Plugin.
+	[e2046f4b04d3]
+
+	* code_generator/gencode.c, sipbuild/module/source/13.0/sip.rst.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Removed sipSetDestroyOnExit() in ABI v13.
+	[dd80c441fb39]
+
+2020-09-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* rb-product:
+	The next major release will be v6.
+	[f5d21e0b7acb]
+
+2020-09-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Fixed some ABI v12 code generator regressions.
+	[43e160cdc8c1]
+
+	* code_generator/lexer.c, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/parser.h:
+	Restored the parsing of the Python v2 buffer interface directives so
+	that PyQt5 can still build with SIP v6.
+	[7e822b1967f0]
+
+	* sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Removed more deprecated parts of the v13 ABI.
+	[3bf4247a67ce]
+
+	* sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Fix a typo.
+	[1356de353c1e]
+
+	* sipbuild/module/source/13.0/siplib.c:
+	Tidied up the enum support in ABI v13.
+	[0988a95682e4]
+
+	* test/enums/enums.sip, test/enums/test_enums.py,
+	test/int_convertors/test_int_convertors.py,
+	test/utils/sip_test_case.py:
+	Refined the enum support tests.
+	[36e01687844b]
+
+2020-09-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	In ABI v13 scoped enums are implemented using Enum, named enums
+	using IntEnum.
+	[16db072a29eb]
+
+	* test/enums/enums.sip, test/enums/test_enums.py,
+	test/int_convertors/__init__.py,
+	test/int_convertors/int_convertors.sip, test/int_convertors/mk.sh,
+	test/int_convertors/run_test.py, test/int_convertors/test.h,
+	test/int_convertors/test.sip,
+	test/int_convertors/test_int_convertors.py,
+	test/utils/sip_test_case.py:
+	Refactored the int_convertor tests.
+	[b812bfd830a6]
+
+2020-09-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* test/enums/enums.sip, test/enums/test_enums.py:
+	Completed the implementation of the enum tests for ABI v13.
+	[db1f31dd0ecc]
+
+	* test/enums/__init__.py, test/enums/enums.sip,
+	test/enums/test_enums.py, test/utils/__init__.py,
+	test/utils/sip_test_case.py:
+	Added the stubs of the test framework.
+	[951870ffe8f6]
+
+	* code_generator/gencode.c, code_generator/lexer.c,
+	code_generator/parser.c, code_generator/parser.h,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	All enums are scoped when using ABI v13.
+	[e65e288ab296]
+
+2020-08-31  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, code_generator/sip.h:
+	Use symbolic names for ABI versions.
+	[f3e85f184f8f]
+
+	* code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	doc/directives.rst:
+	Removed ramaining deprecated directives.
+	[eef470e0a810]
+
+	* doc/annotations.rst, doc/directives.rst, doc/other_topics.rst:
+	Updated the docs to remove references to alternate APIs.
+	[87f1b5a7b0b0]
+
+	* code_generator/export.c, code_generator/gencode.c,
+	code_generator/lexer.c, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/parser.h, code_generator/sip.h,
+	code_generator/transform.c, code_generator/type_hints.c:
+	Removed the code generator support for API versions.
+	[0b6eb95b003a]
+
+2020-08-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, doc/c_api.rst,
+	sipbuild/module/source/13.0/apiversions.c,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/sipint.h,
+	sipbuild/module/source/13.0/siplib.c:
+	Removed the module support for API versions.
+	[490813cffcae]
+
+	* sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Removed the legacy enum implementation.
+	[8bbc5f7cdebd]
+
+	* code_generator/gencode.c, sipbuild/module/source/13.0/qtlib.c,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/sipint.h,
+	sipbuild/module/source/13.0/siplib.c:
+	Removed the legacy Qt support for the v13 ABI.
+	[a2a02ede6655]
+
+	* code_generator/gencode.c,
+	sipbuild/module/source/13.0/int_convertors.c,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/sip.rst.in,
+	sipbuild/module/source/13.0/sipint.h,
+	sipbuild/module/source/13.0/siplib.c:
+	The v13 ABI int convertors now always check for overflow.
+	[d42234faac3d]
+
+	* sipbuild/module/source/13.0/siplib.c:
+	Remove PY_LONG_LONG from the v13 ABI module.
+	[c965c36dba2c]
+
+	* sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/siplib.c:
+	Removed the deprecated functions from the v13 ABI.
+	[8165308f7013]
+
+	* doc/annotations.rst, doc/c_api.rst, doc/index.rst,
+	doc/introduction.rst, doc/legacy_command_line_tools.rst, setup.py,
+	sipbuild/legacy/__init__.py, sipbuild/legacy/sip5.py:
+	Removed sip5.
+	[5c76c3af2534]
+
+	* code_generator/gencode.c, doc/c_api.rst,
+	sipbuild/module/source/13.0/sip.h.in:
+	Removed all references to PY_LONG_LONG.
+	[7e07874d8288]
+
+	* code_generator/gencode.c:
+	ABI version dependent code is now selected at code generation time
+	rather than compile time.
+	[d272db570301]
+
+	* code_generator/pybinding.c, code_generator/sip.h,
+	sipbuild/helpers.py, sipbuild/module/abi_version.py:
+	The ABI version used by the code generator is now encoded. Only the
+	ABI major version is checked for compatibility when importing
+	modules.
+	[0e19b1b0d40a]
+
+2020-08-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* setup.py, sipbuild/py_versions.py:
+	Python v3.6 is the minimum supported version.
+	[be98cab3eb2c]
+
+	* sipbuild/module/source/13.0/MANIFEST.in,
+	sipbuild/module/source/13.0/README.in,
+	sipbuild/module/source/13.0/apiversions.c,
+	sipbuild/module/source/13.0/array.c,
+	sipbuild/module/source/13.0/array.h,
+	sipbuild/module/source/13.0/bool.cpp,
+	sipbuild/module/source/13.0/descriptors.c,
+	sipbuild/module/source/13.0/int_convertors.c,
+	sipbuild/module/source/13.0/objmap.c,
+	sipbuild/module/source/13.0/pyproject.toml,
+	sipbuild/module/source/13.0/qtlib.c,
+	sipbuild/module/source/13.0/setup.cfg.in,
+	sipbuild/module/source/13.0/setup.py.in,
+	sipbuild/module/source/13.0/sip.h.in,
+	sipbuild/module/source/13.0/sip.pyi,
+	sipbuild/module/source/13.0/sip.rst.in,
+	sipbuild/module/source/13.0/sipint.h,
+	sipbuild/module/source/13.0/siplib.c,
+	sipbuild/module/source/13.0/threads.c,
+	sipbuild/module/source/13.0/voidptr.c:
+	Add the initial v13.0.0 module implementation.
+	[646d1d0e0c8d]
+
+	* .hgtags:
+	Added tag 5.4.0 for changeset 8d2e8033d480
+	[b736b5d06f8e]
+
+	* NEWS:
+	Released as v5.4.0.
+	[8d2e8033d480] [5.4.0]
+
+	* NEWS:
+	Updated the NEWS file.
+	[6d1dfe8ad675]
+
+2020-08-26  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/command_line_tools.rst, doc/pyproject_toml.rst,
+	sipbuild/distutils_builder.py, sipbuild/project.py:
+	Implemented the 'distinfo' project option and the corresponding
+	'--no-distinfo' command line option to sip-install.
+	[ec66f6f117e3]
+
+2020-08-25  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/examples.rst:
+	Fixed a typo.
+	[5450ad7113fd]
+
+2020-08-23  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Always cache the instance created by %InstanceCode.
+	[ccded01b60ee]
+
+	* code_generator/gencode.c:
+	Fix a memory leak when using %InstanceCode.
+	[5d7dbd0e6789]
+
+	* code_generator/gencode.c, code_generator/lexer.c,
+	code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, doc/annotations.rst, doc/directives.rst,
+	doc/specification_files.rst:
+	Backed out changeset d91afeaf61d4 The use of %InstanceOnStackCode
+	doesn't really help in practice.
+	[ea0cb8eb8259]
+
+2020-08-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, code_generator/lexer.c,
+	code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, doc/annotations.rst, doc/directives.rst,
+	doc/specification_files.rst:
+	Implemented %InstanceOnHeapCode and deprecated %InstanceCode as a
+	synonym.
+	[d91afeaf61d4]
+
+	* sipbuild/project.py:
+	Fixed some error messages.
+	[19939e9dd869]
+
+	* NEWS, doc/sipbuild_api.rst, sipbuild/__init__.py:
+	Added SIP_VERSION and SIP_VERSION_STR to the public API.
+	[d48960abf941]
+
+	* Merged the 5.3-maint branch.
+	[04b37e3e0ab3]
 
 2020-08-13  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* .hgtags:
-	Added tag 4.19.24 for changeset 58ae1285600a
-	[c7643763a774] <4.19-maint>
+	* sipbuild/module/source/12.7/sip.h.in:
+	Bumped the patch number of the v12.7 module.
+	[0a03e675981d] <5.3-maint>
 
-	* NEWS:
-	Released as v4.19.24.
-	[58ae1285600a] [4.19.24] <4.19-maint>
-
-	* NEWS:
-	Updated the NEWS file.
-	[bd6439b5b0f4] <4.19-maint>
-
-	* siplib/qtlib.c, siplib/siplib.c:
+	* sipbuild/module/source/12.7/qtlib.c,
+	sipbuild/module/source/12.7/siplib.c,
+	sipbuild/module/source/12.8/qtlib.c,
+	sipbuild/module/source/12.8/siplib.c:
 	Removed the use of calls deprecated in Python v3.9.
-	[88c711a50c84] <4.19-maint>
+	[de8b71919101] <5.3-maint>
+
+	* NEWS, sipbuild/py_versions.py:
+	Added support for Python v3.9.
+	[998146d601c8] <5.3-maint>
+
+2020-08-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/bindings.py:
+	Fix the handling of 'headers' in the bindings section.
+	[0907d1ee4fd3] <5.3-maint>
 
 2020-08-07  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* sipgen/gencode.c:
+	* code_generator/gencode.c:
 	Fixed a regression in the virtual handler code.
-	[75cefc83ee99] <4.19-maint>
+	[ecee0c78b692] <5.3-maint>
 
-	* NEWS:
-	Updated the NEWS file.
-	[a7fd24da4f99] <4.19-maint>
-
-	* configure.py.in:
-	'android_abi' can now be specified in the configuration file used to
-	build the sip module.
-	[c2cb1ee42ee6] <4.19-maint>
-
-	* sipgen/gencode.c:
+	* code_generator/gencode.c:
 	Any %InstanceCode is now used to create the default result of a
 	virtual handler returning a class or mapped type by value.
-	[e8734cf0ff7e] <4.19-maint>
+	[59244b9e38fd] <5.3-maint>
 
-2020-06-08  Phil Thompson  <phil@riverbankcomputing.com>
+2020-07-10  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* .hgtags:
-	Added tag 4.19.23 for changeset 853c4a8b4592
-	[bc406c09424f] <4.19-maint>
+	* doc/c_api.rst, doc/sipbuild_api.rst:
+	Eliminated most Sphinx warnings.
+	[d15b72c7732c] <5.3-maint>
 
-	* NEWS:
-	Released as v4.19.23.
-	[853c4a8b4592] [4.19.23] <4.19-maint>
+	* NEWS, doc/c_api.rst, sipbuild/module/source/12.7/siplib.c,
+	sipbuild/module/source/12.8/siplib.c:
+	sipGetFrame() will always return NULL on PyPy.
+	[c4be7a068f6d] <5.3-maint>
 
 2020-06-05  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* siplib/siplib.c:
+	* sipbuild/module/source/12.7/sip.h.in,
+	sipbuild/module/source/12.7/siplib.c,
+	sipbuild/module/source/12.8/sip.h.in,
+	sipbuild/module/source/12.8/siplib.c:
 	Preserve any current exception in the implementation of the wrapper
 	dealloc functions.
-	[a5b6af9fab5a] <4.19-maint>
+	[2e916f0a1971] <5.3-maint>
 
 2020-06-04  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* sipgen/gencode.c:
+	* code_generator/gencode.c:
 	Check there is a public copy ctor when we can't using an assigment
 	operator as a workaround.
-	[19026da2a827] <4.19-maint>
+	[ba341c676185] <5.3-maint>
+
+2020-06-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/distinfo/distinfo.py:
+	Fixed the handling of the --metadata option to sip-distinfo.
+	[d3bdeb6b323c] <5.3-maint>
 
 2020-06-01  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* sipgen/gencode.c:
+	* code_generator/gencode.c:
 	Fixed the code generation when making a copy of C++ object on the
 	stack to the heap when the class has no suitable ctor.
-	[42c99f4c1784] <4.19-maint>
+	[046ee950675b] <5.3-maint>
 
 2020-05-30  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* sipgen/gencode.c, sipgen/sip.h.in, sipgen/transform.c:
+	* .hgtags:
+	Added tag 5.3.0 for changeset 6169324910f8
+	[0f95709e589e]
+
+	* NEWS:
+	Released as v5.3.0.
+	[6169324910f8] [5.3.0]
+
+	* code_generator/gencode.c, code_generator/sip.h,
+	code_generator/transform.c:
 	The code generator now distinguishes between the copy/assignment
 	helper and the array helper when determining which helpers can be
 	generated.
-	[22ababb6d14a] <4.19-maint>
+	[536c209b282b]
+
+	* sipbuild/distutils_builder.py:
+	The distutils builder undefines NDEBUG when building a debug
+	extension.
+	[6a373c6990a2]
 
 2020-05-29  Phil Thompson  <phil@riverbankcomputing.com>
 
 	* NEWS:
 	Updated the NEWS file.
-	[c7dc4668d384] <4.19-maint>
+	[41526be0a9fc]
+
+2020-05-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/12.8/siplib.c:
+	Eliminate a compiler warning message from the sip module.
+	[1e5f098bad27]
 
 2020-05-22  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* sipgen/gencode.c:
+	* code_generator/gencode.c:
 	Fixed the wrapping of methods that return a Py_Ssize_t.
-	[d85e9957e726] <4.19-maint>
+	[ccf21caaafd5]
+
+2020-05-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/pyproject_toml.rst, sipbuild/builder.py,
+	sipbuild/project.py:
+	Added support for the minimum-macos-version project option.
+	[83b7fa6c624f]
+
+	* NEWS, doc/command_line_tools.rst, doc/sipbuild_api.rst,
+	sipbuild/distinfo/distinfo.py, sipbuild/distinfo/main.py,
+	sipbuild/project.py:
+	Added the ability for a project.py to dynamically override any
+	values in the metadata section of the pyproject.toml file.
+	[fa104bfeb756]
+
+2020-05-07  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/command_line_tools.rst, doc/pyproject_toml.rst,
+	sipbuild/builder.py, sipbuild/distinfo/distinfo.py,
+	sipbuild/distinfo/main.py, sipbuild/distutils_builder.py,
+	sipbuild/project.py:
+	Implemented support for GUI entry points.
+	[e4f7387f390d]
+
+	* doc/riverbank/static/logo_tn.ico, sipbuild/docs/extract_xml.py,
+	sipbuild/docs/sip.rst.in:
+	Merged the 5.2-maint branch.
+	[ebac74e95d15]
+
+2020-05-06  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/riverbank/static/logo_tn.ico, doc/riverbank/static/logo_tn.png:
+	Fixed the logo thumbnail.
+	[b11a9186f972] <5.2-maint>
+
+2020-04-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/introduction.rst:
+	Fixed a typo in the docs.
+	[9354b060c0d2] <5.2-maint>
+
+2020-04-25  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c,
+	sipbuild/module/source/12.8/MANIFEST.in,
+	sipbuild/module/source/12.8/README.in,
+	sipbuild/module/source/12.8/apiversions.c,
+	sipbuild/module/source/12.8/array.c,
+	sipbuild/module/source/12.8/array.h,
+	sipbuild/module/source/12.8/bool.cpp,
+	sipbuild/module/source/12.8/descriptors.c,
+	sipbuild/module/source/12.8/int_convertors.c,
+	sipbuild/module/source/12.8/objmap.c,
+	sipbuild/module/source/12.8/pyproject.toml,
+	sipbuild/module/source/12.8/qtlib.c,
+	sipbuild/module/source/12.8/setup.cfg.in,
+	sipbuild/module/source/12.8/setup.py.in,
+	sipbuild/module/source/12.8/sip.h.in,
+	sipbuild/module/source/12.8/sip.pyi,
+	sipbuild/module/source/12.8/sip.rst.in,
+	sipbuild/module/source/12.8/sipint.h,
+	sipbuild/module/source/12.8/siplib.c,
+	sipbuild/module/source/12.8/threads.c,
+	sipbuild/module/source/12.8/voidptr.c:
+	Implemented v12.8.0 of the module API. This adds
+	sip_api_is_py_method_12_8() to the private API. This is required to
+	fix a race condition.
+	[18ccf3088f98] <5.2-maint>
+
+	* sipbuild/docs/extract_xml.py, sipbuild/docs/sip.rst.in:
+	Removed the unused docs stuff.
+	[b80569e35e69] <5.2-maint>
+
+2020-04-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Ensure an exception is raised if the _C_API object is missing.
+	[fb88edaf0787] <5.2-maint>
 
 2020-04-22  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* sipgen/gencode.c:
+	* code_generator/gencode.c:
 	Fixed a race condition when calling the PyQt5-specific meta-call
 	helper.
-	[812b5e26df96] <4.19-maint>
+	[32dcbf1b2cb7] <5.2-maint>
 
-2020-04-12  Phil Thompson  <phil@riverbankcomputing.com>
+2020-04-10  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* configure.py.in:
-	Added some missing quotes to configure.py.
-	[b5f2f60e72e5] <4.19-maint>
+	* .hgtags:
+	Added tag 5.2.0 for changeset 32b952854ba0
+	[c3190dc398f3]
+
+	* NEWS:
+	Released as v5.2.0.
+	[32b952854ba0] [5.2.0]
+
+	* doc/command_line_tools.rst, sipbuild/builder.py,
+	sipbuild/project.py:
+	Check that the --api-dir passed to sip-wheel is relative.
+	[8c983e23971b]
+
+2020-04-09  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, doc/pyproject_toml.rst, sipbuild/builder.py,
+	sipbuild/project.py:
+	Implemented the 'wheel-includes' project option to specify
+	additional files and directories to be included in a wheel.
+	[fa7ba41ab2f9]
+
+	* NEWS:
+	Updated the NEWS file with the manylinux changes.
+	[1091be2b84d6]
+
+	* doc/introduction.rst:
+	Documented the EOL policy for old versions of Python.
+	[8445ebb23475]
+
+	* sipbuild/builder.py:
+	Bug fixes for the manylinux support.
+	[290485613492]
+
+	* doc/command_line_tools.rst, doc/pyproject_toml.rst,
+	sipbuild/builder.py, sipbuild/project.py:
+	The --no-manylinux command line option in sip-wheel and the
+	manylinux option of the project section of the pyproject.toml file
+	now allow the use of manylinux to be disabled. The assumption that a
+	Linux system is Intel based has been removed.
+	[2d59d6ea36f5]
+
+	* Roadmap.rst, sipbuild/module/source/12.7/bool.cpp:
+	Merged the 5.1-maint branch.
+	[ed9febb3846b]
+
+2020-04-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* Roadmap.rst:
+	Removed the roadmap.
+	[d0a95944f9c5] <5.1-maint>
+
+	* setup.py, sipbuild/module/source/12.7/setup.py.in:
+	Make sure builds of the code generator and sip module are
+	reproducable.
+	[8fd99799510a] <5.1-maint>
 
 2020-04-02  Phil Thompson  <phil@riverbankcomputing.com>
 
 	* .hgtags:
-	Added tag 4.19.22 for changeset 4ca6f06991d5
-	[e06a23d69f9d] <4.19-maint>
+	Added tag 5.1.2 for changeset 5bff00fa04bd
+	[d59d5a722a2e] <5.1-maint>
 
 	* NEWS:
-	Released as v4.19.22.
-	[4ca6f06991d5] [4.19.22] <4.19-maint>
+	Released as v5.1.2.
+	[5bff00fa04bd] [5.1.2] <5.1-maint>
 
 	* NEWS:
 	Updated the NEWS file.
-	[35cfe4fb8b1e] <4.19-maint>
+	[8d80b35aa420] <5.1-maint>
+
+2020-03-23  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/project.py, sipbuild/pyproject.py:
+	Improved the error reporting of invalid pyproject.toml files.
+	[4514127c0108] <5.1-maint>
+
+2020-03-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/12.7/sip.h.in:
+	Bumped the patch level of the latest ABI version (reflecting the
+	sdist changes rather than any change to the ABI itself).
+	[268177a038f0] <5.1-maint>
+
+	* sipbuild/module/source/12.7/MANIFEST.in:
+	Explicitly include pyproject.toml in case setuptools earlier that
+	v43 is being used.
+	[28dd5f587922] <5.1-maint>
+
+	* sipbuild/module/source/12.7/MANIFEST.in:
+	Explicitly include bool.cpp so that it is included in sdists created
+	on non-Windows platforms.
+	[36cd916ae5a0] <5.1-maint>
+
+2020-03-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/bindings.py, sipbuild/buildable.py:
+	Fixed the handling of the limited API in all cases.
+	[c642a557b0ad] <5.1-maint>
 
 2020-03-12  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* sipgen/metasrc/parser.y:
+	* code_generator/metasrc/parser.y, code_generator/parser.c:
 	Fixed the handling of keyword argument names in imported class
 	templates.
-	[1510ce7f5463] <4.19-maint>
+	[12739f9f8cf2] <5.1-maint>
+
+	* doc/c_api.rst:
+	Minor documentation fixes.
+	[b18d01c8d3e1] <5.1-maint>
+
+2020-03-09  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/pybinding.c:
+	Minor code tidy up.
+	[b046b1736113] <5.1-maint>
+
+	* code_generator/pybinding.c:
+	Fixed a reference counting bug.
+	[35391ff6a987] <5.1-maint>
+
+	* sipbuild/project.py:
+	Make sure resources don't leak when reading from a pipe.
+	[e47417e9f884] <5.1-maint>
+
+2020-03-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* MANIFEST.in:
+	Include the examples directory in the sdist.
+	[bfc2866c00ad] <5.1-maint>
+
+2020-02-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/c_api.rst:
+	Fixed the event handler documentation.
+	[b1c60907f053] <5.1-maint>
 
 2020-01-31  Phil Thompson  <phil@riverbankcomputing.com>
 
 	* .hgtags:
-	Added tag 4.19.21 for changeset a2a4d8ba9178
-	[dd9bc7744ed8] <4.19-maint>
+	Added tag 5.1.1 for changeset 0e8ba3aa2164
+	[79c230bece9f] <5.1-maint>
 
 	* NEWS:
-	Released as v4.19.21.
-	[a2a4d8ba9178] [4.19.21] <4.19-maint>
+	Released as v5.1.1.
+	[0e8ba3aa2164] [5.1.1] <5.1-maint>
+
+	* sipbuild/module/source/12.7/bool.cpp,
+	sipbuild/module/source/12.7/setup.py.in,
+	sipbuild/module/source/12.7/sipint.h:
+	Reverted to the original way of handling bool for Windows.
+	[3c460b217f88] <5.1-maint>
 
 2020-01-29  Phil Thompson  <phil@riverbankcomputing.com>
 
+	* sipbuild/module/source/12.7/bool.cpp,
+	sipbuild/module/source/12.7/setup.py.in,
+	sipbuild/module/source/12.7/sipint.h:
+	Require a C99 for the sip module and use C _Bool rather than C++
+	bool.
+	[5843b7e0c8e4] <5.1-maint>
+
+	* code_generator/lexer.c, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/sip.h, sipbuild/module/source/12.7/sip.h.in,
+	sipbuild/module/source/12.7/sipint.h,
+	sipbuild/module/source/12.7/siplib.c,
+	sipbuild/module/source/12.7/threads.c:
+	Fixed all strict-prototypes warnings.
+	[a7f663da0d4c] <5.1-maint>
+
 	* NEWS:
 	Updated the NEWS file.
-	[179bc6c66773] <4.19-maint>
+	[339fd5e5044d] <5.1-maint>
 
 2020-01-24  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* siplib/siplib.c:
+	* sipbuild/module/source/12.7/sip.h.in:
+	Updated the patch version of the sip module.
+	[6129b51cf15e] <5.1-maint>
+
+	* sipbuild/module/source/12.7/siplib.c:
 	Fix a memory leak in sipGetReference().
-	[82ec38dc0e63] <4.19-maint>
+	[99ac95c55fbd] <5.1-maint>
 
 2020-01-22  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* sipgen/gencode.c:
+	* code_generator/gencode.c:
 	Make sure the keys for a class and a variable member are allocated
 	from the correct pools.
-	[699facc95914] <4.19-maint>
+	[ff1f9e457e00] <5.1-maint>
 
-	* sipgen/gencode.c, siplib/sip.h.in, siplib/siplib.c:
+	* code_generator/gencode.c, sipbuild/module/source/12.7/sip.h.in,
+	sipbuild/module/source/12.7/siplib.c:
 	Further fixes to variable getters handling of wrapped classes.
-	[6a057b2d8537] <4.19-maint>
+	[69bcced2e913] <5.1-maint>
 
 2020-01-21  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* sipgen/gencode.c, siplib/sip.h.in, siplib/siplib.c:
+	* code_generator/gencode.c, sipbuild/module/source/12.7/sip.h.in,
+	sipbuild/module/source/12.7/siplib.c:
 	Fixed issues with C/C++ member variable getters and setters. This
 	restores the keeping of a reference to the containing object in the
 	instance of a contained class.
-	[137b9be794a1] <4.19-maint>
+	[fa657484dd37] <5.1-maint>
+
+2020-01-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/project.py:
+	Fixed the default handling of minimum-glibc-version.
+	[ad66a342fc67] <5.1-maint>
+
+2020-01-05  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 5.1.0 for changeset 66476b5f2071
+	[2dfafc048804]
+
+	* NEWS:
+	Released as v5.1.0.
+	[66476b5f2071] [5.1.0]
+
+	* sipbuild/builder.py:
+	Fixed the build tag separator in wheel names.
+	[a46db9e9a132]
+
+2020-01-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/lexer.c, code_generator/parser.c,
+	code_generator/parser.h, sipbuild/builder.py:
+	Fix the the name of a wheel.
+	[8d4bd61dc06c]
+
+	* code_generator/lexer.c, code_generator/parser.c,
+	code_generator/parser.h, sipbuild/builder.py:
+	Fixed the build tag when building a wheel.
+	[2d52c63017e8]
+
+	* NEWS:
+	Updated the NEWS file.
+	[60b250bbd34b]
+
+	* doc/pyproject_toml.rst, doc/sipbuild_api.rst,
+	sipbuild/configurable.py, sipbuild/project.py:
+	Only allow environment markers in list options.
+	[ff0b2eca53d6]
+
+2020-01-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/configurable.py, sipbuild/project.py:
+	Bug fixes.
+	[9edecd78b76c]
+
+	* sipbuild/bindings.py:
+	Removed the check that a project that uses a shared sip module must
+	not be a top-pevel package. This became invalid when we derived the
+	location of the 'bindings' directory from the name of the shared sip
+	module instead of the name of the project name.
+	[65058677a721]
+
+	* doc/introduction.rst:
+	Documentation tweaks.
+	[65e67029f105]
+
+	* NEWS, doc/sipbuild_api.rst, sipbuild/bindings.py,
+	sipbuild/project.py:
+	Added Project.project_path() and applied it where appropriate.
+	[4718f08e939c]
+
+	* NEWS, doc/pyproject_toml.rst, doc/sipbuild_api.rst,
+	sipbuild/configurable.py, sipbuild/project.py:
+	str and list options may now contain PEP 508 environment markers.
+	[db6eeabd0a33]
+
+2020-01-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/project.py:
+	Move the verification of the minimum GLIBC version to the right
+	place.
+	[61f44ddf25ef]
+
+	* NEWS, doc/command_line_tools.rst, doc/pyproject_toml.rst,
+	sipbuild/builder.py, sipbuild/project.py:
+	Added the build-tag project option and --build-tag command line
+	option.
+	[db84da8bebcb]
+
+	* NEWS, doc/pyproject_toml.rst, sipbuild/builder.py,
+	sipbuild/project.py:
+	Added the 'minimum-glibc-version' project option.
+	[2b716ca92131]
+
+	* Merged the 5.0-maint branch.
+	[de127b62f7b5]
+
+2019-12-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/api.py, sipbuild/project.py:
+	Improve the way the verbose flag gets set when using pip.
+	[2bea63ccb4ca] <5.0-maint>
+
+	* sipbuild/api.py:
+	Improve the user error handling when using pip to do an install from
+	source.
+	[be1d2782f495] <5.0-maint>
 
 2019-12-19  Phil Thompson  <phil@riverbankcomputing.com>
 
 	* .hgtags:
-	Added tag 4.19.20 for changeset 7c54145e55b6
-	[901741c80127] <4.19-maint>
+	Added tag 5.0.1 for changeset d687416d7a80
+	[9a5fd833083d] <5.0-maint>
 
 	* NEWS:
-	Released as v4.19.20.
-	[7c54145e55b6] [4.19.20] <4.19-maint>
+	Released as v5.0.1.
+	[d687416d7a80] [5.0.1] <5.0-maint>
+
+	* sipbuild/distinfo/distinfo.py:
+	More fixes for Windows RECORD handling.
+	[6c6337d91250] <5.0-maint>
+
+	* sipbuild/distinfo/distinfo.py:
+	Fixes for the RECORD file on Windows.
+	[9b32ca1bd983] <5.0-maint>
 
 2019-12-18  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* sphinx/conf.py.in:
-	Updated the Sphinx configuration.
-	[c7f732db742f] <4.19-maint>
+	* NEWS:
+	Removed SIP v4 from the NEWS file.
+	[4e5f7264ce23] <5.0-maint>
+
+2019-12-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* setup.py:
+	Require Python v3.5.1 as bugs in v3.5.0 cause problems (on Windows
+	at least).
+	[366189840a26] <5.0-maint>
 
 2019-12-16  Phil Thompson  <phil@riverbankcomputing.com>
 
 	* NEWS:
 	Updated the NEWS file.
-	[0bee3e89d9e0] <4.19-maint>
+	[e21af2c5ac57] <5.0-maint>
+
+	* sipbuild/distinfo/distinfo.py:
+	Fix bugs creating the dist-info directory.
+	[1177a11d284e] <5.0-maint>
+
+	* code_generator/parser.c, sipbuild/installable.py:
+	Only create the target directory if files are actually going to be
+	installed.
+	[0c5d29243e50] <5.0-maint>
 
 2019-12-13  Phil Thompson  <phil@riverbankcomputing.com>
 
-	* sipgen/metasrc/parser.y:
+	* code_generator/metasrc/parser.y:
 	Don't check for name clashes between members of scoped enums and the
 	enum's containing scope.
-	[42345e2ffb44] <4.19-maint>
+	[1a25a76cd0fd] <5.0-maint>
+
+2019-11-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/pybinding.c:
+	The 'module-disabled-features' from imported bindings is no longer
+	ignored.
+	[8c796e33d244] <5.0-maint>
+
+2019-11-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/project.py, sipbuild/pyproject.py:
+	Delay the check for a pyproject.toml file until after the user has
+	asked for help.
+	[c94aedeebee1] <5.0-maint>
+
+	* doc/examples.rst:
+	Docs typo fixes.
+	[c62f16577467] <5.0-maint>
+
+	* doc/examples.rst:
+	Fixed a bug in the example code in the docs.
+	[067bcfe8c0d5] <5.0-maint>
+
+	* doc/examples.rst:
+	Fixed a docs typo.
+	[465df3669c1a] <5.0-maint>
+
+2019-10-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/12.7/sip.rst.in:
+	Fixed a typo in the docs for sip.voidptr.asarray().
+	[77f2c998b1f4] <5.0-maint>
+
+2019-10-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 5.0.0 for changeset a596f1813d4a
+	[d82ebe4b05b2]
+
+	* NEWS:
+	Released as v5.0.0.
+	[a596f1813d4a] [5.0.0]
+
+	* sipbuild/builder.py:
+	Fix the detection of Windows architecture.
+	[3c9ebf280297]
+
+	* sipbuild/bindings.py, sipbuild/builder.py:
+	Fixed pathnames of .sip files for Windows.
+	[d865712c03d6]
+
+	* MANIFEST.in:
+	Add the missing file from MANIFEST.in.
+	[6f55007505b7]
+
+2019-10-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/module.py, sipbuild/module/source/12.7/MANIFEST.in:
+	A MANIFEST.in specifying the .h files is now included in the sip
+	module sdist.
+	[a9392652bacf]
+
+	* sipbuild/builder.py, sipbuild/distinfo/__init__.py,
+	sipbuild/distinfo/distinfo.py:
+	sip-sdist now creates a PKG-INFO file.
+	[f8532639c8f5]
+
+	* doc/examples.rst, examples/package/core/pyproject.toml,
+	examples/package/extras/pyproject.toml,
+	examples/standalone/pyproject.toml, sipbuild/pyproject.py:
+	Fixed the name of PEP 566.
+	[fad62e9f7802]
+
+	* sipbuild/module/module.py:
+	The sdist created by sip-module is now created by setuptools.
+	[848d59192672]
+
+	* sipbuild/module/source/12.7/README.in:
+	Fixed the README of the sip module project.
+	[dd122c476f97]
+
+	* NEWS, README:
+	Updated the NEWS and README files.
+	[905341e713ed]
+
+	* doc/legacy_command_line_tools.rst:
+	Merged the 4.19-maint branch.
+	[d2aeb54fb002]
+
+	* doc/command_line_tools.rst, doc/legacy_command_line_tools.rst:
+	More docs tweaks.
+	[c631630ff024]
+
+2019-10-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/command_line_tools.rst:
+	Updated the standard command line arguments.
+	[26beb4b2d736]
+
+	* doc/sipbuild_api.rst:
+	Added Bindings.generate() to the documented API.
+	[27e9cd2e6f6a]
+
+	* sipbuild/module/source/12.7/sip.rst.in:
+	Documented the __dtor__ method in the sip module.
+	[97213235f90b]
+
+2019-10-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/module/source/12.7/sip.rst.in:
+	Update the sip module docs to be more consistent with current
+	styles.
+	[330e0b967a83]
+
+2019-09-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/examples.rst:
+	Updated the example docs for sip-module.
+	[220da73b4802]
+
+	* doc/c_api.rst, doc/command_line_tools.rst, doc/introduction.rst,
+	examples/package/README:
+	Updated the docs for the sip-module changes.
+	[6d1902fb2d0c]
+
+	* setup.py, sipbuild/module/header_main.py, sipbuild/module/main.py,
+	sipbuild/module/module.py, sipbuild/module/module_main.py,
+	sipbuild/module/source/12.7/sip.rst.in:
+	Merged sip-header with sip-module. sip-module does not create an
+	sdist by default. sip-module will know create sip.rst.
+	[738013844559]
+
+	* sipbuild/legacy/sip5.py:
+	More XML extract fixes.
+	[973f09e49672]
+
+	* sipbuild/legacy/sip5.py:
+	Fixed a bug in the XML generation.
+	[9ad6fce1ca22]
+
+2019-09-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/distinfo/distinfo.py:
+	Fixed a regression.
+	[91ebd65c4911]
+
+	* sipbuild/project.py:
+	Fixed a typo.
+	[7bf0705e9c8e]
+
+	* sipbuild/legacy/sip5.py:
+	Added the undocumented -m argument to sip5.py.
+	[3cb40aa857ab]
+
+2019-09-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/c_api.rst, doc/directives.rst, doc/sipbuild_api.rst:
+	Completed the documentation.
+	[4b866bba7eae]
+
+	* sipbuild/installable.py:
+	Enforce kwargs for Installable.install().
+	[b87218258c5b]
+
+	* sipbuild/__init__.py:
+	Added BuildableFromSources to the public API.
+	[cf95559ada32]
+
+	* sipbuild/builder.py, sipbuild/distinfo/__init__.py,
+	sipbuild/distinfo/distinfo.py, sipbuild/distutils_builder.py:
+	Removed the Wheel class.
+	[4a9bf3bcc663]
+
+2019-09-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/command_line_tools.rst, doc/pyproject_toml.rst,
+	doc/sipbuild_api.rst:
+	Documentation updates.
+	[6fbd9c4ad3e5]
+
+	* sipbuild/project.py:
+	read_command_pipe() now takes a list of arguments.
+	[961f8d4777a7]
+
+	* sipbuild/distinfo/distinfo.py, sipbuild/distinfo/main.py,
+	sipbuild/distutils_builder.py, sipbuild/project.py:
+	get_requires_dist() is now get_requires_dists().
+	[badf4289e505]
+
+	* sipbuild/abstract_project.py, sipbuild/project.py,
+	sipbuild/pyproject.py:
+	API tweaks and fixes.
+	[0a9aed64f7db]
+
+	* doc/riverbank/static/riverbank.css:
+	Fixed the CSS for the latest version of Sphinx.
+	[368aa35d76cb]
+
+	* doc/conf.py:
+	Added intersphinx to link to the Python docs.
+	[cd8080f62ce9]
+
+	* sipbuild/pyproject.py:
+	Fixed PyProjectUndefinedOptionException.
+	[f21b87d442bd]
+
+2019-09-26  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/pyproject_toml.rst:
+	Documented the tool.sip section of pyproject.toml.
+	[c43fc851bdc8]
+
+	* doc/sipbuild_api.rst, sipbuild/bindings.py, sipbuild/buildable.py,
+	sipbuild/builder.py, sipbuild/configurable.py,
+	sipbuild/exceptions.py, sipbuild/installable.py,
+	sipbuild/pyproject.py:
+	Removed some inconsistencies in the sipbuild API.
+	[cdee64c728e4]
+
+	* doc/sipbuild_api.rst:
+	Structured the sipbuild module docs.
+	[81cf0915175f]
+
+	* doc/sipbuild_api.rst:
+	Added the sipbuild module stubs.
+	[25feb5e75f3c]
+
+	* doc/pyproject_toml.rst:
+	Documented the description-file meta-data key.
+	[38231f17ca0d]
+
+	* doc/directives.rst, doc/other_topics.rst, doc/pyproject_toml.rst:
+	Eliminated the TODOs related to %Extract.
+	[c0253ff65b9d]
+
+	* doc/c_api.rst, doc/command_line_tools.rst, doc/introduction.rst,
+	doc/legacy_command_line_tools.rst:
+	Documented the sip-header change.
+	[53b88cd5b124]
+
+	* setup.py, sipbuild/legacy/header.py, sipbuild/module/header_main.py,
+	sipbuild/module/main.py, sipbuild/module/module_main.py:
+	Renamed sip5-header to sip-header as it is required for embedding.
+	[e2065d85716b]
+
+	* doc/command_line_tools.rst, doc/pyproject_toml.rst:
+	Completed the pyproject.toml reference.
+	[921cbab413e4]
+
+	* doc/command_line_tools.rst, doc/pyproject_toml.rst:
+	Documentation updates.
+	[5af5a4438cb1]
+
+	* sipbuild/project.py:
+	--target-dir is also valid for sip-build.
+	[4e3ba7f34721]
+
+2019-09-25  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/c_api.rst, doc/embedding.rst, doc/index.rst,
+	doc/introduction.rst, doc/other_topics.rst, doc/pyproject_toml.rst,
+	doc/sipbuild_api.rst, doc/specification_files.rst, doc/using.rst:
+	More documentation updates.
+	[b6b6f205fe93]
+
+	* code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/sip.h:
+	Removed support for __div__ and __idiv__.
+	[46c3aab5f76c]
+
+	* code_generator/metasrc/parser.y:
+	Reordered some of the grammar rules to make it easier to keep the
+	documentation up to date.
+	[8f96275bed6a]
+
+2019-09-23  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/command_line_tools.rst, doc/examples.rst, doc/introduction.rst,
+	doc/legacy_command_line_tools.rst:
+	Completed the command line tools documentation.
+	[948f538a2906]
+
+	* sipbuild/distinfo/distinfo.py, sipbuild/distinfo/main.py:
+	The --project-root option of sip-distinfo is now compulsory.
+	[2f03cfee5f8c]
+
+2019-09-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/project.py:
+	Improve the error handling if invalid version number in the project
+	meta-data.
+	[9176b81a5254]
+
+	* doc/command_line_tools.rst:
+	Added the stubs of the command line tools docs.
+	[fff623377688]
+
+	* doc/introduction.rst, doc/legacy_command_line_tools.rst:
+	Updated the docs for the legacy tools.
+	[dedb6a3576d8]
+
+	* sipbuild/legacy/header.py, sipbuild/legacy/sip5.py:
+	Fixed to the legacy command lines.
+	[34c757c1143b]
+
+	* doc/command_line_tools.rst, doc/index.rst,
+	doc/legacy_command_line_tools.rst, doc/sip5.rst,
+	doc/sip5_module.rst:
+	Reorganised the command line tools docs.
+	[ad3b95b591dc]
+
+	* doc/examples.rst, examples/package/core/pyproject.toml,
+	examples/package/extras/pyproject.toml:
+	Completed the examples documentation.
+	[ee8621fae166]
+
+	* sipbuild/project.py:
+	The default value of dunder-init is now False.
+	[cafe93eef164]
+
+	* doc/examples.rst, examples/package/core/project.py,
+	sipbuild/bindings.py, sipbuild/configurable.py, sipbuild/project.py:
+	Reverted the name changes to apply_user_defaults() and
+	apply_nonuser_defaults().
+	[d5474ced0093]
+
+	* doc/examples.rst, examples/package/core/README,
+	examples/package/core/project.py,
+	examples/package/core/pyproject.toml,
+	examples/package/extras/pyproject.toml:
+	Fixes for the examples.
+	[1ce49c60732c]
+
+	* doc/examples.rst, doc/introduction.rst:
+	Completed the documentation of the standalone example.
+	[d0147bd80510]
+
+	* sipbuild/abstract_project.py, sipbuild/api.py, sipbuild/bindings.py,
+	sipbuild/configurable.py, sipbuild/project.py:
+	Refactored the handling of tools.
+	[1bf90640b416]
+
+2019-09-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/bindings.py, sipbuild/configurable.py, sipbuild/project.py:
+	Renamed apply_user_defaults() to apply_user_options(). Renamed
+	apply_nonuser_defaults() to apply_nonuser_options().
+	[05c3e23d621e]
+
+	* doc/directives.rst:
+	More updates to the directives documentation.
+	[3c370c8a3733]
+
+2019-09-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/conf.py, doc/directives.rst, doc/examples.rst:
+	Refactored the directives documentation.
+	[8f6973e66aa7]
+
+	* doc/examples.rst, examples/standalone/fib.sip,
+	examples/standalone/pyproject.toml:
+	More documentation for the examples.
+	[ba71a756def3]
+
+	* sipbuild/bindings.py:
+	.pyi stub files are now disabled by default.
+	[4d66f28ffa69]
+
+2019-09-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/distutils_builder.py, sipbuild/project.py:
+	Fix regressions in the handling of standalone projects.
+	[626944c6742d]
+
+	* examples/package/README, examples/package/core/README,
+	examples/package/core/core.sip, examples/package/core/project.py,
+	examples/package/core/pyproject.toml,
+	examples/package/extras/README, examples/package/extras/extras.sip,
+	examples/package/extras/pyproject.toml, examples/project/README,
+	examples/project/core/README, examples/project/core/core.sip,
+	examples/project/core/project.py,
+	examples/project/core/pyproject.toml,
+	examples/project/extras/README, examples/project/extras/extras.sip,
+	examples/project/extras/pyproject.toml, examples/self-
+	contained/README, examples/self-contained/fib.sip, examples/self-
+	contained/pyproject.toml, examples/standalone/README,
+	examples/standalone/fib.sip, examples/standalone/pyproject.toml:
+	Renamed the examples to match the docs.
+	[b043826d0c90]
+
+	* doc/examples.rst, doc/index.rst, doc/installation.rst,
+	doc/introduction.rst, doc/specification_files.rst:
+	Added the stub of the examples docs.
+	[15a258ab59b8]
+
+	* doc/annotations.rst, doc/conf.py, doc/directives.rst,
+	doc/introduction.rst:
+	Updated the docs introduction.
+	[f088f29883a2]
+
+2019-09-14  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/distinfo/distinfo.py, sipbuild/distinfo/main.py,
+	sipbuild/distutils_builder.py, sipbuild/project.py:
+	Fixed support for the sip module dependency.
+	[993057571353]
+
+2019-09-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/api.py:
+	Fix the PEP 517 API implementation.
+	[b9bdd2a9d982]
+
+	* sipbuild/bindings.py:
+	Don't check if the .sip file for a set of bindings exists for sdist.
+	[921d883a58d4]
 
 2019-09-07  Phil Thompson  <phil@riverbankcomputing.com>
 
@@ -223,7 +3872,550 @@
 	Updated the NEWS file.
 	[0da1bbf4e865] <4.19-maint>
 
+2019-09-06  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/__init__.py, sipbuild/buildable.py, sipbuild/builder.py,
+	sipbuild/distutils_builder.py:
+	Implemented BuildableExecutable and build_executable().
+	[4745cc321356]
+
+2019-09-05  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/project.py:
+	Backed out changeset 42cf7b57a3c6
+	[990b7e637917]
+
+	* sipbuild/project.py:
+	The enable and disable options are now added even if there is only
+	one set of bindings.
+	[42cf7b57a3c6]
+
+2019-09-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/distinfo/distinfo.py:
+	Handle an empty .dist-info inventory.
+	[2bf89f71146c]
+
+	* sipbuild/bindings.py, sipbuild/project.py:
+	Fixes to the handling of Project.sip_files_dir and
+	Bindings.sip_file.
+	[02fb1ca78832]
+
+2019-09-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/pybinding.c, sipbuild/bindings.py:
+	Fixed backstops for the legacy support.
+	[882e8e842ea5]
+
+	* sipbuild/project.py:
+	Don't report on the bindings being built if their aren't any.
+	[94d58556aeb8]
+
+	* sipbuild/bindings.py:
+	Fixed the configuration of non-user bindings options.
+	[0bad4f3ca4ca]
+
+	* sipbuild/builder.py, sipbuild/project.py:
+	Project.version is now Project.version_str. Project.version is now
+	an integer conversion of Project.version_str.
+	[1fa333e8fc93]
+
+	* sipbuild/abstract_project.py:
+	project-factory uses POSIX separators.
+	[2e8ebe380aba]
+
+	* sipbuild/bindings.py:
+	Fix the handling of sip-files-dir and sip-file.
+	[e7e943c352b5]
+
+	* sipbuild/bindings.py:
+	The generate-extracts option is no longer a user option.
+	[11eb0d131783]
+
+	* sipbuild/distinfo/distinfo.py:
+	Handle path separators in description-file values.
+	[1e4851fbb2a0]
+
+2019-08-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/bindings.py:
+	Fixed the invocation of parse() so that the current directory is not
+	the directory containing the .sip file. This only really matters
+	when %Importing and only then when there are .sip files with the
+	same name in different modules.
+	[89d9e3fe170c]
+
+	* sipbuild/distinfo/distinfo.py, sipbuild/distutils_builder.py:
+	Added support for the description-file entry in the meta-data.
+	[d60267aca0d6]
+
+	* code_generator/pybinding.c, sipbuild/bindings.py,
+	sipbuild/project.py:
+	Removed support for command line backstops.
+	[17ec50790f96]
+
+	* sipbuild/abstract_project.py, sipbuild/bindings.py,
+	sipbuild/configurable.py, sipbuild/project.py:
+	Refactored apply_defaults(). Added builder-factory and bindings-
+	factory.
+	[0f63be51b07e]
+
+	* examples/project/core/pyproject.toml,
+	examples/project/extras/pyproject.toml, examples/self-
+	contained/pyproject.toml, sipbuild/__init__.py,
+	sipbuild/abstract_project.py, sipbuild/project.py,
+	sipbuild/pyproject.py, sipbuild/tools/build.py,
+	sipbuild/tools/install.py, sipbuild/tools/sdist.py,
+	sipbuild/tools/wheel.py:
+	Refactored the creation of a project object so that it is completely
+	replaceable.
+	[a654893191cf]
+
+2019-08-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/bindings.py, sipbuild/configurable.py, sipbuild/project.py:
+	Bindings.name is no longer an option. Options attributes initialised
+	by __init__() can no longer be changed.
+	[037bb1297819]
+
+2019-08-26  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sipbuild/bindings.py:
+	Tweak some progress messages.
+	[6f050e866406]
+
+	* sipbuild/bindings.py:
+	Generate .pyi files by default.
+	[fadc614126f3]
+
+	* setup.py, sipbuild/project.py:
+	Regression fixes.
+	[09c844862116]
+
+	* setup.py:
+	Set the default version number to be consistent with other products.
+	[723a715ab415]
+
+	* .hgignore, README, code_generator/pybinding.c,
+	examples/project/README, examples/project/core/project.py,
+	examples/project/core/pyproject.toml,
+	examples/project/extras/pyproject.toml, examples/self-
+	contained/README, examples/self-contained/pyproject.toml, setup.py,
+	sip5/__init__.py, sip5/argument_parser.py, sip5/builder/__init__.py,
+	sip5/builder/abstract_builder.py, sip5/builder/api.py,
+	sip5/builder/bindings.py, sip5/builder/buildable.py,
+	sip5/builder/builder.py, sip5/builder/configurable.py,
+	sip5/builder/distutils_builder.py, sip5/builder/installable.py,
+	sip5/builder/project.py, sip5/builder/tools/__init__.py,
+	sip5/builder/tools/build.py, sip5/builder/tools/install.py,
+	sip5/builder/tools/sdist.py, sip5/builder/tools/wheel.py,
+	sip5/distinfo/__init__.py, sip5/distinfo/distinfo.py,
+	sip5/distinfo/main.py, sip5/docs/extract_xml.py,
+	sip5/docs/sip.rst.in, sip5/exceptions.py, sip5/helpers.py,
+	sip5/legacy/__init__.py, sip5/legacy/header.py, sip5/legacy/sip5.py,
+	sip5/module/__init__.py, sip5/module/abi_version.py,
+	sip5/module/main.py, sip5/module/module.py,
+	sip5/module/source/12.7/README.in,
+	sip5/module/source/12.7/apiversions.c,
+	sip5/module/source/12.7/array.c, sip5/module/source/12.7/array.h,
+	sip5/module/source/12.7/bool.cpp,
+	sip5/module/source/12.7/descriptors.c,
+	sip5/module/source/12.7/int_convertors.c,
+	sip5/module/source/12.7/objmap.c,
+	sip5/module/source/12.7/pyproject.toml,
+	sip5/module/source/12.7/qtlib.c,
+	sip5/module/source/12.7/setup.cfg.in,
+	sip5/module/source/12.7/setup.py.in,
+	sip5/module/source/12.7/sip.h.in, sip5/module/source/12.7/sip.pyi,
+	sip5/module/source/12.7/sipint.h, sip5/module/source/12.7/siplib.c,
+	sip5/module/source/12.7/threads.c,
+	sip5/module/source/12.7/voidptr.c, sip5/py_versions.py,
+	sip5/pyproject.py, sipbuild/__init__.py,
+	sipbuild/abstract_builder.py, sipbuild/api.py,
+	sipbuild/argument_parser.py, sipbuild/bindings.py,
+	sipbuild/buildable.py, sipbuild/builder.py,
+	sipbuild/configurable.py, sipbuild/distinfo/__init__.py,
+	sipbuild/distinfo/distinfo.py, sipbuild/distinfo/main.py,
+	sipbuild/distutils_builder.py, sipbuild/docs/extract_xml.py,
+	sipbuild/docs/sip.rst.in, sipbuild/exceptions.py,
+	sipbuild/helpers.py, sipbuild/installable.py,
+	sipbuild/legacy/__init__.py, sipbuild/legacy/header.py,
+	sipbuild/legacy/sip5.py, sipbuild/module/__init__.py,
+	sipbuild/module/abi_version.py, sipbuild/module/main.py,
+	sipbuild/module/module.py, sipbuild/module/source/12.7/README.in,
+	sipbuild/module/source/12.7/apiversions.c,
+	sipbuild/module/source/12.7/array.c,
+	sipbuild/module/source/12.7/array.h,
+	sipbuild/module/source/12.7/bool.cpp,
+	sipbuild/module/source/12.7/descriptors.c,
+	sipbuild/module/source/12.7/int_convertors.c,
+	sipbuild/module/source/12.7/objmap.c,
+	sipbuild/module/source/12.7/pyproject.toml,
+	sipbuild/module/source/12.7/qtlib.c,
+	sipbuild/module/source/12.7/setup.cfg.in,
+	sipbuild/module/source/12.7/setup.py.in,
+	sipbuild/module/source/12.7/sip.h.in,
+	sipbuild/module/source/12.7/sip.pyi,
+	sipbuild/module/source/12.7/sipint.h,
+	sipbuild/module/source/12.7/siplib.c,
+	sipbuild/module/source/12.7/threads.c,
+	sipbuild/module/source/12.7/voidptr.c, sipbuild/project.py,
+	sipbuild/py_versions.py, sipbuild/pyproject.py,
+	sipbuild/tools/__init__.py, sipbuild/tools/build.py,
+	sipbuild/tools/install.py, sipbuild/tools/sdist.py,
+	sipbuild/tools/wheel.py:
+	The sip5.builder module is now sipbuild. The only things refering to
+	sip5 are legacy and will be removed in sip v6.
+	[9e1dc541a41e]
+
+2019-08-25  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/project.py:
+	Flush all progress messages. Set verbose mode when acting as a pip
+	backend.
+	[b7ec71609b7a]
+
+2019-08-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/project.py:
+	Added run_command() to Project. Project.read_command_pipe() now
+	takes an optional 'fatal' flag.
+	[1409edfc536b]
+
+	* sip5/builder/builder.py, sip5/builder/distutils_builder.py,
+	sip5/builder/project.py, sip5/distinfo/distinfo.py:
+	build_project() and install_project() now take an optional Wheel
+	object.
+	[e260bde6a0b6]
+
+	* sip5/builder/api.py:
+	Fixed the PEP 517 interface.
+	[e506c019c770]
+
+2019-08-23  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/project.py:
+	Added the --name option to sip5-sdist and sip5-wheel.
+	[d248e2c30d80]
+
+	* sip5/builder/project.py:
+	Removed a pointless progress message.
+	[0e13a6d0f529]
+
+	* sip5/builder/builder.py, sip5/builder/distutils_builder.py,
+	sip5/distinfo/distinfo.py, sip5/distinfo/main.py:
+	Fixes for building wheels.
+	[13f02ffafde1]
+
+	* sip5/builder/bindings.py, sip5/builder/project.py:
+	The presence of a .sip file is now checked prior to generating the
+	code rather than during configuration.
+	[b4999d58dfd2]
+
+	* sip5/builder/bindings.py, sip5/builder/buildable.py,
+	sip5/builder/builder.py:
+	Buildable now has a target that is separate to the name.
+	[ca329909fd99]
+
+	* sip5/builder/bindings.py, sip5/builder/buildable.py,
+	sip5/builder/distutils_builder.py:
+	Buildables now know about a build directory but not a sources
+	directory.
+	[1302e9325e7e]
+
+	* sip5/builder/bindings.py, sip5/builder/buildable.py:
+	BuildableModule now determines the name from the fully qualified
+	name.
+	[2500c6542aeb]
+
+2019-08-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py, sip5/builder/project.py:
+	Replaced open_command_pipe() and close_command_pipe() with
+	read_command_pipe().
+	[1bdcaf50e9d4]
+
+	* sip5/builder/project.py:
+	Added open_command_pipe() and close_command_pipe() to Project.
+	[d52993c3f3b5]
+
+	* sip5/builder/__init__.py:
+	Add handle_exception to the public API.
+	[e433234105c1]
+
+2019-08-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/project.py:
+	Fixed the removal of non-buildable bindings.
+	[238a7278b772]
+
+	* sip5/builder/builder.py, sip5/builder/project.py,
+	sip5/builder/tools/build.py, sip5/builder/tools/install.py,
+	sip5/builder/tools/sdist.py, sip5/builder/tools/wheel.py:
+	Improved progress messages.
+	[7df256825d4d]
+
+	* sip5/builder/bindings.py, sip5/builder/buildable.py:
+	Restored builder_settings to Buildable.
+	[20e1dc4f9514]
+
+	* sip5/builder/bindings.py, sip5/builder/buildable.py:
+	Tweaks to the attributes of buildables.
+	[45afaaf2e0ef]
+
+	* sip5/builder/__init__.py, sip5/builder/buildable.py,
+	sip5/builder/distutils_builder.py:
+	A Buildable is now a very generic buildable.
+	[c11d24fdcb3b]
+
+	* sip5/builder/builder.py:
+	Added support for console scripts in direct installs.
+	[0d29fcab059b]
+
+2019-08-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/builder.py, sip5/builder/distutils_builder.py,
+	sip5/builder/project.py, sip5/distinfo/__init__.py,
+	sip5/distinfo/distinfo.py:
+	Added support for console scripts in wheels.
+	[eefc1a8d148f]
+
+	* examples/project/extras/pyproject.toml:
+	The extras example doesn't install __init__.py.
+	[c68713e5460c]
+
+	* sip5/builder/builder.py:
+	Don't write the configuration file for internal bindings.
+	[2365352b3a4c]
+
+	* code_generator/lexer.c, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/sip.h:
+	Explicitly initialise the lexer so it can be run more than once.
+	[61a18b0a84ff]
+
+	* sip5/builder/project.py:
+	Fixed the configuration of pre-defined bindings.
+	[1a56d17f1371]
+
+	* code_generator/pybinding.c:
+	Composite modules always use the limited API.
+	[ab10bce2d60f]
+
+	* sip5/builder/builder.py, sip5/builder/project.py:
+	Added support for __init__.py.
+	[9898a268869a]
+
+2019-08-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py, sip5/builder/builder.py,
+	sip5/builder/installable.py, sip5/builder/project.py:
+	Added support for building .api files.
+	[8e23fadd9ea5]
+
+	* sip5/builder/bindings.py, sip5/builder/buildable.py,
+	sip5/builder/builder.py, sip5/builder/distutils_builder.py,
+	sip5/builder/installable.py, sip5/builder/project.py:
+	Refactored the sdist support.
+	[c382d1058759]
+
+2019-08-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/__init__.py, sip5/builder/bindings.py,
+	sip5/builder/buildable.py, sip5/builder/builder.py,
+	sip5/builder/distutils_builder.py, sip5/builder/installable.py,
+	sip5/builder/project.py:
+	(Incomplete) refactoring to make proper use of installables.
+	[94f0c6c98a8a]
+
+2019-08-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/__init__.py, sip5/builder/bindings.py,
+	sip5/builder/builder.py, sip5/builder/configurable.py,
+	sip5/builder/project.py, sip5/builder/pyproject.py,
+	sip5/distinfo/distinfo.py, sip5/distinfo/main.py,
+	sip5/py_versions.py, sip5/pyproject.py:
+	Added the --project-dir option to sip5-distinfo.
+	[e383bb6e31f7]
+
+	* sip5/distinfo/distinfo.py, sip5/distinfo/main.py:
+	Added the --generator option to sip5-distinfo.
+	[cc1ae3efb6ea]
+
+	* sip5/builder/distutils_builder.py, sip5/builder/project.py:
+	Added Project.get_distinfo_name().
+	[db9f16226686]
+
+	* sip5/builder/bindings.py:
+	Fixed the handling of optional .sip files.
+	[9f533825f335]
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c:
+	Don't include optional .sip files that weren't found.
+	[cbc2e4e08524]
+
+	* sip5/builder/bindings.py, sip5/builder/buildable.py,
+	sip5/builder/distutils_builder.py:
+	A .pyi file is now an Installable.
+	[4f56bce1623c]
+
+	* sip5/builder/bindings.py, sip5/builder/buildable.py,
+	sip5/builder/builder.py, sip5/builder/distutils_builder.py,
+	sip5/builder/project.py:
+	Re-factored the support for the bindings configuration file.
+	[6769b59202cc]
+
+2019-08-16  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/distutils_builder.py:
+	Fixed the installation of the .sip files for distutils.
+	[3cd1111e481e]
+
+	* sip5/builder/bindings.py, sip5/builder/builder.py,
+	sip5/builder/distutils_builder.py, sip5/builder/installable.py:
+	Use the new Installable class to handle the .sip files.
+	[aa061c502eea]
+
+	* examples/project/core/core.sip, examples/project/core/core/core.sip,
+	examples/project/extras/extras.sip,
+	examples/project/extras/extras/extras.sip, sip5/builder/bindings.py:
+	A bindings sip_file always defaults to a file in sip_files_dir.
+	[2ae56427a2fe]
+
+	* sip5/builder/project.py:
+	Removed verbose().
+	[b399f01a3ea7]
+
+	* sip5/builder/project.py, sip5/builder/tools/build.py,
+	sip5/builder/tools/install.py, sip5/builder/tools/sdist.py,
+	sip5/builder/tools/wheel.py:
+	Implemented the --quiet option and replaced information() with
+	verbose().
+	[1f51dd6aaf21]
+
+2019-08-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/buildable.py:
+	Fixed relative pathnames when using a temporary build directory.
+	[7b9114c36dde]
+
+	* sip5/builder/bindings.py, sip5/builder/builder.py,
+	sip5/builder/distutils_builder.py:
+	Make sure the buildable name is used when writing the meta-data
+	files.
+	[f2fc244f8717]
+
+	* sip5/builder/__init__.py, sip5/builder/bindings.py,
+	sip5/builder/buildable.py, sip5/builder/builder.py,
+	sip5/builder/distutils_builder.py:
+	Re-factored to implement a project as a list of buildables.
+	[ec7dee1ec7c9]
+
+	* sip5/builder/bindings.py, sip5/builder/configurable.py:
+	builder_settings is now a list.
+	[d50337418977]
+
+	* sip5/builder/bindings.py, sip5/builder/configurable.py:
+	Added builder_settings to Bindings.
+	[5e71bc7b70a3]
+
+2019-08-14  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, code_generator/pybinding.c,
+	code_generator/sip.h, sip5/builder/bindings.py:
+	Added the headers option to Bindings.
+	[77c995959715]
+
+	* sip5/builder/project.py:
+	Added py_include_dir to the project configuration.
+	[a720cb95cc1f]
+
+	* sip5/builder/bindings.py:
+	Py_LIMITED_API is now added to define_macros.
+	[f6bd53c0aa36]
+
+	* sip5/builder/bindings.py, sip5/builder/distutils_builder.py:
+	Added define_macros to the generated bindings.
+	[5979917ff06e]
+
+	* sip5/builder/bindings.py:
+	Fix the initialisation of protected_is_public.
+	[72cfc0fab317]
+
+	* sip5/builder/builder.py:
+	The build variants will now build into a specific directory.
+	[1b9176141a2c]
+
+	* sip5/builder/project.py:
+	Added the py_major_versions and py_minor_version options.
+	[a93634d9f578]
+
+2019-07-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py, sip5/builder/builder.py,
+	sip5/builder/project.py:
+	Refactored the support for enabling and disabling bindings.
+	[68bb1c625852]
+
+2019-07-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py, sip5/builder/configurable.py,
+	sip5/builder/project.py:
+	Added the py_debug and py_platform options to Project. Refactored
+	the configurables.
+	[92ea18429a8b]
+
+2019-07-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/abstract_builder.py, sip5/builder/project.py:
+	Removed AbstractBuilder.setup().
+	[4d29974cee6c]
+
+	* examples/project/core/project.py, sip5/builder/__init__.py,
+	sip5/builder/project.py:
+	Added Project.open_for_writing(). Project.update() is now passed the
+	tool being used. Bug fixes.
+	[c02e95d1227c]
+
 2019-07-21  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/module/source/12.6/README.in,
+	sip5/module/source/12.6/apiversions.c,
+	sip5/module/source/12.6/array.c, sip5/module/source/12.6/array.h,
+	sip5/module/source/12.6/bool.cpp,
+	sip5/module/source/12.6/descriptors.c,
+	sip5/module/source/12.6/int_convertors.c,
+	sip5/module/source/12.6/objmap.c,
+	sip5/module/source/12.6/pyproject.toml,
+	sip5/module/source/12.6/qtlib.c,
+	sip5/module/source/12.6/setup.cfg.in,
+	sip5/module/source/12.6/setup.py.in,
+	sip5/module/source/12.6/sip.h.in, sip5/module/source/12.6/sip.pyi,
+	sip5/module/source/12.6/sipint.h, sip5/module/source/12.6/siplib.c,
+	sip5/module/source/12.6/threads.c,
+	sip5/module/source/12.6/voidptr.c,
+	sip5/module/source/12.7/README.in,
+	sip5/module/source/12.7/apiversions.c,
+	sip5/module/source/12.7/array.c, sip5/module/source/12.7/array.h,
+	sip5/module/source/12.7/bool.cpp,
+	sip5/module/source/12.7/descriptors.c,
+	sip5/module/source/12.7/int_convertors.c,
+	sip5/module/source/12.7/objmap.c,
+	sip5/module/source/12.7/pyproject.toml,
+	sip5/module/source/12.7/qtlib.c,
+	sip5/module/source/12.7/setup.cfg.in,
+	sip5/module/source/12.7/setup.py.in,
+	sip5/module/source/12.7/sip.h.in, sip5/module/source/12.7/sip.pyi,
+	sip5/module/source/12.7/sipint.h, sip5/module/source/12.7/siplib.c,
+	sip5/module/source/12.7/threads.c,
+	sip5/module/source/12.7/voidptr.c:
+	v12.7 is now the supported version of the ABI.
+	[374341c9eac4]
+
+	* code_generator/gencode.c, doc/c_api.rst,
+	sip5/module/source/12.6/sip.h.in, sip5/module/source/12.6/siplib.c:
+	Merged the 12.7 ABI changes from the 4.19-maint branch.
+	[922908dd2b3b]
 
 	* sipgen/gencode.c, siplib/sip.h.in, siplib/siplib.c,
 	sphinx/c_api.rst:
@@ -231,11 +4423,140 @@
 	sipVisitWrappers() to the public API.
 	[c422550455ce] <4.19-maint>
 
+2019-07-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/__init__.py, sip5/builder/abstract_builder.py,
+	sip5/builder/bindings.py, sip5/builder/builder.py,
+	sip5/builder/configurable.py, sip5/builder/distutils_builder.py,
+	sip5/builder/project.py:
+	Configurable objects can now be initialised in their __init__
+	methods. Bindings may be defined before they are configured from
+	pyproject.toml.
+	[e614cfcf1346]
+
+2019-07-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/abstract_builder.py, sip5/builder/bindings.py,
+	sip5/builder/configurable.py, sip5/builder/project.py,
+	sip5/builder/pyproject.py:
+	Add the AbstractBuilder.setup() hook.
+	[a3ff44df8479]
+
 2019-07-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* setup.py, sip5/builder/distinfo.py,
+	sip5/builder/distutils_builder.py, sip5/distinfo/__init__.py,
+	sip5/distinfo/distinfo.py, sip5/distinfo/main.py,
+	sip5/module/main.py:
+	Added sip5-distinfo.
+	[fa4034ca41eb]
+
+	* doc/directives.rst:
+	Merged the latest 4.19-maint changes.
+	[e52dbbb0f3d2]
 
 	* sphinx/directives.rst:
 	Correction to the docs.
 	[d00b38c31f91] <4.19-maint>
+
+	* sip5/legacy/sip5.py:
+	Fixed a regression in sip5.py.
+	[9d1e3c918577]
+
+2019-07-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* examples/project/extras/pyproject.toml, sip5/builder/distinfo.py,
+	sip5/builder/project.py:
+	Automatically add the Requires-dist for a shared sip module.
+	[42e2a7d84e19]
+
+	* sip5/builder/builder.py, sip5/builder/project.py:
+	Fix the wheel name when using the limited API.
+	[ac3b3579e0af]
+
+2019-07-14  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/pybinding.c, examples/project/core/core/core.sip,
+	examples/project/extras/extras/extras.sip, sip5/builder/bindings.py,
+	sip5/builder/distutils_builder.py:
+	Correctly name the extension of a module when using the limited API.
+	The shared sip module examples now use the limited API.
+	[b4a8bace3308]
+
+	* sip5/builder/distinfo.py:
+	Fixed the name of the dist-info directory when installing.
+	[57de029fc6eb]
+
+	* sip5/builder/distutils_builder.py:
+	Fixed the building of bindings with a shared sip module.
+	[0ce7ffa038cf]
+
+	* sip5/builder/distutils_builder.py:
+	Improved the error handling in the distutils builder.
+	[ce01020bf135]
+
+	* sip5/builder/builder.py:
+	Bug fixes so that the self contained example's wheel can be built.
+	[5afd465de87f]
+
+	* code_generator/gencode.c, code_generator/pybinding.c,
+	sip5/builder/bindings.py, sip5/builder/builder.py,
+	sip5/builder/distutils_builder.py, sip5/builder/project.py,
+	sip5/builder/tools/install.py:
+	Bug fixing so that the self contained example will build and
+	install.
+	[89241acb0a1a]
+
+	* sip5/module/source/12.6/siplib.c:
+	Fixed the sip module build when not sharing.
+	[5cccc2c6efc4]
+
+2019-07-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py, sip5/builder/builder.py,
+	sip5/builder/distutils_builder.py:
+	Restored the user configurable builder options to the bindings so
+	that they can have different default values defined in the .toml
+	file.
+	[f3892f0d2e53]
+
+2019-07-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py, sip5/builder/builder.py,
+	sip5/builder/configurable.py, sip5/builder/distutils_builder.py,
+	sip5/builder/project.py:
+	More refactoring.
+	[c15caeb68c78]
+
+	* sip5/builder/abstract_builder.py, sip5/builder/bindings.py,
+	sip5/builder/builder.py, sip5/builder/distutils_builder.py,
+	sip5/builder/project.py:
+	sip5-sdist now works after further refactoring.
+	[39511e6fd324]
+
+	* sip5/builder/__init__.py, sip5/builder/abstract_builder.py,
+	sip5/builder/builder.py, sip5/builder/distutils_builder.py,
+	sip5/builder/project.py, sip5/builder/tools/sdist.py,
+	sip5/builder/tools/wheel.py:
+	Initial refactoring to have a single builder instance.
+	[9a622956a610]
+
+2019-07-06  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/project.py, sip5/builder/pyproject.py:
+	Bug fixes.
+	[fc8744022417]
+
+2019-07-05  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, sip5/module/source/12.6/sip.h.in,
+	sip5/module/source/12.6/siplib.c:
+	The module with a non-shared sip is now populated with the sip
+	attributes.
+	[df78cd3f8770]
+
+	* Merged the v4.19.18 release.
+	[ef892232a75b]
 
 2019-07-03  Phil Thompson  <phil@riverbankcomputing.com>
 
@@ -255,17 +4576,42 @@
 
 2019-07-01  Phil Thompson  <phil@riverbankcomputing.com>
 
+	* sip5/module/source/12.6/siplib.c:
+	Fixed a picklign regression.
+	[1b39dc7df79c]
+
+	* Merged latest 4.19-maint changes.
+	[72b8bcabaada]
+
 	* configure.py.in:
 	Removed a non-ASCII character.
 	[345665372f96] <4.19-maint>
 
 2019-06-30  Phil Thompson  <phil@riverbankcomputing.com>
 
+	* sip5/module/abi_version.py:
+	Docn't suppress the path version of the module if it is 0.
+	[016590f746dd]
+
+	* sip5/module/source/12.6/siplib.c:
+	Merged the latest 4.19-maint changes.
+	[7a87277a6fbd]
+
 	* siplib/siplib.c:
 	Don't try and acquire the GIL if the interpreter is no longer there.
 	[0339fda05a90] <4.19-maint>
 
 2019-06-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/pybinding.c:
+	Removed an unused variable.
+	[57e1a48b08bf]
+
+	* sip5/module/source/12.6/array.c,
+	sip5/module/source/12.6/descriptors.c,
+	sip5/module/source/12.6/siplib.c, sip5/module/source/12.6/voidptr.c:
+	Merged the latest 4.19-maint branch changes.
+	[e5eeaaca16d1]
 
 	* siplib/array.c, siplib/descriptors.c, siplib/siplib.c,
 	siplib/voidptr.c:
@@ -274,15 +4620,509 @@
 
 2019-06-20  Phil Thompson  <phil@riverbankcomputing.com>
 
+	* sip5/builder/builder.py, sip5/builder/project.py:
+	Ensure Requires-Python is set in the metadata.
+	[d269e2ac713f]
+
+	* sip5/builder/project.py:
+	Remove an extraneous blank line.
+	[d5bbdbb2c33c]
+
+	* doc/introduction.rst:
+	Merged the latest 4.19-maint changes.
+	[4b9f4ab09cf8]
+
 	* sphinx/introduction.rst.in:
 	Updated the docs regarding sip5.
 	[a9890af70254] <4.19-maint>
 
+	* sip5/legacy/sip5.py:
+	Fixed a regression in sip5.
+	[d47240e2355b]
+
+2019-06-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* examples/project/core/project.py, sip5/__init__.py,
+	sip5/builder/__init__.py, sip5/builder/bindings.py,
+	sip5/builder/configurable.py, sip5/builder/project.py,
+	sip5/builder/pyproject.py, sip5/exceptions.py:
+	Improvements to the public API.
+	[5003b4bd7e78]
+
+	* examples/project/core/README, examples/project/core/core/core.sip,
+	examples/project/core/project.py,
+	examples/project/core/pyproject.toml,
+	examples/project/extras/README,
+	examples/project/extras/extras/extras.sip,
+	examples/project/extras/pyproject.toml, examples/self-
+	contained/pyproject.toml, sip5/builder/bindings.py,
+	sip5/builder/configurable.py, sip5/builder/project.py:
+	Updated the examples to demonstrate project.py and additional
+	options.
+	[2f404075dd66]
+
+	* sip5/builder/pyproject.py, sip5/exceptions.py, sip5/helpers.py:
+	Implemented the reading of the configuration of an imported set of
+	bindings.
+	[aa3b1fda6aab]
+
+	* code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/pybinding.c,
+	code_generator/sip.h, sip5/builder/bindings.py,
+	sip5/builder/project.py:
+	Implemented the bindings for the get_bindings_configuration helper
+	stub.
+	[b6243366b801]
+
+2019-06-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/pybinding.c, code_generator/sip.h:
+	Implemented the stub of the bindings configuration .toml file
+	parser.
+	[fff4fbaadac7]
+
+	* examples/project/extras/README,
+	examples/project/extras/extras/extras.sip,
+	examples/project/extras/pyproject.toml:
+	Added the initial extras example.
+	[3596ab618f1b]
+
+	* sip5/builder/bindings.py, sip5/builder/project.py:
+	A bindings-specific configuration file is now installed in the
+	bindings directory.
+	[6f67922dfed4]
+
+2019-06-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/pybinding.c, setup.py, sip5/builder/bindings.py,
+	sip5/legacy/header.py, sip5/legacy/sip5.py:
+	Added sip5-header. Added the --abi-version option to sip5.
+	[c0801e8259c6]
+
+	* examples/project/core/pyproject.toml, sip5/builder/project.py:
+	Bug fixes so the core example work again.
+	[8bcfe13b3852]
+
+	* code_generator/pybinding.c, sip5/builder/bindings.py,
+	sip5/builder/project.py, sip5/builder/tools/build.py,
+	sip5/builder/tools/install.py, sip5/builder/tools/sdist.py,
+	sip5/builder/tools/wheel.py, sip5/module/abi_version.py,
+	sip5/module/module.py:
+	Bug fixes so the self-contained example works again.
+	[1155b26d0655]
+
+	* code_generator/gencode.c, code_generator/pybinding.c,
+	code_generator/sip.h:
+	Pass the ABI version to the code generator (currently unused).
+	[047affc4de14]
+
+	* code_generator/abi_version.h, code_generator/gencode.c,
+	sip5/module/main.py, sip5/module/module.py,
+	sip5/module/source/12.6/sip.h.in:
+	Apply DRY to the ABI version number.
+	[a0d78b6bc706]
+
+2019-06-16  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py, sip5/builder/project.py,
+	sip5/module/module.py, sip5/module/source/12.6/sip.h.in,
+	sip5/module/source/12.6/siplib.c:
+	Enable the legacy sip module for PyQt5 only.
+	[c84d249f8ca3]
+
+	* code_generator/abi_version.h, code_generator/gencode.c,
+	doc/sip5_module.rst, setup.py, sip5/module/__init__.py,
+	sip5/module/abi_version.h, sip5/module/abi_version.py,
+	sip5/module/main.py, sip5/module/module.py,
+	sip5/module/source/12.6/README.in,
+	sip5/module/source/12.6/apiversions.c,
+	sip5/module/source/12.6/array.c, sip5/module/source/12.6/array.h,
+	sip5/module/source/12.6/bool.cpp,
+	sip5/module/source/12.6/descriptors.c,
+	sip5/module/source/12.6/int_convertors.c,
+	sip5/module/source/12.6/objmap.c,
+	sip5/module/source/12.6/pyproject.toml,
+	sip5/module/source/12.6/qtlib.c,
+	sip5/module/source/12.6/setup.cfg.in,
+	sip5/module/source/12.6/setup.py.in,
+	sip5/module/source/12.6/sip.h.in, sip5/module/source/12.6/sip.pyi,
+	sip5/module/source/12.6/sipint.h, sip5/module/source/12.6/siplib.c,
+	sip5/module/source/12.6/threads.c,
+	sip5/module/source/12.6/voidptr.c, sip5/module/source/README.in,
+	sip5/module/source/apiversions.c, sip5/module/source/array.c,
+	sip5/module/source/array.h, sip5/module/source/bool.cpp,
+	sip5/module/source/descriptors.c,
+	sip5/module/source/int_convertors.c, sip5/module/source/objmap.c,
+	sip5/module/source/pyproject.toml, sip5/module/source/qtlib.c,
+	sip5/module/source/setup.cfg.in, sip5/module/source/setup.py.in,
+	sip5/module/source/sip.h.in, sip5/module/source/sip.pyi,
+	sip5/module/source/sipint.h, sip5/module/source/siplib.c,
+	sip5/module/source/threads.c, sip5/module/source/voidptr.c:
+	Refactored sip5-moadule and related code to allow an ABI version to
+	be specified.
+	[512b7f960c49]
+
+2019-06-14  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* Developers/VersionNumbers.txt:
+	Removed the developer notes as the versioning will be much
+	simplified.
+	[f08d3231bf76]
+
+	* Developers/VersionNumbers.txt:
+	Refer the the patch version rather than the maintenance version to
+	be consisten with semantic versioning.
+	[f79a054949e6]
+
+	* setup.py:
+	Added 'toml' as a dependency in setup.py.
+	[78f2926b5db5]
+
+	* sip5/builder/distinfo.py:
+	Make sure the dist-info is reproducable.
+	[c40ecc273e56]
+
+	* sip5/builder/project.py:
+	The name of the installed bindings directory is derived from the
+	name of the package containing the shared sip module.
+	[7077e2123360]
+
+	* examples/project/core/pyproject.toml, examples/self-
+	contained/pyproject.toml, sip5/builder/distinfo.py,
+	sip5/builder/project.py, sip5/builder/pyproject.py:
+	The meta-data is now specified in the top-level section of
+	pyproject.toml rather than it's own sub-section.
+	[ef27a8bae5f7]
+
+	* examples/package/README, examples/package/core/README,
+	examples/package/core/core/core.sip,
+	examples/package/core/pyproject.toml, examples/project/README,
+	examples/project/core/README, examples/project/core/core/core.sip,
+	examples/project/core/pyproject.toml, examples/self-
+	contained/README, examples/self-contained/fib.sip, examples/self-
+	contained/pyproject.toml, examples/simple/README,
+	examples/simple/fib.sip, examples/simple/pyproject.toml,
+	sip5/builder/__init__.py, sip5/builder/api.py,
+	sip5/builder/bindings.py, sip5/builder/builder.py,
+	sip5/builder/distinfo.py, sip5/builder/package.py,
+	sip5/builder/project.py:
+	Renamed 'package' as 'project' throughout.
+	[356836072b14]
+
+2019-06-13  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* examples/package/core/core.sip, examples/package/core/core/core.sip,
+	sip5/builder/bindings.py, sip5/builder/distinfo.py,
+	sip5/builder/package.py:
+	Added the sip-files-dir Package option. Imposed a directory
+	structure on .sip files when sharing a sip module. Moved the sip-
+	include-dirs option from Bindings to Package. Passed an appropriate
+	list of directories to search for .sip files to the code generator.
+	[0ebf5ea0ad7f]
+
+2019-06-11  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/package.py:
+	A module's .sip files are now installed if it uses a shared sip
+	module.
+	[04f23a8b23b3]
+
+	* examples/package/README, examples/package/core/README,
+	examples/package/core/core.sip,
+	examples/package/core/pyproject.toml:
+	Added the package example.
+	[2891278ae083]
+
+	* sip5/builder/bindings.py, sip5/builder/package.py:
+	The sip.h file is now installed in the 'bindings' directory.
+	[72c0cb190850]
+
+	* sip5/builder/bindings.py, sip5/builder/package.py,
+	sip5/module/module.py:
+	Replaced the 'sip-h-dir' option with 'sip-h' that handles generating
+	a new sip.h and using an existing installation.
+	[1dfa2d7c3a78]
+
+	* code_generator/gencode.c, examples/README, examples/package/README,
+	sip5/builder/bindings.py, sip5/builder/package.py,
+	sip5/builder/pyproject.py:
+	Fixes for building with a shared sip module.
+	[5104b31b6f18]
+
+	* sip5/builder/package.py:
+	Handle install-extras with absolute pathnames.
+	[29b71b0f013d]
+
+	* examples/simple/pyproject.toml, sip5/builder/package.py:
+	Added the Package.install_extras option.
+	[fb79b3fab8ce]
+
+	* examples/simple/pyproject.toml, sip5/builder/bindings.py,
+	sip5/builder/configurable.py, sip5/builder/package.py:
+	Added the Package.sdist_extras option.
+	[54521ad75c99]
+
+	* sip5/builder/configurable.py, sip5/builder/package.py:
+	Added the module enable and disable options.
+	[1ad3a052f643]
+
+	* sip5/builder/configurable.py, sip5/builder/package.py,
+	sip5/builder/pyproject.py:
+	Bindings in pyproject.toml are now specified as an array of tables.
+	[9a9eada6ed4e]
+
+	* sip5/builder/bindings.py, sip5/builder/builder.py,
+	sip5/builder/package.py:
+	Handle #defines properly in the distutils builder. Documented the
+	non-user options.
+	[219c2f89ba74]
+
+2019-06-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py:
+	The Bindings.generate_api option now takes the name of the .api file
+	to generate. Renamed the Bindings.generate_pyi option to
+	pep484_stubs.
+	[48acef25688b]
+
+	* sip5/builder/package.py:
+	Added the Package.bindings dict.
+	[e8b53b3a5d18]
+
+	* sip5/builder/bindings.py, sip5/builder/package.py:
+	Added full support for .pyi files.
+	[a3c4907a7208]
+
+	* sip5/builder/bindings.py, sip5/builder/package.py:
+	Ensure a package can be installed from a read-only directory.
+	[97f6874c0702]
+
+	* examples/simple/README, sip5/builder/distinfo.py,
+	sip5/builder/package.py:
+	Add the meta-data defined in pyproject.toml to a wheel's METADATA.
+	[a9f387328ddb]
+
+	* sip5/builder/api.py:
+	We don't support PEP 517 config_settings for now.
+	[2777eeada75c]
+
+	* examples/simple/setup.py:
+	Removed the setup.py from the example.
+	[efd4665762fc]
+
+	* sip5/builder/package.py:
+	A builder factory can now be defined for the package.
+	[e39084423e59]
+
+	* examples/simple/package.py, sip5/builder/package.py:
+	package.py is imported if it exists.
+	[0c1df10e5cef]
+
+2019-06-09  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* examples/simple/build.py, examples/simple/package.py, setup.py,
+	sip5/argument_parser.py, sip5/builder/api.py,
+	sip5/builder/bindings.py, sip5/builder/configurable.py,
+	sip5/builder/install.py, sip5/builder/package.py,
+	sip5/builder/tools/__init__.py, sip5/builder/tools/build.py,
+	sip5/builder/tools/install.py, sip5/builder/tools/sdist.py,
+	sip5/builder/tools/wheel.py, sip5/legacy/sip5.py,
+	sip5/module/main.py:
+	Refactored to create the builder command line tools.
+	[dc2b18461c07]
+
+	* sip5/builder/api.py, sip5/builder/package.py:
+	Added the initial support for PEP 517 wheel building.
+	[ab6de164a233]
+
+2019-06-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py, sip5/builder/configurable.py,
+	sip5/builder/package.py:
+	Completed the pyproject.toml related refactoring.
+	[b20862aa3564]
+
+	* examples/simple/build.py, examples/simple/pyproject.toml,
+	sip5/builder/__init__.py, sip5/builder/bindings.py,
+	sip5/builder/configurable.py, sip5/builder/configuration.py,
+	sip5/builder/context.py, sip5/builder/package.py,
+	sip5/builder/pyproject.py:
+	Start of refactoring to make pyproject.toml the core of the build
+	system optionally complemented by a user supplied script.
+	[85d99b2e3303]
+
+2019-06-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* Developers/VersionNumbers.txt, sip5/builder/package.py:
+	An sdist now contains an initial pyproject.toml.
+	[d72f89162012]
+
+	* sip5/builder/bindings.py, sip5/builder/package.py:
+	.sip files now get added to the sdist.
+	[b6f46c90e50d]
+
+2019-06-02  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py, sip5/builder/package.py:
+	Added the subs of the sdist support.
+	[a0d29e14c00f]
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/parser.h, code_generator/pybinding.c,
+	code_generator/sip.h, sip5/builder/bindings.py:
+	The parser will now return the .sip files that define the module.
+	[1e9ae710ce4a]
+
+2019-05-31  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/package.py:
+	Added some progress messages.
+	[ef591cf03ddd]
+
+	* examples/simple/setup.py, sip5/builder/bindings.py,
+	sip5/builder/builder.py, sip5/builder/package.py:
+	Expand the APIs to allow macros and library paths to be specified.
+	[c32c74f80a75]
+
+2019-05-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* examples/simple/setup.py, sip5/builder/bindings.py,
+	sip5/builder/package.py:
+	Changes to make it easier to integrate with setuptools.
+	[67370ac37a3b]
+
+2019-05-29  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py, sip5/builder/builder.py,
+	sip5/builder/context.py, sip5/builder/package.py:
+	Added the build action and remove the build directory after all
+	other actions are complete.
+	[f8109ee10620]
+
+	* sip5/builder/__init__.py, sip5/builder/bindings.py,
+	sip5/builder/package.py:
+	Refactoring to allow easier integration with setuptools.
+	[031d4ffa5b7a]
+
+2019-05-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/distinfo.py, sip5/builder/package.py:
+	Implemented the wheel creation.
+	[a64cf0f1b460]
+
+	* sip5/builder/distinfo.py, sip5/builder/package.py:
+	Completed the basic support for creating the .dist-info directory.
+	[dcadf706fb88]
+
+	* sip5/builder/distinfo.py, sip5/builder/install.py,
+	sip5/builder/package.py, sip5/distinfo.py, sip5/docs/extract_xml.py,
+	sip5/docs/sip.rst.in, sip5/extract_xml.py, sip5/install.py,
+	sip5/module/main.py, sip5/module/module.py,
+	sip5/module/source/sip.rst.in:
+	Further minor reorganisation.
+	[69306ec5cd55]
+
+2019-05-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/context.py, sip5/builder/package.py, sip5/distinfo.py,
+	sip5/install.py:
+	Implemented the basic installation and the dist-info stub.
+	[5870b1003f0c]
+
+	* sip5/builder/package.py, sip5/module/module.py:
+	Refactored the non-shared module support.
+	[f8273bed275e]
+
+	* sip5/module/main.py, sip5/standard_arguments.py:
+	Removed the unncessary standard argument parser code.
+	[f8312ff04219]
+
+	* setup.py, sip5/legacy/__init__.py, sip5/legacy/sip5.py,
+	sip5/sip5.py:
+	Refactored the legacy support.
+	[ff496cba2aeb]
+
+	* examples/simple/README, examples/simple/age.sip,
+	examples/simple/build.py, examples/simple/fib.sip:
+	Replaced the simple example with one based on Fibonacci.
+	[161ed6b90cb0]
+
+	* sip5/__init__.py, sip5/builder/__init__.py,
+	sip5/builder/bindings.py, sip5/builder/configuration.py,
+	sip5/builder/exceptions.py, sip5/builder/package.py:
+	Refactored the exception handling.
+	[578fa7736774]
+
+	* code_generator/gencode.c, code_generator/pybinding.c,
+	examples/simple/age.sip, examples/simple/build.py,
+	sip5/builder/bindings.py, sip5/builder/package.py,
+	sip5/module/module.py, sip5/module/source/sip.h.in,
+	sip5/module/source/siplib.c:
+	Refactored to support non-shared sip modules.
+	[563027d6a43a]
+
+2019-05-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, code_generator/pybinding.c,
+	code_generator/sip.h, sip5/builder/bindings.py:
+	The code generator now returns a list of generated source files.
+	[690b702d2aaa]
+
+	* sip5/builder/bindings.py, sip5/builder/package.py:
+	Generated file locations are now returned relative to the build
+	directory.
+	[1f81e0af4e5e]
+
+	* code_generator/pybinding.c:
+	Keep a reference to the code generator exception type.
+	[5062b3b9123e]
+
+2019-05-23  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/pybinding.c, code_generator/sip.h,
+	sip5/builder/bindings.py, sip5/builder/package.py,
+	sip5/extract_xml.py, sip5/sip5.py:
+	Implement controls over Python warnings.
+	[4a85f940f1af]
+
+	* code_generator/pybinding.c:
+	Use PyErr_WarnEx().
+	[92655d3946af]
+
+	* code_generator/messages.c, code_generator/pybinding.c:
+	The code generator now uses the warnings module.
+	[13f197eac462]
+
+	* code_generator/messages.c, code_generator/pybinding.c,
+	code_generator/sip.h, code_generator/transform.c,
+	sip5/builder/bindings.py, sip5/extract_xml.py, sip5/sip5.py:
+	Completed the refactoring of fatal error handling so that they
+	result in a Python exception being raised.
+	[21acb8b4cb8e]
+
+	* code_generator/gencode.c, code_generator/messages.c,
+	code_generator/sip.h, code_generator/transform.c:
+	Refactored the code generator fatal error handling so that messages
+	are created in a buffer rather than written to stderr.
+	[3cd4f82c344d]
+
+	* code_generator/transform.c:
+	Removed a redundant call.
+	[8abda3af1e58]
+
 2019-05-22  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* Merged the latest 4.19-maint changes.
+	[61bc0705a11c]
 
 	* configure.py.in:
 	Check that the name of the private sip module is valid.
 	[57ec4f189c8f] <4.19-maint>
+
+	* sip5/module/source/sip.h.in:
+	Merged the latest 4.19-maint fixes.
+	[4a9131766d1d]
 
 	* siplib/sip.h.in:
 	Define SIP_NULLPTR as NULL (rather than 0) for older C++ compilers
@@ -290,7 +5130,99 @@
 	number of arguments (where the argument type isn't known).
 	[8e12736053f7] <4.19-maint>
 
+2019-05-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* setup.py, sip5/builder/bindings.py, sip5/sip5.py, sip5/sip5_main.py:
+	Refactored so the bindings call the parts of the code generator
+	individually.
+	[b512e16d38fd]
+
+	* code_generator/pybinding.c, examples/simple/build.py,
+	sip5/builder/bindings.py, sip5/sip5.py:
+	The full package name of a module is now returned by the parser.
+	[dfd25ca8442e]
+
+	* sip5/builder/builder.py, sip5/builder/package.py:
+	Added support for the verbose flag to the distutils builder.
+	[23a938ccd6b7]
+
+2019-05-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py, sip5/builder/builder.py,
+	sip5/builder/package.py, sip5/module/module.py:
+	Implemented the distutils builder.
+	[e81cca561387]
+
+2019-05-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/builder/bindings.py, sip5/builder/configuration.py,
+	sip5/builder/package.py, sip5/module/module.py:
+	Bug fixes - the code generation for the example now works.
+	[4b30c360d31d]
+
+	* sip5/builder/__init__.py, sip5/builder/bindings.py,
+	sip5/builder/builder.py, sip5/builder/configuration.py,
+	sip5/builder/exceptions.py, sip5/builder/package.py:
+	Bug fixing.
+	[051050d03091]
+
+	* examples/simple/README, examples/simple/build.py,
+	sip5/builder/bindings.py, sip5/builder/context.py,
+	sip5/builder/package.py, sip5/sip5.py:
+	More refactoring and updating.
+	[c4c8556dbb25]
+
+	* sip5/builder/__init__.py, sip5/builder/bindings.py,
+	sip5/builder/builder.py, sip5/builder/configuration.py,
+	sip5/builder/context.py, sip5/builder/package.py:
+	Refactored the bindings generator.
+	[588962eaec87]
+
+2019-05-16  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* examples/simple/build.py, sip5/builder/context.py,
+	sip5/builder/package.py:
+	Added user messaging support to the builder package.
+	[4ecdafffbe74]
+
+	* examples/simple/build.py, examples/simple/setup.py,
+	sip5/builder/__init__.py, sip5/builder/bindings.py,
+	sip5/builder/bindings_configuration.py,
+	sip5/builder/bindings_context.py, sip5/builder/builder.py,
+	sip5/builder/configuration.py, sip5/builder/context.py,
+	sip5/builder/exceptions.py, sip5/builder/package.py:
+	Major refactoring (as yet incomplete and untested) of the
+	sip5.builder module.
+	[abf23d7f1d08]
+
+2019-05-11  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* Developers/VersionNumbers.txt, code_generator/gencode.c, setup.py,
+	sip5/module/abi_version.h, sip5/module/module.py,
+	sip5/module/module_abi.py:
+	Added the check that the code generator output is compatible with
+	sip.h.
+	[6ee9c97036c5]
+
+	* sip5/bindings/__init__.py, sip5/bindings/bindings.py,
+	sip5/bindings/bindings_configuration.py,
+	sip5/bindings/bindings_context.py, sip5/bindings/exceptions.py,
+	sip5/builder/__init__.py, sip5/builder/bindings.py,
+	sip5/builder/bindings_configuration.py,
+	sip5/builder/bindings_context.py, sip5/builder/exceptions.py:
+	Renamed the bindings module to builder.
+	[937c348756c4]
+
+2019-05-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* Developers/VersionNumbers.txt:
+	Added the developer notes concerning version numbers.
+	[1d921176fd83]
+
 2019-05-06  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* Merged the v4.19.17 release.
+	[02d52590795e]
 
 	* .hgtags:
 	Added tag 4.19.17 for changeset 6bd401a26793
@@ -306,12 +5238,347 @@
 
 2019-05-02  Phil Thompson  <phil@riverbankcomputing.com>
 
+	* sip5/module/source/siplib.c:
+	Merged the latest fixes from the 4.19-maint branch.
+	[f2aaf1c7f184]
+
 	* siplib/siplib.c:
 	Do not add the members of module-level scoped enums to the module
 	dict.
 	[7af121a0120a] <4.19-maint>
 
+2019-05-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/sip5_module.rst, examples/README, sip5/module/module.py:
+	sip5-module creates an sdist in the current directory by default.
+	[2a808261902d]
+
+	* doc/using.rst:
+	Removed the examples from the docs.
+	[c5df7fb31e41]
+
+2019-04-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* examples/README, examples/simple/README, examples/simple/age.sip,
+	examples/simple/setup.py, sip5/bindings/__init__.py,
+	sip5/bindings/bindings.py, sip5/bindings/bindings_configuration.py,
+	sip5/bindings/bindings_context.py, sip5/bindings/exceptions.py:
+	Added the initial build system support.
+	[26a1e3f120fb]
+
+2019-04-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/sip5.py, sip5/sip5_main.py:
+	Renamed the bindings_dir argument to sources_dir.
+	[8d0f741eeaab]
+
+	* sip5/bindings.py, sip5/sip5.py, sip5/sip5_main.py:
+	Renamed the function that implements the drop-in replacement for SIP
+	v4.
+	[c788199b4e4b]
+
+2019-04-20  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* setup.py:
+	setup.py fixes for the changed directory structure.
+	[9738285c2edf]
+
+	* setup.py, sip5/__init__.py, sip5/module.py, sip5/module/__init__.py,
+	sip5/module/main.py, sip5/module/module.py,
+	sip5/module/module_abi.py, sip5/module/source/README.in,
+	sip5/module/source/apiversions.c, sip5/module/source/array.c,
+	sip5/module/source/array.h, sip5/module/source/bool.cpp,
+	sip5/module/source/descriptors.c,
+	sip5/module/source/int_convertors.c, sip5/module/source/objmap.c,
+	sip5/module/source/pyproject.toml, sip5/module/source/qtlib.c,
+	sip5/module/source/setup.cfg.in, sip5/module/source/setup.py.in,
+	sip5/module/source/sip.h.in, sip5/module/source/sip.pyi,
+	sip5/module/source/sip.rst.in, sip5/module/source/sipint.h,
+	sip5/module/source/siplib.c, sip5/module/source/threads.c,
+	sip5/module/source/voidptr.c, sip5/module_abi.py,
+	sip5/module_main.py, sip5/module_source/README.in,
+	sip5/module_source/apiversions.c, sip5/module_source/array.c,
+	sip5/module_source/array.h, sip5/module_source/bool.cpp,
+	sip5/module_source/descriptors.c,
+	sip5/module_source/int_convertors.c, sip5/module_source/objmap.c,
+	sip5/module_source/pyproject.toml, sip5/module_source/qtlib.c,
+	sip5/module_source/setup.cfg.in, sip5/module_source/setup.py.in,
+	sip5/module_source/sip.h.in, sip5/module_source/sip.pyi,
+	sip5/module_source/sip.rst.in, sip5/module_source/sipint.h,
+	sip5/module_source/siplib.c, sip5/module_source/threads.c,
+	sip5/module_source/voidptr.c:
+	Moved the module implementation into its own sub-package.
+	[2d17ab8c4a5e]
+
+	* code_generator/gencode.c:
+	Removed remaining Python v2 buffer protocol support.
+	[132ff629cc95]
+
+2019-04-19  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/module.py:
+	Usew the PAX_FORMAT for sdists as specified in PEP 517.
+	[7b87d769569e]
+
+2019-04-18  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/c_api.rst, doc/directives.rst, doc/embedding.rst,
+	doc/specification_files.rst, doc/using.rst:
+	Completed the docs update.
+	[c54a6e766e55]
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/sip.h:
+	Removed the implementation of the Python v2 buffer protocol support.
+	[da8125e90738]
+
+	* doc/annotations.rst, doc/build_system.rst, doc/c_api.rst,
+	doc/command_line.rst, doc/conf.py, doc/directives.rst,
+	doc/distutils.rst, doc/embedding.rst, doc/index.rst,
+	doc/installation.rst, doc/introduction.rst, doc/sip5.rst,
+	doc/sip5_module.rst, doc/using.rst, sip5/module.py,
+	sip5/module_main.py, sip5/sip5_main.py:
+	Documentation updates.
+	[46a3eddd3ec4]
+
+2019-04-17  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/lexer.c, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	doc/annotations.rst, doc/c_api.rst, doc/directives.rst,
+	doc/using.rst, sip5/module_source/apiversions.c,
+	sip5/module_source/sip.rst.in, sip5/module_source/sipint.h,
+	sip5/module_source/siplib.c:
+	The API support is deprecated in v5.0 and will be removed in v5.1.
+	[bdd6c9dbbc61]
+
+2019-04-16  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Don't generated code with SIP_USE_PYCAPSULE.
+	[3cac58586fb4]
+
+	* sip5/module_source/sip.h.in:
+	Restored SIP_MODULE_RETURN until it is removed from PyQtWebEngine.
+	[cacc65df40a7]
+
+	* sip5/module.py, sip5/module_source/sip.h.in,
+	sip5/module_source/siplib.c:
+	Fixed the sip module name.
+	[d8b7bd760042]
+
+2019-04-15  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/module_source/sip.pyi:
+	Updated the module .pyi file.
+	[bea509372e72]
+
+	* code_generator/gencode.c, doc/c_api.rst:
+	Fixed more code generator regressions.
+	[e3ba11c09382]
+
+	* code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/sip.h,
+	doc/specification_files.rst:
+	Removed support for __long__.
+	[df07ccbc925a]
+
+	* code_generator/gencode.c:
+	Fixed some code genertor regressions.
+	[a0940ecc0510]
+
+2019-04-14  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/pybinding.c:
+	Fixed the code generator arguments.
+	[d6614fbb55a9]
+
+	* code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/sip.h:
+	Removed the PyQt4 support.
+	[328f2e872d64]
+
+2019-04-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* doc/index.rst, doc/python_api.rst, sip5/module.py,
+	sip5/module_main.py, sip5/module_source/sip.rst.in:
+	Added the option to install the module API documentation.
+	[284b4dadbbc7]
+
+	* code_generator/gencode.c, code_generator/sip.h,
+	code_generator/type_hints.c:
+	Removed all the remnants of 2-phase callables.
+	[8887052b60b6]
+
+	* doc/incompatibilities.rst, doc/index.rst:
+	Removed the incompatibilies section.
+	[cb226b8128a5]
+
+	* doc/annotations.rst, doc/c_api.rst, doc/python_api.rst,
+	doc/using.rst:
+	Removed all versionadded directives.
+	[a7442e8b08a1]
+
+	* code_generator/gencode.c, doc/c_api.rst,
+	sip5/module_source/siplib.c:
+	Dealt with the remaining deprecated parts of the C API.
+	[a2dda8f73f77]
+
+	* code_generator/gencode.c, doc/c_api.rst,
+	sip5/module_source/sip.h.in, sip5/module_source/siplib.c:
+	Removed the calling of deprecated parts of the C API. Removed the
+	docs of deprecated parts of the C API. Marked the implementation of
+	deprecated parts of the C API as to be removed in v5.1.
+	[1787913b51ea]
+
+	* doc/annotations.rst:
+	Removed the SingleShot annotation.
+	[b35810e6f9df]
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c,
+	doc/annotations.rst:
+	Removed NoKeywordArgs.
+	[6f84100224c0]
+
+	* code_generator/metasrc/parser.y:
+	Invalid annotations are now handled as errors.
+	[cd77f7c91bcb]
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c,
+	doc/annotations.rst:
+	Removed DocValue.
+	[80d1e3d9ce0c]
+
+	* code_generator/export.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, code_generator/transform.c,
+	doc/annotations.rst:
+	Removed DocType.
+	[33a9acc21cb0]
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c:
+	Removed the deprecated format of variable declarations.
+	[05cc380dade7]
+
+	* code_generator/sip.h:
+	Restored the deprecated argument types as they can impact generated
+	code.
+	[2255d56b0635]
+
+	* code_generator/gencode.c, code_generator/lexer.c,
+	code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, code_generator/transform.c,
+	code_generator/type_hints.c, doc/specification_files.rst:
+	Removed SIP_SIGNAL.
+	[b8704b975ce0]
+
+	* code_generator/gencode.c, code_generator/lexer.c,
+	code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, code_generator/transform.c,
+	code_generator/type_hints.c, doc/specification_files.rst:
+	Removed SIP_SLOT.
+	[03fdc9dfd5de]
+
+	* code_generator/gencode.c, code_generator/lexer.c,
+	code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, code_generator/transform.c,
+	code_generator/type_hints.c, doc/specification_files.rst:
+	Removed SIP_RXOBJ_CON.
+	[920335d9368c]
+
+	* code_generator/gencode.c, code_generator/lexer.c,
+	code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, code_generator/transform.c,
+	code_generator/type_hints.c, doc/specification_files.rst:
+	Removed SIP_RXOBJ_DIS.
+	[2c04a19f244a]
+
+	* code_generator/gencode.c, code_generator/lexer.c,
+	code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, code_generator/transform.c,
+	code_generator/type_hints.c, doc/specification_files.rst:
+	Removed SIP_ANYSLOT.
+	[c8d47ece2318]
+
+	* code_generator/gencode.c, code_generator/lexer.c,
+	code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, code_generator/transform.c,
+	code_generator/type_hints.c:
+	Removed SIP_SLOT_CON.
+	[4371d9d2e241]
+
+	* code_generator/gencode.c, code_generator/lexer.c,
+	code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/parser.h,
+	code_generator/sip.h, code_generator/transform.c,
+	code_generator/type_hints.c, doc/specification_files.rst:
+	Removed SIP_SLOT_DIS.
+	[229b5349a9b2]
+
+	* code_generator/export.c, code_generator/gencode.c,
+	code_generator/lexer.c, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/parser.h, code_generator/sip.h,
+	code_generator/transform.c, code_generator/type_hints.c,
+	doc/specification_files.rst:
+	Removed support for SIP_QOBJECT.
+	[0e6096ca947b]
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c,
+	doc/directives.rst:
+	Removed the deprecated %Module version number.
+	[101cf9cb0df6]
+
+	* code_generator/metasrc/parser.y, code_generator/parser.c:
+	Removed the deprecated format of the %License directive.
+	[168a71f3f925]
+
+	* code_generator/lexer.c, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/parser.h:
+	Removed the deprecated format of the %API directive.
+	[cb7cc1122e24]
+
+	* code_generator/metasrc/lexer.l, code_generator/metasrc/parser.y,
+	doc/c_api.rst, doc/specification_files.rst,
+	sip5/module_source/sip.h.in:
+	Fully deprecated SIP_SSIZE_T. The parser now handles Py_ssize_t.
+	[873a5d94ef02]
+
+	* doc/c_api.rst, sip5/module_source/sip.h.in:
+	Restored (the deprecated) SIP_USE_PYCAPSULE.
+	[6b7eea7f62f0]
+
+	* code_generator/gencode.c, code_generator/metasrc/parser.y,
+	doc/c_api.rst, doc/directives.rst, sip5/module_source/sip.h.in,
+	sip5/module_source/siplib.c:
+	Removed the deprecated generated sipClass_* and sipEnum_* macros.
+	[3b029218abd6]
+
 2019-04-11  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c, code_generator/metasrc/parser.y,
+	code_generator/parser.c, code_generator/transform.c, doc/c_api.rst,
+	sip5/module_source/apiversions.c, sip5/module_source/array.c,
+	sip5/module_source/array.h, sip5/module_source/descriptors.c,
+	sip5/module_source/int_convertors.c, sip5/module_source/qtlib.c,
+	sip5/module_source/sip.h.in, sip5/module_source/sipint.h,
+	sip5/module_source/siplib.c, sip5/module_source/voidptr.c:
+	Removed all support for versions of Python earlier than v3.5.
+	[07ddf877b6ab]
+
+	* code_generator/gencode.c:
+	Removed all generation of code for Python earlier than v3.5.
+	[3b187c288fc3]
+
+	* Merged v4.19.16.
+	[126e8a8fa564]
 
 	* .hgtags:
 	Added tag 4.19.16 for changeset 0aac5d17136d
@@ -321,17 +5588,191 @@
 	Released as v4.19.16.
 	[0aac5d17136d] [4.19.16] <4.19-maint>
 
+	* code_generator/pybinding.c, sip5/bindings.py, sip5/extract_xml.py:
+	Merged transform() with parse().
+	[94fadb038381]
+
+	* doc/c_api.rst, doc/command_line.rst, doc/incompatibilities.rst,
+	doc/installation.rst, doc/introduction.rst:
+	Documentation updates.
+	[7ef3b1b8851f]
+
+	* sip5/standard_arguments.py:
+	Trivial bug fix.
+	[53cdb52403ac]
+
+	* setup.py, sip5/__init__.py, sip5/bindings.py, sip5/bindings_main.py,
+	sip5/sip5_main.py:
+	Renamed sip5-bindings to sip5 as it is a drop-in replacement for SIP
+	v4 sip.
+	[d43d73b2ebf3]
+
 2019-04-10  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/__init__.py, sip5/bindings.py, sip5/bindings_main.py,
+	sip5/extract_xml.py, sip5/standard_arguments.py:
+	Refactored the XML extract as a separate callable. Refactored the
+	handling of common command line options.
+	[9df8924ad60a]
 
 	* NEWS:
 	Updated the NEWS file.
 	[e10bb493d10b] <4.19-maint>
 
+	* sip5/bindings_main.py, sip5/module_main.py,
+	sip5/standard_arguments.py:
+	Added the standard asrgument parser.
+	[a7fd3a17c991]
+
+	* .hgignore:
+	Updated the ignored files.
+	[eeca6d1c1e34]
+
+	* doc/introduction.rst, doc/introduction.rst.in:
+	Remove the version number from the documentation source.
+	[394ed12d4145]
+
+	* MANIFEST.in:
+	Include the docs in the sdist.
+	[eb7580e71274]
+
+	* setup.py:
+	Include the module source as package data.
+	[83d0113e7ee9]
+
+	* setup.py:
+	Fixed the project name.
+	[47159f3a0708]
+
+	* doc/annotations.rst, doc/build_system.rst, doc/c_api.rst,
+	doc/command_line.rst, doc/conf.py, doc/directives.rst,
+	doc/distutils.rst, doc/embedding.rst, doc/incompatibilities.rst,
+	doc/index.rst, doc/installation.rst, doc/introduction.rst.in,
+	doc/python_api.rst, doc/riverbank/layout.html,
+	doc/riverbank/static/logo.png, doc/riverbank/static/logo_tn.ico,
+	doc/riverbank/static/riverbank.css, doc/riverbank/theme.conf,
+	doc/specification_files.rst, doc/using.rst, sphinx/annotations.rst,
+	sphinx/build_system.rst, sphinx/c_api.rst, sphinx/command_line.rst,
+	sphinx/conf.py.in, sphinx/directives.rst, sphinx/distutils.rst,
+	sphinx/embedding.rst, sphinx/incompatibilities.rst,
+	sphinx/index.rst, sphinx/installation.rst,
+	sphinx/introduction.rst.in, sphinx/python_api.rst,
+	sphinx/riverbank/layout.html, sphinx/riverbank/static/logo.png,
+	sphinx/riverbank/static/logo_tn.ico,
+	sphinx/riverbank/static/riverbank.css, sphinx/riverbank/theme.conf,
+	sphinx/specification_files.rst, sphinx/using.rst:
+	Reorganised the docs.
+	[dda5b1ccfe35]
+
+2019-04-09  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* METADATA.in, README, pyproject.toml, setup.cfg, setup.py:
+	Updated the packaging.
+	[c8ff76b4f791]
+
+2019-04-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/module.py:
+	Some refinements to the contents of an sdist.
+	[e8de97ae1d70]
+
+	* sip5/module.py:
+	Fixed the sdist creation so that 'pip wheel' works.
+	[771085d01966]
+
+2019-04-07  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip.pyi, sip5/module.py, sip5/module_source/README.in,
+	sip5/module_source/pyproject.toml, sip5/module_source/setup.cfg.in,
+	sip5/module_source/setup.py.in, sip5/module_source/sip.h.in,
+	sip5/module_source/sip.pyi:
+	Completed the initial implementation of the generated module
+	packaging.
+	[160008d13a0b]
+
 2019-04-06  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sip5/module.py:
+	Implemented the creation of the (incomplete) sdist.
+	[f4b1db2c19b1]
+
+	* setup.py, sip5/module.py, sip5/module_abi.py,
+	sip5/module_source/sip.h.in:
+	Implemented the sip.h installation.
+	[3b592f07f92f]
+
+	* code_generator/transform.c:
+	Merged the latest 4.19-maint changes.
+	[28b13a73623b]
 
 	* sipgen/transform.c:
 	Further fixes for diamond class hierarchies.
 	[96fce123ab54] <4.19-maint>
+
+	* setup.py, sip5/__init__.py, sip5/bindings.py, sip5/bindings_main.py,
+	sip5/module.py, sip5/module_main.py:
+	Reverted to the sip4 SIP_VERSION and SIP_VERSION_STR.
+	[ae2089561493]
+
+	* code_generator/export.c, code_generator/extracts.c,
+	code_generator/gencode.c, code_generator/heap.c,
+	code_generator/lexer.c, code_generator/messages.c,
+	code_generator/metasrc/README, code_generator/metasrc/lexer.l,
+	code_generator/metasrc/parser.y, code_generator/parser.c,
+	code_generator/parser.h, code_generator/pybinding.c,
+	code_generator/sip.h, code_generator/transform.c,
+	code_generator/type_hints.c, setup.py,
+	sip5/module_source/apiversions.c, sip5/module_source/array.c,
+	sip5/module_source/array.h, sip5/module_source/bool.cpp,
+	sip5/module_source/descriptors.c,
+	sip5/module_source/int_convertors.c, sip5/module_source/objmap.c,
+	sip5/module_source/qtlib.c, sip5/module_source/sip.h.in,
+	sip5/module_source/sipint.h, sip5/module_source/siplib.c,
+	sip5/module_source/threads.c, sip5/module_source/voidptr.c,
+	sipgen/export.c, sipgen/extracts.c, sipgen/gencode.c, sipgen/heap.c,
+	sipgen/lexer.c, sipgen/messages.c, sipgen/metasrc/README,
+	sipgen/metasrc/lexer.l, sipgen/metasrc/parser.y, sipgen/parser.c,
+	sipgen/parser.h, sipgen/pybinding.c, sipgen/sip.h,
+	sipgen/transform.c, sipgen/type_hints.c, siplib/apiversions.c,
+	siplib/array.c, siplib/array.h, siplib/bool.cpp,
+	siplib/descriptors.c, siplib/int_convertors.c, siplib/objmap.c,
+	siplib/qtlib.c, siplib/sip.h.in, siplib/sipint.h, siplib/siplib.c,
+	siplib/threads.c, siplib/voidptr.c:
+	Refactored the directory structure.
+	[7130cdc09cb3]
+
+	* sipgen/sipgen.sbf, siplib/siplib.sbf:
+	Removed old build files.
+	[4b8ff2447335]
+
+	* build.py, configure.py.in, sipdistutils.py, siputils.py,
+	specs/aix-g++, specs/aix-g++-64, specs/aix-xlc, specs/aix-xlc-64,
+	specs/bsdi-g++, specs/cygwin-g++, specs/darwin-g++, specs/dgux-g++,
+	specs/freebsd-g++, specs/freebsd-g++34, specs/freebsd-g++40, specs
+	/freebsd-icc, specs/haiku-g++, specs/hpux-acc, specs/hpux-acc-64,
+	specs/hpux-acc-o64, specs/hpux-cc, specs/hpux-g++,
+	specs/hpux-g++-64, specs/hpuxi-acc, specs/hpuxi-acc-64,
+	specs/hurd-g++, specs/irix-cc, specs/irix-cc-64, specs/irix-cc-o32,
+	specs/irix-g++, specs/irix-g++-64, specs/linux-arm-g++, specs/linux-
+	arm-thumb-g++, specs/linux-armv6-g++, specs/linux-cxx, specs/linux-
+	ecc-64, specs/linux-g++, specs/linux-g++-32, specs/linux-g++-64,
+	specs/linux-icc, specs/linux-kcc, specs/linux-kylix, specs/linux-
+	lsb, specs/linux-pgcc, specs/lynxos-g++, specs/macx-g++, specs/macx-
+	mwerks, specs/macx-pbuilder, specs/macx-xlc, specs/netbsd-g++,
+	specs/openbsd-g++, specs/qnx-g++, specs/reliant-cds, specs/reliant-
+	cds-64, specs/sco-cc, specs/sco-g++, specs/solaris-cc, specs
+	/solaris-cc-64, specs/solaris-g++, specs/solaris-g++-64,
+	specs/tru64-cxx, specs/tru64-g++, specs/unixware-cc,
+	specs/unixware-g++, specs/win32-borland, specs/win32-g++,
+	specs/win32-icc, specs/win32-msvc, specs/win32-msvc.net,
+	specs/win32-msvc2005, specs/win32-msvc2008, specs/win32-msvc2010,
+	specs/win32-msvc2015, specs/win32-watcom:
+	Removed the old build system.
+	[ccd6bb2f1d00]
+
+	* sipgen/gencode.c, sipgen/sip.h:
+	Merged the latest 4.19-maint branch.
+	[9a74043f08a6]
 
 	* sipgen/gencode.c, sipgen/sip.h.in, sipgen/transform.c:
 	Don't cast to a class that occurs more than once in a super-class
@@ -340,9 +5781,134 @@
 
 2019-04-02  Phil Thompson  <phil@riverbankcomputing.com>
 
+	* sip5/module.py, sip5/module_main.py:
+	More updates to the modules() notes.
+	[b55ad6687ce7]
+
+	* Merged the latest 4.19-maint changes.
+	[62bb17d66b19]
+
 	* configure.py.in, specs/haiku-g++:
 	Added support for the haiku platform.
 	[a093d109d0de] <4.19-maint>
+
+	* sip5/module.py:
+	Updated the notes on the implementation of modules().
+	[c22627ca32d3]
+
+2019-04-01  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* setup.py, sip5/__init__.py, sip5/module.py, sip5/module_main.py:
+	Added the stub of the sip5-module tool.
+	[b1954c724020]
+
+	* sip5/bindings_main.py, sipgen/pybinding.c:
+	Minor bug fixes.
+	[d31f13914149]
+
+	* sip5/__init__.py, sip5/bindings.py, sip5/bindings_main.py:
+	Separate the bindings API from the command line interface.
+	[b7ee5eac4b0b]
+
+	* setup.py, sip5/__init__.py, sip5/bindings_main.py,
+	sip5/exceptions.py, sip5/sip5_main.py:
+	Minor re-factoring and copyyright updates.
+	[a6ae908b0084]
+
+2019-03-31  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* sphinx/directives.rst:
+	Removed the version-added information for the directives.
+	[1abd39eddd3e]
+
+	* sipgen/lexer.c, sipgen/metasrc/lexer.l, sipgen/metasrc/parser.y,
+	sipgen/parser.c, sipgen/parser.h, sphinx/directives.rst:
+	Removed %CModule.
+	[e890ad45a514]
+
+	* sipgen/lexer.c, sipgen/metasrc/lexer.l, sipgen/metasrc/parser.y,
+	sipgen/parser.c, sipgen/parser.h, sphinx/directives.rst:
+	Removed %OptionalInclude.
+	[4aa0a8849edf]
+
+	* sipgen/lexer.c, sipgen/parser.c, sipgen/parser.h:
+	Update the generated parser code.
+	[45f0cad3b5c5]
+
+	* .hgignore:
+	Ignore the auto-generated version.py.
+	[fffc260ce74d]
+
+	* sipgen/messages.c, sipgen/sip.h:
+	A couple of repo fixes.
+	[33451a8dc8e6]
+
+	* sip5/version.py:
+	Removed version.py as it is always automatically generated.
+	[c64e1ccbf1cf]
+
+	* sipgen/metasrc/lexer.l, sipgen/metasrc/parser.y,
+	sphinx/directives.rst:
+	Removed %Consolidated module.
+	[60c39bc820e7]
+
+	* sipgen/metasrc/lexer.l, sipgen/metasrc/parser.y:
+	Removed %Makefile.
+	[abd4df813e7e]
+
+	* sipgen/metasrc/lexer.l, sipgen/metasrc/parser.y,
+	sphinx/directives.rst:
+	Removed %ExportedDoc.
+	[e60c0960b72a]
+
+	* sipgen/metasrc/lexer.l, sipgen/metasrc/parser.y,
+	sphinx/directives.rst:
+	Removed %Doc.
+	[2b10f87dbd97]
+
+	* sipgen/metasrc/lexer.l, sipgen/metasrc/parser.y:
+	Removed %PrePyCode.
+	[5cbbf3e5e85c]
+
+	* sip5/version.py, sipgen/gencode.c, sipgen/pybinding.c, sipgen/sip.h:
+	Removed the generation of consolidated modules.
+	[ae8ad0633f8f]
+
+	* sip5/version.py, sipgen/gencode.c, sipgen/pybinding.c, sipgen/sip.h:
+	Removed the generation of documentation.
+	[9631d3ee67d7]
+
+	* sip5/version.py, sipgen/gencode.c, sipgen/pybinding.c, sipgen/sip.h:
+	Removed the generation of build files.
+	[f152b2474968]
+
+	* sip5/version.py, sipgen/metasrc/parser.y, sipgen/parser.c,
+	sipgen/pybinding.c, sipgen/sip.h:
+	Refactoring so that the Python bindings contain nothing else.
+	[fa0df5296c2d]
+
+	* sip5/sip5_main.py, sipgen/pybinding.c, sphinx/command_line.rst:
+	Removed the deprecated -k option.
+	[aa0335dad524]
+
+	* sphinx/command_line.rst:
+	Removed deprectated options from the docs.
+	[e7384c430314]
+
+	* .hgignore, setup.py, sip5/__init__.py, sip5/sip5_main.py,
+	sip5/version.py, sipgen/gencode.c, sipgen/lexer.c, sipgen/main.c,
+	sipgen/metasrc/parser.y, sipgen/parser.c, sipgen/parser.h,
+	sipgen/pybinding.c, sipgen/sip.h, sipgen/sip.h.in,
+	sipgen/type_hints.c:
+	Refactored the code generator (now called sip5) to be implemented as
+	a Python package with a C extension module and built with setup
+	tools. Removed all deprecated command line options.
+	[b7cdf9606048]
+
+2019-03-30  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* Merged the current 4.19-maint branch.
+	[3c45bd5d0455]
 
 2019-03-29  Phil Thompson  <phil@riverbankcomputing.com>
 
@@ -803,6 +6369,14 @@
 	* configure.py.in:
 	INSTALL_ROOT is used instead of DESTDIR when using qmake.
 	[18fc82d664f8] <4.19-maint>
+
+2018-07-08  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* siplib/sip.h.in.in, siplib/siplib.c.in, siplib/siplib.sbf.in,
+	sphinx/static/classic.css, sphinx/static/logo.png,
+	sphinx/static/logo_tn.ico:
+	Merged the v4.19.12 release.
+	[19f113e7e8cd]
 
 2018-07-05  Phil Thompson  <phil@riverbankcomputing.com>
 
