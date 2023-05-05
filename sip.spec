@@ -5,19 +5,19 @@
 #
 Name     : sip
 Version  : 6.7.7
-Release  : 40
+Release  : 41
 URL      : https://files.pythonhosted.org/packages/f1/ba/19f9cb16416a3c98bd5969b1bd9bf3c92dd278788d8d949ed66b8e0edf0d/sip-6.7.7.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f1/ba/19f9cb16416a3c98bd5969b1bd9bf3c92dd278788d8d949ed66b8e0edf0d/sip-6.7.7.tar.gz
 Summary  : A Python bindings generator for C/C++ libraries
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
 Requires: sip-bin = %{version}-%{release}
-Requires: sip-filemap = %{version}-%{release}
-Requires: sip-lib = %{version}-%{release}
 Requires: sip-license = %{version}-%{release}
 Requires: sip-python = %{version}-%{release}
 Requires: sip-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
+BuildRequires : pypi(setuptools)
+BuildRequires : pypi(wheel)
 BuildRequires : python3
 BuildRequires : python3-dev
 BuildRequires : qscintilla
@@ -35,28 +35,9 @@ SIP - A Python Bindings Generator for C and C++ Libraries
 Summary: bin components for the sip package.
 Group: Binaries
 Requires: sip-license = %{version}-%{release}
-Requires: sip-filemap = %{version}-%{release}
 
 %description bin
 bin components for the sip package.
-
-
-%package filemap
-Summary: filemap components for the sip package.
-Group: Default
-
-%description filemap
-filemap components for the sip package.
-
-
-%package lib
-Summary: lib components for the sip package.
-Group: Libraries
-Requires: sip-license = %{version}-%{release}
-Requires: sip-filemap = %{version}-%{release}
-
-%description lib
-lib components for the sip package.
 
 
 %package license
@@ -79,13 +60,11 @@ python components for the sip package.
 %package python3
 Summary: python3 components for the sip package.
 Group: Default
-Requires: sip-filemap = %{version}-%{release}
 Requires: python3-core
 Provides: pypi(sip)
 Requires: pypi(packaging)
 Requires: pypi(ply)
 Requires: pypi(setuptools)
-Requires: pypi(toml)
 Provides: pypi(sip)
 
 %description python3
@@ -105,12 +84,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1680022639
+export SOURCE_DATE_EPOCH=1683319863
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
-export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 -m build --wheel --skip-dependency-check --no-isolation
 pushd ../buildavx2/
@@ -159,14 +138,6 @@ popd
 /usr/bin/sip-sdist
 /usr/bin/sip-wheel
 
-%files filemap
-%defattr(-,root,root,-)
-/usr/share/clear/filemap/filemap-sip
-
-%files lib
-%defattr(-,root,root,-)
-/usr/share/clear/optimized-elf/other*
-
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/sip/2136dbc93e95a70deae070e44ff6b2702ec1599c
@@ -177,4 +148,5 @@ popd
 
 %files python3
 %defattr(-,root,root,-)
+/V3/usr/lib/python3*/*
 /usr/lib/python3*/*
