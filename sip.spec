@@ -5,7 +5,7 @@
 #
 Name     : sip
 Version  : 6.7.7
-Release  : 41
+Release  : 42
 URL      : https://files.pythonhosted.org/packages/f1/ba/19f9cb16416a3c98bd5969b1bd9bf3c92dd278788d8d949ed66b8e0edf0d/sip-6.7.7.tar.gz
 Source0  : https://files.pythonhosted.org/packages/f1/ba/19f9cb16416a3c98bd5969b1bd9bf3c92dd278788d8d949ed66b8e0edf0d/sip-6.7.7.tar.gz
 Summary  : A Python bindings generator for C/C++ libraries
@@ -65,6 +65,7 @@ Provides: pypi(sip)
 Requires: pypi(packaging)
 Requires: pypi(ply)
 Requires: pypi(setuptools)
+Requires: pypi(toml)
 Provides: pypi(sip)
 
 %description python3
@@ -84,7 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1683319863
+export SOURCE_DATE_EPOCH=1683749031
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
