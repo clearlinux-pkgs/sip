@@ -1,6 +1,5 @@
 # This file contains recursive sources that require this package
 PyQt5
-QGIS
 hplip
 krita
 openshot-qt
