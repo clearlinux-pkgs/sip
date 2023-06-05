@@ -4,10 +4,10 @@
 # Using build pattern: pyproject
 #
 Name     : sip
-Version  : 6.7.7
-Release  : 43
-URL      : https://files.pythonhosted.org/packages/f1/ba/19f9cb16416a3c98bd5969b1bd9bf3c92dd278788d8d949ed66b8e0edf0d/sip-6.7.7.tar.gz
-Source0  : https://files.pythonhosted.org/packages/f1/ba/19f9cb16416a3c98bd5969b1bd9bf3c92dd278788d8d949ed66b8e0edf0d/sip-6.7.7.tar.gz
+Version  : 6.7.9
+Release  : 44
+URL      : https://files.pythonhosted.org/packages/48/75/98987181e897ef378d6c239ee733328a7264a41f2d8263e61d7b7c4c0909/sip-6.7.9.tar.gz
+Source0  : https://files.pythonhosted.org/packages/48/75/98987181e897ef378d6c239ee733328a7264a41f2d8263e61d7b7c4c0909/sip-6.7.9.tar.gz
 Summary  : A Python bindings generator for C/C++ libraries
 Group    : Development/Tools
 License  : GPL-2.0 GPL-3.0
@@ -73,11 +73,11 @@ python3 components for the sip package.
 
 
 %prep
-%setup -q -n sip-6.7.7
-cd %{_builddir}/sip-6.7.7
-%patch1 -p1
+%setup -q -n sip-6.7.9
+cd %{_builddir}/sip-6.7.9
+%patch -P 1 -p1
 pushd ..
-cp -a sip-6.7.7 buildavx2
+cp -a sip-6.7.9 buildavx2
 popd
 
 %build
@@ -85,7 +85,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1685504926
+export SOURCE_DATE_EPOCH=1686007491
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "

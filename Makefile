@@ -1,5 +1,5 @@
 PKG_NAME := sip
-URL = https://files.pythonhosted.org/packages/f1/ba/19f9cb16416a3c98bd5969b1bd9bf3c92dd278788d8d949ed66b8e0edf0d/sip-6.7.7.tar.gz
+URL = https://files.pythonhosted.org/packages/48/75/98987181e897ef378d6c239ee733328a7264a41f2d8263e61d7b7c4c0909/sip-6.7.9.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common

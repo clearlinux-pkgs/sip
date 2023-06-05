@@ -1,4 +1,101 @@
+2023-04-12  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Fixed the new handling of ctors with /Transfer/ annotated arguments.
+	[60b1e38738ed] [6.7.9] <6.7-maint>
+
+	* NEWS, sipbuild/module/source/12/descriptors.c,
+	sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/sip_descriptors.c:
+	Fix the sip module to call PyObject_GC_UnTrack() in descriptor
+	dealloc functions.
+	[95f807c277e0] <6.7-maint>
+
+2023-04-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.7.8 for changeset fd3d08ddadc5
+	[a4fc9057db31] <6.7-maint>
+
+	* NEWS:
+	Fixed the NEWS file.
+	[fd3d08ddadc5] [6.7.8] <6.7-maint>
+
+2023-04-03  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/bindings.py,
+	sipbuild/generator/outputs/formatters/argument.py,
+	sipbuild/generator/outputs/pyi.py,
+	sipbuild/generator/outputs/type_hints.py,
+	sipbuild/generator/specification.py:
+	Refactored the handling of the sip module name so that it is
+	optional in the Specification object.
+	[75acbf7d62ac] <6.7-maint>
+
+2023-03-07  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/toml.py:
+	Fixed the name fo the tomllib package.
+	[7864ebbddf20] <6.7-maint>
+
+	* NEWS, setup.py, sipbuild/bindings_configuration.py,
+	sipbuild/distinfo/distinfo.py, sipbuild/pyproject.py,
+	sipbuild/toml.py:
+	Replaced toml with the standard library tomlib or tomli as
+	appropriate.
+	[df52c30655be] <6.7-maint>
+
+	* NEWS, doc/pyproject_toml.rst, sipbuild/builder.py,
+	sipbuild/project.py:
+	Add support for absolute patterns in wheel-includes.
+	[d9d0cfa658ff] <6.7-maint>
+
+2023-02-28  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, code_generator/gencode.c,
+	sipbuild/generator/parser/parser_manager.py,
+	sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/12/siplib.c,
+	sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/sip_core.c:
+	Fixed the handling of a mapped type ctor argument that has
+	/Transfer/ specified so that it is consistent with the handling of a
+	similar method argument.
+	[5bf93a9d2853] <6.7-maint>
+
+2023-02-27  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* code_generator/gencode.c:
+	Fixed the generation of enum comparison slots so that unsupported
+	types are reported as not implemented.
+	[ccc47507cbda] <6.7-maint>
+
+	* NEWS, sipbuild/generator/resolver/resolver.py:
+	Skip some resolver checks for undefined classes.
+	[290d789a402d] <6.7-maint>
+
+2023-02-24  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/module/source/12/sip_array.c,
+	sipbuild/module/source/13/sip_array.c:
+	Fixed sip.array subscripts.
+	[f29fca0a7e1a] <6.7-maint>
+
+2023-02-23  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* NEWS, sipbuild/module/source/12/sip.h.in,
+	sipbuild/module/source/12/sip_array.c,
+	sipbuild/module/source/13/sip.h.in,
+	sipbuild/module/source/13/sip_array.c:
+	Fixed the buffer protocol support for sip.array.
+	[c10c9021aea6] <6.7-maint>
+
 2023-02-04  Phil Thompson  <phil@riverbankcomputing.com>
+
+	* .hgtags:
+	Added tag 6.7.7 for changeset 2d5cad50e879
+	[459db7463ed5] <6.7-maint>
 
 	* sipbuild/generator/outputs/pyi.py:
 	In .pyi files generate implict imports as well as explicit imports.
