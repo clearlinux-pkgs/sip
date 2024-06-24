@@ -1,5 +1,6 @@
 # This file contains recursive sources that require this package
 PyQt5
+PyQt6
 hplip
 pypi-wxPython
 qscintilla
