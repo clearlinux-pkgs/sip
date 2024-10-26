@@ -7,7 +7,7 @@
 #
 Name     : sip
 Version  : 6.8.6
-Release  : 50
+Release  : 51
 URL      : https://files.pythonhosted.org/packages/6e/52/36987b182711104d5e9f8831dd989085b1241fc627829c36ddf81640c372/sip-6.8.6.tar.gz
 Source0  : https://files.pythonhosted.org/packages/6e/52/36987b182711104d5e9f8831dd989085b1241fc627829c36ddf81640c372/sip-6.8.6.tar.gz
 Summary  : A Python bindings generator for C/C++ libraries
